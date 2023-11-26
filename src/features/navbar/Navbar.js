@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
+
+import { Link } from "react-router-dom";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -32,14 +34,7 @@ function classNames(...classes) {
 const Navbar = ({ children }) => {
   return (
     <>
-      {/*
-      This example requires updating your template:
-
-      ```
-      <html class="h-full bg-gray-100">
-      <body class="h-full">
-      ```
-    */}
+  
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
@@ -76,7 +71,8 @@ const Navbar = ({ children }) => {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
-                      <button
+                     <Link to="/cart">
+                     <button
                         type="button"
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                       >
@@ -87,6 +83,7 @@ const Navbar = ({ children }) => {
                           aria-hidden="true"
                         />
                       </button>
+                     </Link>
                       <span className="mb-5 inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                         1
                       </span>
@@ -191,7 +188,8 @@ const Navbar = ({ children }) => {
                         {user.email}
                       </div>
                     </div>
-                    <button
+                  <Link to="/cart">
+                  <button
                       type="button"
                       className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     >
@@ -202,6 +200,7 @@ const Navbar = ({ children }) => {
                         aria-hidden="true"
                       />
                     </button>
+                  </Link>
                     <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                       1
                     </span>
