@@ -13,11 +13,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
-import {
-  selectAllProducts,
-  fetchAllProductsAsync,
-  fetchAllProductsByFiltersAsync,
-} from "../productListSlice";
+import { selectAllProducts, fetchAllProductsAsync } from "../productListSlice";
 const items = [
   {
     id: 1,
@@ -42,11 +38,19 @@ const items = [
   },
 ];
 const sortOptions = [
-  { name: "Best Rating", sort: "rating", order: "desc", current: false },
-  { name: "Price: Low to High", sort: "price", order: "asc", current: false },
-  { name: "Price: High to Low", sort: "price", order: "desc", current: false },
+  { name: "Most Popular", href: "#", current: true },
+  { name: "Best Rating", href: "#", current: false },
+  { name: "Newest", href: "#", current: false },
+  { name: "Price: Low to High", href: "#", current: false },
+  { name: "Price: High to Low", href: "#", current: false },
 ];
-
+const subCategories = [
+  { name: "Totes", href: "#" },
+  { name: "Backpacks", href: "#" },
+  { name: "Travel Bags", href: "#" },
+  { name: "Hip Bags", href: "#" },
+  { name: "Laptop Sleeves", href: "#" },
+];
 const filters = [
   {
     id: "brand",
@@ -112,7 +116,8 @@ const filters = [
       { value: "Groceries", label: "Groceries", checked: false },
       { value: "Home Decoration", label: "Home Decoration", checked: false },
     ],
-  },
+  }
+  
 ];
 
 function classNames(...classes) {
@@ -122,7 +127,6 @@ function classNames(...classes) {
 const ProductList = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const dispatch = useDispatch();
-  const [filter, setFilter] = useState({});
 
   const products = useSelector(selectAllProducts);
 
@@ -130,16 +134,9 @@ const ProductList = () => {
     dispatch(fetchAllProductsAsync());
   }, [dispatch]);
 
-  const handleFilter = (e, section, option) => {
-    const newFilter = { ...filter, [section.id]: option.value };
-    setFilter(newFilter);
-    dispatch(fetchAllProductsByFiltersAsync(newFilter));
-  };
-  const handleSort = (e, option) => {
-    const newFilter = { ...filter, _sort: option.sort, _order: option.order };
-    setFilter(newFilter);
-    dispatch(fetchAllProductsByFiltersAsync(newFilter));
-  };
+  const handleFilter = (e,section,option)=>{
+    console.log(section.id,option.value)
+  }
 
   return (
     <div className="bg-white">
@@ -288,8 +285,8 @@ const ProductList = () => {
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
-                            <p
-                              onClick={(e) => handleSort(e, option)}
+                            <a
+                              href={option.href}
                               className={classNames(
                                 option.current
                                   ? "font-medium text-gray-900"
@@ -299,7 +296,7 @@ const ProductList = () => {
                               )}
                             >
                               {option.name}
-                            </p>
+                            </a>
                           )}
                         </Menu.Item>
                       ))}
@@ -377,9 +374,7 @@ const ProductList = () => {
                                   defaultValue={option.value}
                                   type="checkbox"
                                   defaultChecked={option.checked}
-                                  onChange={(e) =>
-                                    handleFilter(e, section, option)
-                                  }
+                                  onChange={e=>handleFilter(e,section,option)}
                                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                 />
                                 <label
@@ -419,13 +414,13 @@ const ProductList = () => {
                             <div className="mt-4 flex justify-between">
                               <div>
                                 <h3 className="text-sm text-gray-700">
-                                  <div href={product.href}>
+                                  <a href={product.href}>
                                     <span
                                       aria-hidden="true"
                                       className="absolute inset-0"
                                     />
                                     {product.title}
-                                  </div>
+                                  </a>
                                 </h3>
                                 <span>{product.rating}</span>
                                 <p className="mt-1 text-sm text-gray-500">
