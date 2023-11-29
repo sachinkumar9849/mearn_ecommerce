@@ -1,0 +1,6 @@
+
+.cursor-pointer.relative.z-10.inline-flex.items-center.bg-gray-500.text-black.px-4.py-2.text-sm.font-semibold.text-white.focus\:z-20.focus-visible\:outline.focus-visible\:outline-2.focus-visible\:outline-offset-2.focus-visible\:outline-indigo-600 {
+    background: white;
+    color: black;
+    border: 1px solid #f3e8e8;
+}
