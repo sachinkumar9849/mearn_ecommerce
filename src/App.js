@@ -20,6 +20,8 @@ import { useEffect } from "react";
 import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import PageNotFound from "./pages/404";
+import UserOrdersPage from "./pages/UserOrdersPage";
+// import UserOrders from "./features/user/component/UserOrders";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -69,13 +71,14 @@ const router = createBrowserRouter([
         <ProductDetailPage></ProductDetailPage>
       </Protected>
     ),
-    
+  },
+  {
+    path: "/orders",
+    element:<UserOrdersPage></UserOrdersPage>,
   },
   {
     path: "*",
-    element: (
-      <PageNotFound></PageNotFound>
-    ),
+    element: <PageNotFound></PageNotFound>,
   },
 ]);
 
@@ -87,7 +90,7 @@ function App() {
     if (user) {
       dispatch(fetchItemsByUserIdAsync(user.id));
     }
-  }, [dispatch,user]);
+  }, [dispatch, user]);
 
   return (
     <div className="App">

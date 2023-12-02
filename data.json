@@ -2456,6 +2456,150 @@
       },
       "status": "pending",
       "id": 1
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 5,
+          "id": 1
+        }
+      ],
+      "totalAmount": 899,
+      "totalItems": 1,
+      "user": {
+        "email": "palak@gmail.com",
+        "password": "Palak9849",
+        "addresses": [
+          {
+            "name": "Flynn",
+            "email": "fusiqyjag@mailinator.com",
+            "phone": "13",
+            "street": "Maiores nesciunt ut",
+            "city": "Aut dolore et sunt ",
+            "pinCode": "Veniam sed consecte",
+            "State": "Voluptatem iste fugi"
+          },
+          {
+            "name": "Leo",
+            "email": "jepux@mailinator.com",
+            "phone": "47",
+            "street": "Numquam at id volupt",
+            "city": "Ad consequat Archit",
+            "pinCode": "Ut sed eveniet esse",
+            "State": "Libero quia numquam "
+          },
+          {
+            "name": "Keiko",
+            "email": "cixeginena@mailinator.com",
+            "phone": "28",
+            "street": "Quaerat voluptatibus",
+            "city": "Ut quos ut repudiand",
+            "pinCode": "Pariatur Esse anim",
+            "State": "Tempora magni deleni"
+          }
+        ],
+        "id": 5
+      },
+      "paymentMethod": "card",
+      "selectAddress": {
+        "name": "Flynn",
+        "email": "fusiqyjag@mailinator.com",
+        "phone": "13",
+        "street": "Maiores nesciunt ut",
+        "city": "Aut dolore et sunt ",
+        "pinCode": "Veniam sed consecte",
+        "State": "Voluptatem iste fugi"
+      },
+      "status": "pending",
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 5,
+          "id": 1
+        }
+      ],
+      "totalAmount": 899,
+      "totalItems": 1,
+      "user": {
+        "email": "palak@gmail.com",
+        "password": "Palak9849",
+        "addresses": [
+          {
+            "name": "Flynn",
+            "email": "fusiqyjag@mailinator.com",
+            "phone": "13",
+            "street": "Maiores nesciunt ut",
+            "city": "Aut dolore et sunt ",
+            "pinCode": "Veniam sed consecte",
+            "State": "Voluptatem iste fugi"
+          },
+          {
+            "name": "Leo",
+            "email": "jepux@mailinator.com",
+            "phone": "47",
+            "street": "Numquam at id volupt",
+            "city": "Ad consequat Archit",
+            "pinCode": "Ut sed eveniet esse",
+            "State": "Libero quia numquam "
+          },
+          {
+            "name": "Keiko",
+            "email": "cixeginena@mailinator.com",
+            "phone": "28",
+            "street": "Quaerat voluptatibus",
+            "city": "Ut quos ut repudiand",
+            "pinCode": "Pariatur Esse anim",
+            "State": "Tempora magni deleni"
+          }
+        ],
+        "id": 5
+      },
+      "paymentMethod": "card",
+      "selectAddress": {
+        "name": "Flynn",
+        "email": "fusiqyjag@mailinator.com",
+        "phone": "13",
+        "street": "Maiores nesciunt ut",
+        "city": "Aut dolore et sunt ",
+        "pinCode": "Veniam sed consecte",
+        "State": "Voluptatem iste fugi"
+      },
+      "status": "pending",
+      "id": 3
     }
   ]
 }
