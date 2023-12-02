@@ -45,9 +45,7 @@ export default function Login() {
                 checkUserAsync({ email: data.email, password: data.password })
               );
             })}
-            className="space-y-6"
-            action="#"
-            method="POST"
+
           >
             <div className="mt-2">
               <input

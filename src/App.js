@@ -18,6 +18,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectLoggedInUser } from "./features/auth/authSlice";
 import { useEffect } from "react";
 import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
+import OrderSuccessPage from "./pages/OrderSuccessPage";
+import PageNotFound from "./pages/404";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,11 +54,27 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/order-success/:id",
+    element: (
+      <Protected>
+        <OrderSuccessPage></OrderSuccessPage>
+      </Protected>
+    ),
+  },
+
+  {
     path: "/product-detail/:id",
     element: (
       <Protected>
         <ProductDetailPage></ProductDetailPage>
       </Protected>
+    ),
+    
+  },
+  {
+    path: "*",
+    element: (
+      <PageNotFound></PageNotFound>
     ),
   },
 ]);
