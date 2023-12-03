@@ -1,7 +1,8 @@
 import React from "react";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { checkUser, createUser, updateUser } from "./authAPI";
+import { checkUser, createUser } from "./authAPI";
+import { updateUser } from "../user/userAPI";
 
 const initialState = {
   loggedInUser: null,
@@ -18,7 +19,7 @@ export const createUserAsync = createAsyncThunk(
   }
 );
 export const updateUserAsync = createAsyncThunk(
-  'user/updateUser',
+  "user/updateUser",
   async (update) => {
     const response = await updateUser(update);
     // The value we return becomes the `fulfilled` action payload
@@ -27,14 +28,13 @@ export const updateUserAsync = createAsyncThunk(
 );
 
 export const checkUserAsync = createAsyncThunk(
-  'user/checkUser',
+  "user/checkUser",
   async (loginInfo) => {
     const response = await checkUser(loginInfo);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
 );
-
 
 export const productSlice = createSlice({
   name: "user",
@@ -66,7 +66,7 @@ export const productSlice = createSlice({
       .addCase(updateUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.loggedInUser = action.payload;
-      })
+      });
   },
 });
 export const { clearSelectedProduct } = productSlice.actions;
