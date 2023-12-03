@@ -42,7 +42,11 @@ export default function Signup() {
             className="space-y-6"
             onSubmit={handleSubmit((data) => {
               dispatch(
-                createUserAsync({ email: data.email, password: data.password ,addresses:[]})
+                createUserAsync({
+                  email: data.email,
+                  password: data.password,
+                  addresses: [],
+                })
               );
               console.log(data);
             })}
@@ -82,12 +86,12 @@ export default function Signup() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a
-                    href="#"
+                  <Link
+                    to="/forgot-password"
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="mt-2">

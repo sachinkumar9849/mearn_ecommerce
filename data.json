@@ -2354,43 +2354,40 @@
         {
           "name": "Stuti",
           "email": "stuti@gmail.com",
-          "city": "ktm",
+          "city": "katmandu",
           "state": "Bagmati",
           "pinCode": "878",
           "phone": "980434543",
           "street": "Imadol "
-        },
-        {
-          "name": "Gillian Whitaker",
-          "email": "mogy@mailinator.com",
-          "phone": "+1 (301) 623-4688",
-          "street": "Nostrud Nam aut aute",
-          "city": "Quis ipsam doloribus",
-          "state": "Illum eos sint susc",
-          "pinCode": "52040"
         }
       ],
       "id": 5
+    },
+    {
+      "email": "alsdjf@gmail.com",
+      "password": "Sachin9849",
+      "addresses": [],
+      "id": 6
     }
   ],
   "cart": [
     {
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "title": "Stylish Casual Jeans Shoes",
+      "description": "High Quality ,Stylish design ,Comfortable wear ,FAshion ,Durable",
+      "price": 58,
+      "discountPercentage": 7.55,
+      "rating": 4.55,
+      "stock": 129,
+      "brand": "Sneakers",
+      "category": "mens-shoes",
+      "thumbnail": "https://i.dummyjson.com/data/products/60/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/2/1.jpg",
-        "https://i.dummyjson.com/data/products/2/2.jpg",
-        "https://i.dummyjson.com/data/products/2/3.jpg",
-        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+        "https://i.dummyjson.com/data/products/60/1.jpg",
+        "https://i.dummyjson.com/data/products/60/2.jpg",
+        "https://i.dummyjson.com/data/products/60/3.jpg",
+        "https://i.dummyjson.com/data/products/60/thumbnail.jpg"
       ],
-      "quantity": 1,
+      "quantity": 3,
       "user": 5,
       "id": 1
     }
@@ -2920,6 +2917,90 @@
       },
       "status": "pending",
       "id": 8
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 5,
+          "id": 1
+        },
+        {
+          "title": "Infinix INBOOK",
+          "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+          "price": 1099,
+          "discountPercentage": 11.83,
+          "rating": 4.54,
+          "stock": 96,
+          "brand": "Infinix",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/9/1.jpg",
+            "https://i.dummyjson.com/data/products/9/2.png",
+            "https://i.dummyjson.com/data/products/9/3.png",
+            "https://i.dummyjson.com/data/products/9/4.jpg",
+            "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+          ],
+          "quantity": 2,
+          "user": 5,
+          "id": 2
+        }
+      ],
+      "totalAmount": 3097,
+      "totalItems": 3,
+      "user": {
+        "email": "palak@gmail.com",
+        "password": "Palak9849",
+        "addresses": [
+          {
+            "name": "Stuti",
+            "email": "stuti@gmail.com",
+            "city": "ktm",
+            "state": "Bagmati",
+            "pinCode": "878",
+            "phone": "980434543",
+            "street": "Imadol "
+          },
+          {
+            "name": "Gillian Whitaker",
+            "email": "mogy@mailinator.com",
+            "phone": "+1 (301) 623-4688",
+            "street": "Nostrud Nam aut aute",
+            "city": "Quis ipsam doloribus",
+            "state": "Illum eos sint susc",
+            "pinCode": "52040"
+          }
+        ],
+        "id": 5
+      },
+      "paymentMethod": "card",
+      "selectAddress": {
+        "name": "Stuti",
+        "email": "stuti@gmail.com",
+        "city": "ktm",
+        "state": "Bagmati",
+        "pinCode": "878",
+        "phone": "980434543",
+        "street": "Imadol "
+      },
+      "status": "pending",
+      "id": 9
     }
   ]
 }
