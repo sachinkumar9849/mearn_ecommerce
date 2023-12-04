@@ -46,6 +46,7 @@ export default function Signup() {
                   email: data.email,
                   password: data.password,
                   addresses: [],
+                  role:"user"
                 })
               );
               console.log(data);
@@ -138,8 +139,8 @@ export default function Signup() {
                 />
                 {errors.conformPassword && (
                   <p className="text-red-500">
-                    {" "}
-                    {errors.conformPassword.message}{" "}
+                    
+                    {errors.conformPassword.message}
                   </p>
                 )}
               </div>
@@ -156,7 +157,7 @@ export default function Signup() {
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            Already a Member?{" "}
+            Already a Member?
             <Link
               to="/login"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"

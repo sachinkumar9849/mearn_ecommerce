@@ -2,12 +2,12 @@
   "products": [
     {
       "id": 1,
-      "title": "iPhone 9",
+      "title": "iPhone 9 sachin jha",
       "description": "An apple mobile which is nothing like apple",
-      "price": 549,
+      "price": 333,
       "discountPercentage": 12.96,
-      "rating": 4.69,
-      "stock": 94,
+      "rating": 0,
+      "stock": 942,
       "brand": "Apple",
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
@@ -17,20 +17,33 @@
         "https://i.dummyjson.com/data/products/1/3.jpg",
         "https://i.dummyjson.com/data/products/1/4.jpg",
         "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-      ]
+      ],
+      "image": [
+        "https://i.dummyjson.com/data/products/1/1.jpg",
+        "https://i.dummyjson.com/data/products/1/2.jpg",
+        "https://i.dummyjson.com/data/products/1/3.jpg",
+        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+      ],
+      "deleted": true
     },
     {
       "id": 2,
-      "title": "iPhone X",
+      "title": "iPhone ",
       "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
+      "price": 999,
       "discountPercentage": 17.94,
-      "rating": 4.44,
+      "rating": 0,
       "stock": 34,
       "brand": "Apple",
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
       "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "image": [
         "https://i.dummyjson.com/data/products/2/1.jpg",
         "https://i.dummyjson.com/data/products/2/2.jpg",
         "https://i.dummyjson.com/data/products/2/3.jpg",
@@ -54,11 +67,11 @@
     },
     {
       "id": 4,
-      "title": "OPPOF19",
+      "title": "OPPOF19 (sss)",
       "description": "OPPO F19 is officially announced on April 2021.",
       "price": 280,
-      "discountPercentage": 17.91,
-      "rating": 4.3,
+      "discountPercentage": 1.91,
+      "rating": 0,
       "stock": 123,
       "brand": "OPPO",
       "category": "smartphones",
@@ -69,15 +82,21 @@
         "https://i.dummyjson.com/data/products/4/3.jpg",
         "https://i.dummyjson.com/data/products/4/4.jpg",
         "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+      ],
+      "image": [
+        "https://i.dummyjson.com/data/products/4/1.jpg",
+        "https://i.dummyjson.com/data/products/4/2.jpg",
+        "https://i.dummyjson.com/data/products/4/3.jpg",
+        "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
       ]
     },
     {
       "id": 5,
-      "title": "Huawei P30",
+      "title": "Huawei P30fffffff",
       "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
       "price": 499,
       "discountPercentage": 10.58,
-      "rating": 4.09,
+      "rating": 0,
       "stock": 32,
       "brand": "Huawei",
       "category": "smartphones",
@@ -86,13 +105,19 @@
         "https://i.dummyjson.com/data/products/5/1.jpg",
         "https://i.dummyjson.com/data/products/5/2.jpg",
         "https://i.dummyjson.com/data/products/5/3.jpg"
+      ],
+      "image": [
+        "https://i.dummyjson.com/data/products/5/1.jpg",
+        "https://i.dummyjson.com/data/products/5/2.jpg",
+        "https://i.dummyjson.com/data/products/5/3.jpg",
+        "https://i.dummyjson.com/data/products/5/thumbnail.jpg"
       ]
     },
     {
       "id": 6,
-      "title": "MacBook Pro",
+      "title": "MacBook Proddd",
       "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-      "price": 1749,
+      "price": 66,
       "discountPercentage": 11.02,
       "rating": 4.57,
       "stock": 83,
@@ -104,6 +129,12 @@
         "https://i.dummyjson.com/data/products/6/2.jpg",
         "https://i.dummyjson.com/data/products/6/3.png",
         "https://i.dummyjson.com/data/products/6/4.jpg"
+      ],
+      "image": [
+        "https://i.dummyjson.com/data/products/6/1.png",
+        "https://i.dummyjson.com/data/products/6/2.jpg",
+        "https://i.dummyjson.com/data/products/6/3.png",
+        "https://i.dummyjson.com/data/products/6/thumbnail.png"
       ]
     },
     {
@@ -126,11 +157,11 @@
     },
     {
       "id": 8,
-      "title": "Microsoft Surface Laptop 4",
+      "title": "Microsoft Surface Laptop 444444444444",
       "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
-      "price": 1499,
+      "price": 99,
       "discountPercentage": 10.23,
-      "rating": 4.43,
+      "rating": 0,
       "stock": 68,
       "brand": "Microsoft Surface",
       "category": "laptops",
@@ -140,6 +171,12 @@
         "https://i.dummyjson.com/data/products/8/2.jpg",
         "https://i.dummyjson.com/data/products/8/3.jpg",
         "https://i.dummyjson.com/data/products/8/4.jpg",
+        "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+      ],
+      "image": [
+        "https://i.dummyjson.com/data/products/8/1.jpg",
+        "https://i.dummyjson.com/data/products/8/2.jpg",
+        "https://i.dummyjson.com/data/products/8/3.jpg",
         "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
       ]
     },
@@ -1838,6 +1875,24 @@
         "https://i.dummyjson.com/data/products/100/3.jpg",
         "https://i.dummyjson.com/data/products/100/thumbnail.jpg"
       ]
+    },
+    {
+      "title": "Sachin product",
+      "description": "Natus minus duis num",
+      "price": "796",
+      "discountPercentage": "15",
+      "stock": "17",
+      "brand": "Arrivals Genuine",
+      "category": "smartphones",
+      "thumbnail": "https://www.qipiculig.in",
+      "image": [
+        "https://www.rodiholecyhupe.ca",
+        "https://www.gilado.me",
+        "https://www.nubisipudami.co.uk",
+        "https://www.qipiculig.in"
+      ],
+      "rating": 0,
+      "id": 101
     }
   ],
   "brands": [
@@ -2336,20 +2391,9 @@
   ],
   "users": [
     {
-      "email": "sachin@gmail.com",
-      "password": "Sachin9849",
-      "addresses": [],
-      "id": 3
-    },
-    {
-      "email": "englishjha@gmail.com",
-      "password": "Sachin9849",
-      "addresses": [],
-      "id": 4
-    },
-    {
       "email": "palak@gmail.com",
       "password": "Palak9849",
+      "role": "user",
       "addresses": [
         {
           "name": "Stuti",
@@ -2364,9 +2408,10 @@
       "id": 5
     },
     {
-      "email": "alsdjf@gmail.com",
-      "password": "Sachin9849",
+      "email": "admin@gmail.com",
+      "password": "Admin9849",
       "addresses": [],
+      "role": "admin",
       "id": 6
     }
   ],
@@ -2390,6 +2435,26 @@
       "quantity": 3,
       "user": 5,
       "id": 1
+    },
+    {
+      "title": "Samsung Galaxy Book",
+      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+      "price": 1499,
+      "discountPercentage": 4.15,
+      "rating": 4.25,
+      "stock": 50,
+      "brand": "Samsung",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/7/1.jpg",
+        "https://i.dummyjson.com/data/products/7/2.jpg",
+        "https://i.dummyjson.com/data/products/7/3.jpg",
+        "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 6,
+      "id": 2
     }
   ],
   "orders": [

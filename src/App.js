@@ -25,6 +25,9 @@ import UserProfilePage from "./pages/UserProfilePage";
 import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 import Logout from "./features/auth/components/Logout";
 import ForgotPasswordPages from "./pages/ForgotPasswordPages";
+import AdminHome from "./pages/AdminHome";
+import AdminProductDetailPage from "./pages/AdminProductDetailPage";
+import AdminProductFormPage from "./pages/AdminProductFormPage";
 // import UserOrders from "./features/user/component/UserOrders";
 const router = createBrowserRouter([
   {
@@ -32,6 +35,22 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <Home></Home>
+      </Protected>
+    ),
+  },
+  {
+    path: "/admin",
+    element: (
+      <Protected>
+        <AdminHome></AdminHome>
+      </Protected>
+    ),
+  },
+  {
+    path: "/admin/product-form",
+    element: (
+      <Protected>
+        <AdminProductFormPage></AdminProductFormPage>
       </Protected>
     ),
   },
@@ -77,6 +96,22 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/admin/product-detail/:id",
+    element: (
+      <Protected>
+        <AdminProductDetailPage></AdminProductDetailPage>
+      </Protected>
+    ),
+  },
+  {
+    path: "/admin/product-form/edit/:id",
+    element: (
+      <Protected>
+        <AdminProductFormPage></AdminProductFormPage>
+      </Protected>
+    ),
+  },
+  {
     path: "/orders",
     element: <UserOrdersPage></UserOrdersPage>,
   },
@@ -104,7 +139,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      dispatch(fetchLoggedInUserAsync(user.id))
+      dispatch(fetchLoggedInUserAsync(user.id));
       dispatch(fetchItemsByUserIdAsync(user.id));
     }
   }, [dispatch, user]);
