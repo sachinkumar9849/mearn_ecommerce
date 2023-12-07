@@ -8,10 +8,11 @@ import {
   selectAllProducts,
   selectBrands,
   selectCategories,
+  selectProductById,
   selectTotalItems,
 } from "../productSlice";
-import { ITEMS_PER_PAGE, discountedPrice } from '../../../app/constants';
-import Pagination from '../../common/Pagination';
+import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
+import Pagination from "../../common/Pagination";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
@@ -19,7 +20,7 @@ import {
   ChevronRightIcon,
   StarIcon,
 } from "@heroicons/react/20/solid";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   ChevronDownIcon,
   FunnelIcon,
@@ -27,7 +28,8 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-
+import { addToCartAsync } from "../../cart/cartSlice";
+import { selectLoggedInUser } from "../../auth/authSlice";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -42,6 +44,8 @@ function classNames(...classes) {
 export default function ProductList() {
   const dispatch = useDispatch();
   const products = useSelector(selectAllProducts);
+  const product = useSelector(selectProductById);
+  const user = useSelector(selectLoggedInUser);
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -49,6 +53,7 @@ export default function ProductList() {
   const totalItems = useSelector(selectTotalItems);
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
+  const params = useParams();
   const filters = [
     {
       id: "category",
@@ -106,6 +111,12 @@ export default function ProductList() {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   }, []);
+
+  const handleCart = (product) => {
+    const newItem = { ...product, quantity: 1, user: user.id };
+    delete newItem["id"];
+    dispatch(addToCartAsync(newItem));
+  };
 
   return (
     <div className="bg-white">
@@ -199,7 +210,10 @@ export default function ProductList() {
               ></DesktopFilter>
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <ProductGrid products={products}></ProductGrid>
+                <ProductGrid
+                  products={products}
+                  handleCart={handleCart}
+                ></ProductGrid>
               </div>
               {/* Product grid end */}
             </div>
@@ -393,46 +407,59 @@ function DesktopFilter({ handleFilter, filters }) {
   );
 }
 
-
-function ProductGrid({ products }) {
+function ProductGrid({ products, handleCart }) {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
           {products.map((product) => (
-            <Link to={`/product-detail/${product.id}`} key={product.id}>
-              <div className="group relative border-solid border-2 p-2 border-gray-200">
-                <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
-                  <img
-                    src={product.thumbnail}
-                    alt={product.title}
-                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                  />
+            <div
+              key={product.id}
+              className="group relative border-solid border-2 p-2 border-gray-200"
+            >
+              <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
+                <img
+                  src={product.thumbnail}
+                  alt={product.title}
+                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                />
+              </div>
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    <div href={product.thumbnail}>
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {product.title}
+                    </div>
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    <StarIcon className="w-6 h-6 inline"></StarIcon>
+                    <span className=" align-bottom">{product.rating}</span>
+                  </p>
                 </div>
-                <div className="mt-4 flex justify-between">
-                  <div>
-                    <h3 className="text-sm text-gray-700">
-                      <div href={product.thumbnail}>
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        {product.title}
-                      </div>
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      <StarIcon className="w-6 h-6 inline"></StarIcon>
-                      <span className=" align-bottom">{product.rating}</span>
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm block font-medium text-gray-900">
+                <div>
+                  <p className="text-sm block font-medium text-gray-900">
                     {discountedPrice(product)}
-                    </p>
-                    <p className="text-sm block line-through font-medium text-gray-400">
-                      ${product.price}
-                    </p>
-                  </div>
+                  </p>
+                  <p className="text-sm block line-through font-medium text-gray-400">
+                    ${product.price}
+                  </p>
                 </div>
               </div>
-            </Link>
+              <Link
+                className="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                to={`/product-detail/${product.id}`}
+              >
+                View
+              </Link>
+              <button
+                onClick={() => handleCart(product)}
+                type="submit"
+                className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+              >
+                Add to Cart
+              </button>
+            </div>
           ))}
         </div>
       </div>
