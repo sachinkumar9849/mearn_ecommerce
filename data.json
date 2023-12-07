@@ -2,23 +2,16 @@
   "products": [
     {
       "id": 1,
-      "title": "iPhone 9 sachin jha",
+      "title": "iPhone 9",
       "description": "An apple mobile which is nothing like apple",
-      "price": 333,
+      "price": 993,
       "discountPercentage": 12.96,
       "rating": 0,
-      "stock": 942,
+      "stock": 94,
       "brand": "Apple",
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/1/1.jpg",
-        "https://i.dummyjson.com/data/products/1/2.jpg",
-        "https://i.dummyjson.com/data/products/1/3.jpg",
-        "https://i.dummyjson.com/data/products/1/4.jpg",
-        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-      ],
-      "image": [
         "https://i.dummyjson.com/data/products/1/1.jpg",
         "https://i.dummyjson.com/data/products/1/2.jpg",
         "https://i.dummyjson.com/data/products/1/3.jpg",
@@ -28,9 +21,9 @@
     },
     {
       "id": 2,
-      "title": "iPhone ",
+      "title": "iPhone X",
       "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 999,
+      "price": 1111,
       "discountPercentage": 17.94,
       "rating": 0,
       "stock": 34,
@@ -38,12 +31,6 @@
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/2/1.jpg",
-        "https://i.dummyjson.com/data/products/2/2.jpg",
-        "https://i.dummyjson.com/data/products/2/3.jpg",
-        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ],
-      "image": [
         "https://i.dummyjson.com/data/products/2/1.jpg",
         "https://i.dummyjson.com/data/products/2/2.jpg",
         "https://i.dummyjson.com/data/products/2/3.jpg",
@@ -67,10 +54,10 @@
     },
     {
       "id": 4,
-      "title": "OPPOF19 (sss)",
+      "title": "OPPOF19",
       "description": "OPPO F19 is officially announced on April 2021.",
-      "price": 280,
-      "discountPercentage": 1.91,
+      "price": 300,
+      "discountPercentage": 17.91,
       "rating": 0,
       "stock": 123,
       "brand": "OPPO",
@@ -80,23 +67,16 @@
         "https://i.dummyjson.com/data/products/4/1.jpg",
         "https://i.dummyjson.com/data/products/4/2.jpg",
         "https://i.dummyjson.com/data/products/4/3.jpg",
-        "https://i.dummyjson.com/data/products/4/4.jpg",
-        "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
-      ],
-      "image": [
-        "https://i.dummyjson.com/data/products/4/1.jpg",
-        "https://i.dummyjson.com/data/products/4/2.jpg",
-        "https://i.dummyjson.com/data/products/4/3.jpg",
         "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
       ]
     },
     {
       "id": 5,
-      "title": "Huawei P30fffffff",
+      "title": "Huawei P30",
       "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
       "price": 499,
       "discountPercentage": 10.58,
-      "rating": 0,
+      "rating": 4.09,
       "stock": 32,
       "brand": "Huawei",
       "category": "smartphones",
@@ -105,32 +85,20 @@
         "https://i.dummyjson.com/data/products/5/1.jpg",
         "https://i.dummyjson.com/data/products/5/2.jpg",
         "https://i.dummyjson.com/data/products/5/3.jpg"
-      ],
-      "image": [
-        "https://i.dummyjson.com/data/products/5/1.jpg",
-        "https://i.dummyjson.com/data/products/5/2.jpg",
-        "https://i.dummyjson.com/data/products/5/3.jpg",
-        "https://i.dummyjson.com/data/products/5/thumbnail.jpg"
       ]
     },
     {
       "id": 6,
-      "title": "MacBook Proddd",
+      "title": "MacBook Pro",
       "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-      "price": 66,
+      "price": 1999,
       "discountPercentage": 11.02,
-      "rating": 4.57,
+      "rating": 0,
       "stock": 83,
       "brand": "Apple",
       "category": "laptops",
       "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
       "images": [
-        "https://i.dummyjson.com/data/products/6/1.png",
-        "https://i.dummyjson.com/data/products/6/2.jpg",
-        "https://i.dummyjson.com/data/products/6/3.png",
-        "https://i.dummyjson.com/data/products/6/4.jpg"
-      ],
-      "image": [
         "https://i.dummyjson.com/data/products/6/1.png",
         "https://i.dummyjson.com/data/products/6/2.jpg",
         "https://i.dummyjson.com/data/products/6/3.png",
@@ -157,11 +125,11 @@
     },
     {
       "id": 8,
-      "title": "Microsoft Surface Laptop 444444444444",
+      "title": "Microsoft Surface Laptop 4",
       "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
-      "price": 99,
+      "price": 1499,
       "discountPercentage": 10.23,
-      "rating": 0,
+      "rating": 4.43,
       "stock": 68,
       "brand": "Microsoft Surface",
       "category": "laptops",
@@ -171,12 +139,6 @@
         "https://i.dummyjson.com/data/products/8/2.jpg",
         "https://i.dummyjson.com/data/products/8/3.jpg",
         "https://i.dummyjson.com/data/products/8/4.jpg",
-        "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
-      ],
-      "image": [
-        "https://i.dummyjson.com/data/products/8/1.jpg",
-        "https://i.dummyjson.com/data/products/8/2.jpg",
-        "https://i.dummyjson.com/data/products/8/3.jpg",
         "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
       ]
     },
@@ -1877,21 +1839,20 @@
       ]
     },
     {
-      "title": "Sachin product",
-      "description": "Natus minus duis num",
-      "price": "796",
-      "discountPercentage": "15",
-      "stock": "17",
-      "brand": "Arrivals Genuine",
-      "category": "smartphones",
-      "thumbnail": "https://www.qipiculig.in",
-      "image": [
-        "https://www.rodiholecyhupe.ca",
-        "https://www.gilado.me",
-        "https://www.nubisipudami.co.uk",
-        "https://www.qipiculig.in"
+      "title": "Mac Book Air ",
+      "description": "Mac Book Air ",
+      "brand": "Apple",
+      "category": "laptops",
+      "price": 1111,
+      "discountPercentage": 11,
+      "stock": 22,
+      "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+      "images": [
+        "https://i.dummyjson.com/data/products/6/thumbnail.png",
+        "https://i.dummyjson.com/data/products/6/thumbnail.png",
+        "https://i.dummyjson.com/data/products/6/thumbnail.png",
+        "https://i.dummyjson.com/data/products/6/thumbnail.png"
       ],
-      "rating": 0,
       "id": 101
     }
   ],
@@ -2391,73 +2352,349 @@
   ],
   "users": [
     {
-      "email": "palak@gmail.com",
-      "password": "Palak9849",
+      "email": "test@gmail.com",
+      "password": "Qwerty123",
       "role": "user",
       "addresses": [
         {
-          "name": "Stuti",
-          "email": "stuti@gmail.com",
-          "city": "katmandu",
-          "state": "Bagmati",
-          "pinCode": "878",
-          "phone": "980434543",
-          "street": "Imadol "
+          "name": "Abhishek Rathore",
+          "email": "test@gmail.com",
+          "phone": "1234567788",
+          "street": "11th Main",
+          "city": "Banaglore",
+          "state": "Karnataka",
+          "pinCode": "560034"
+        },
+        {
+          "name": "Jack Morris",
+          "email": "jack@gmail.com",
+          "city": "Delhi",
+          "state": "Delhi",
+          "pinCode": "110006",
+          "phone": "12312331232",
+          "street": "12th cross"
         }
       ],
-      "id": 5
+      "id": 1
+    },
+    {
+      "email": "demo@gmail.com",
+      "password": "Qwerty123",
+      "role": "user",
+      "addresses": [
+        {
+          "name": "Demo user",
+          "email": "demo@gmail.com",
+          "phone": "1234567788",
+          "street": "11th Main",
+          "city": "Mumbai",
+          "state": "Maharastra",
+          "pinCode": "220001"
+        }
+      ],
+      "id": 2
     },
     {
       "email": "admin@gmail.com",
-      "password": "Admin9849",
+      "password": "Admin9848",
       "addresses": [],
       "role": "admin",
-      "id": 6
+      "id": 3
+    },
+    {
+      "email": "sachin@gmail.com",
+      "password": "Sachin123",
+      "addresses": [
+        {
+          "name": "Quail",
+          "email": "wafolezi@mailinator.com",
+          "phone": "52",
+          "street": "Similique dolor ex d",
+          "city": "Vel sunt perferendis",
+          "pinCode": "Corporis reprehender",
+          "State": "Magni aute fuga Et "
+        },
+        {
+          "name": "Gwendolyn",
+          "email": "nywopod@mailinator.com",
+          "phone": "84",
+          "street": "Ullamco est voluptat",
+          "city": "Qui dolore quas susc",
+          "pinCode": "Sit non adipisci sus",
+          "State": "Voluptatem doloribus"
+        }
+      ],
+      "role": "user",
+      "id": 4
+    },
+    {
+      "email": "sachin@gmail.com",
+      "password": "Sachin9849",
+      "addresses": [],
+      "role": "user",
+      "id": 5
     }
   ],
   "cart": [
     {
-      "title": "Stylish Casual Jeans Shoes",
-      "description": "High Quality ,Stylish design ,Comfortable wear ,FAshion ,Durable",
-      "price": 58,
-      "discountPercentage": 7.55,
-      "rating": 4.55,
-      "stock": 129,
-      "brand": "Sneakers",
-      "category": "mens-shoes",
-      "thumbnail": "https://i.dummyjson.com/data/products/60/thumbnail.jpg",
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 1111,
+      "discountPercentage": 17.94,
+      "rating": 0,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/60/1.jpg",
-        "https://i.dummyjson.com/data/products/60/2.jpg",
-        "https://i.dummyjson.com/data/products/60/3.jpg",
-        "https://i.dummyjson.com/data/products/60/thumbnail.jpg"
-      ],
-      "quantity": 3,
-      "user": 5,
-      "id": 1
-    },
-    {
-      "title": "Samsung Galaxy Book",
-      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-      "price": 1499,
-      "discountPercentage": 4.15,
-      "rating": 4.25,
-      "stock": 50,
-      "brand": "Samsung",
-      "category": "laptops",
-      "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/7/1.jpg",
-        "https://i.dummyjson.com/data/products/7/2.jpg",
-        "https://i.dummyjson.com/data/products/7/3.jpg",
-        "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
       ],
       "quantity": 1,
-      "user": 6,
+      "user": 3,
       "id": 2
+    },
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 1111,
+      "discountPercentage": 17.94,
+      "rating": 0,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 5,
+      "id": 3
+    },
+    {
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 993,
+      "discountPercentage": 12.96,
+      "rating": 0,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/1/1.jpg",
+        "https://i.dummyjson.com/data/products/1/2.jpg",
+        "https://i.dummyjson.com/data/products/1/3.jpg",
+        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+      ],
+      "deleted": true,
+      "quantity": 1,
+      "user": 4,
+      "id": 4
     }
   ],
   "orders": [
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "quantity": 2,
+          "user": 1,
+          "id": 6
+        }
+      ],
+      "totalAmount": 1798,
+      "totalItems": 2,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty123",
+        "addresses": [
+          {
+            "name": "Abhishek R",
+            "email": "test@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Banaglore",
+            "state": "Karnataka",
+            "pinCode": "560034"
+          },
+          {
+            "name": "Abhishek R",
+            "email": "test@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Banaglore",
+            "state": "Karnataka",
+            "pinCode": "560034"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Abhishek R",
+        "email": "test@gmail.com",
+        "phone": "1234567788",
+        "street": "11th Main",
+        "city": "Banaglore",
+        "state": "Karnataka",
+        "pinCode": "560034"
+      },
+      "status": "dispatched",
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "quantity": 2,
+          "user": 1,
+          "id": 6
+        }
+      ],
+      "totalAmount": 1798,
+      "totalItems": 2,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Test1234",
+        "addresses": [
+          {
+            "name": "Abhishek R",
+            "email": "test@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Banaglore",
+            "state": "Karnataka",
+            "pinCode": "560034"
+          },
+          {
+            "name": "Abhishek R",
+            "email": "test@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Banaglore",
+            "state": "Karnataka",
+            "pinCode": "560034"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Abhishek R",
+        "email": "test@gmail.com",
+        "phone": "1234567788",
+        "street": "11th Main",
+        "city": "Banaglore",
+        "state": "Karnataka",
+        "pinCode": "560034"
+      },
+      "status": "delivered",
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "id": 3,
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1249,
+          "discountPercentage": 15.46,
+          "rating": 4.09,
+          "stock": 36,
+          "brand": "Samsung",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/3/1.jpg"
+          ],
+          "quantity": 2,
+          "user": 2
+        },
+        {
+          "id": 5,
+          "title": "Huawei P30",
+          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+          "price": 499,
+          "discountPercentage": 10.58,
+          "rating": 4.09,
+          "stock": 32,
+          "brand": "Huawei",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/5/1.jpg",
+            "https://i.dummyjson.com/data/products/5/2.jpg",
+            "https://i.dummyjson.com/data/products/5/3.jpg"
+          ],
+          "quantity": 1,
+          "user": 2
+        }
+      ],
+      "totalAmount": 2997,
+      "totalItems": 3,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "Qwerty123",
+        "addresses": [
+          {
+            "name": "Demo user",
+            "email": "demo@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Mumbai",
+            "state": "Maharastra",
+            "pinCode": "220001"
+          }
+        ],
+        "id": 2
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Demo user",
+        "email": "demo@gmail.com",
+        "phone": "1234567788",
+        "street": "11th Main",
+        "city": "Mumbai",
+        "state": "Maharastra",
+        "pinCode": "220001"
+      },
+      "status": "cancelled",
+      "id": 3
+    },
     {
       "items": [
         {
@@ -2477,263 +2714,47 @@
             "https://i.dummyjson.com/data/products/1/4.jpg",
             "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
           ],
-          "quantity": 1,
-          "user": 5,
+          "quantity": 2,
+          "user": 1,
           "id": 1
         }
       ],
-      "totalAmount": 549,
-      "totalItems": 1,
+      "totalAmount": 1098,
+      "totalItems": 2,
       "user": {
-        "email": "palak@gmail.com",
-        "password": "Palak9849",
+        "email": "test@gmail.com",
+        "password": "Qwerty123",
         "addresses": [
           {
-            "name": "Flynn",
-            "email": "fusiqyjag@mailinator.com",
-            "phone": "13",
-            "street": "Maiores nesciunt ut",
-            "city": "Aut dolore et sunt ",
-            "pinCode": "Veniam sed consecte",
-            "State": "Voluptatem iste fugi"
+            "name": "Abhishek R",
+            "email": "test@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Banaglore",
+            "state": "Karnataka",
+            "pinCode": "560034"
           },
           {
-            "name": "Leo",
-            "email": "jepux@mailinator.com",
-            "phone": "47",
-            "street": "Numquam at id volupt",
-            "city": "Ad consequat Archit",
-            "pinCode": "Ut sed eveniet esse",
-            "State": "Libero quia numquam "
-          },
-          {
-            "name": "Keiko",
-            "email": "cixeginena@mailinator.com",
-            "phone": "28",
-            "street": "Quaerat voluptatibus",
-            "city": "Ut quos ut repudiand",
-            "pinCode": "Pariatur Esse anim",
-            "State": "Tempora magni deleni"
+            "name": "Abhishek R",
+            "email": "test@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Banaglore",
+            "state": "Karnataka",
+            "pinCode": "560034"
           }
         ],
-        "id": 5
+        "id": 1
       },
       "paymentMethod": "cash",
-      "selectAddress": {
-        "name": "Keiko",
-        "email": "cixeginena@mailinator.com",
-        "phone": "28",
-        "street": "Quaerat voluptatibus",
-        "city": "Ut quos ut repudiand",
-        "pinCode": "Pariatur Esse anim",
-        "State": "Tempora magni deleni"
-      },
-      "status": "pending",
-      "id": 1
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 5,
-          "id": 1
-        }
-      ],
-      "totalAmount": 899,
-      "totalItems": 1,
-      "user": {
-        "email": "palak@gmail.com",
-        "password": "Palak9849",
-        "addresses": [
-          {
-            "name": "Flynn",
-            "email": "fusiqyjag@mailinator.com",
-            "phone": "13",
-            "street": "Maiores nesciunt ut",
-            "city": "Aut dolore et sunt ",
-            "pinCode": "Veniam sed consecte",
-            "State": "Voluptatem iste fugi"
-          },
-          {
-            "name": "Leo",
-            "email": "jepux@mailinator.com",
-            "phone": "47",
-            "street": "Numquam at id volupt",
-            "city": "Ad consequat Archit",
-            "pinCode": "Ut sed eveniet esse",
-            "State": "Libero quia numquam "
-          },
-          {
-            "name": "Keiko",
-            "email": "cixeginena@mailinator.com",
-            "phone": "28",
-            "street": "Quaerat voluptatibus",
-            "city": "Ut quos ut repudiand",
-            "pinCode": "Pariatur Esse anim",
-            "State": "Tempora magni deleni"
-          }
-        ],
-        "id": 5
-      },
-      "paymentMethod": "card",
-      "selectAddress": {
-        "name": "Flynn",
-        "email": "fusiqyjag@mailinator.com",
-        "phone": "13",
-        "street": "Maiores nesciunt ut",
-        "city": "Aut dolore et sunt ",
-        "pinCode": "Veniam sed consecte",
-        "State": "Voluptatem iste fugi"
-      },
-      "status": "pending",
-      "id": 2
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 5,
-          "id": 1
-        }
-      ],
-      "totalAmount": 899,
-      "totalItems": 1,
-      "user": {
-        "email": "palak@gmail.com",
-        "password": "Palak9849",
-        "addresses": [
-          {
-            "name": "Flynn",
-            "email": "fusiqyjag@mailinator.com",
-            "phone": "13",
-            "street": "Maiores nesciunt ut",
-            "city": "Aut dolore et sunt ",
-            "pinCode": "Veniam sed consecte",
-            "State": "Voluptatem iste fugi"
-          },
-          {
-            "name": "Leo",
-            "email": "jepux@mailinator.com",
-            "phone": "47",
-            "street": "Numquam at id volupt",
-            "city": "Ad consequat Archit",
-            "pinCode": "Ut sed eveniet esse",
-            "State": "Libero quia numquam "
-          },
-          {
-            "name": "Keiko",
-            "email": "cixeginena@mailinator.com",
-            "phone": "28",
-            "street": "Quaerat voluptatibus",
-            "city": "Ut quos ut repudiand",
-            "pinCode": "Pariatur Esse anim",
-            "State": "Tempora magni deleni"
-          }
-        ],
-        "id": 5
-      },
-      "paymentMethod": "card",
-      "selectAddress": {
-        "name": "Flynn",
-        "email": "fusiqyjag@mailinator.com",
-        "phone": "13",
-        "street": "Maiores nesciunt ut",
-        "city": "Aut dolore et sunt ",
-        "pinCode": "Veniam sed consecte",
-        "State": "Voluptatem iste fugi"
-      },
-      "status": "pending",
-      "id": 3
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 5,
-          "id": 1
-        }
-      ],
-      "totalAmount": 899,
-      "totalItems": 1,
-      "user": {
-        "email": "palak@gmail.com",
-        "password": "Palak9849",
-        "addresses": [
-          {
-            "name": "Keiko",
-            "email": "cixeginena@mailinator.com",
-            "phone": "28",
-            "street": "Quaerat voluptatibus",
-            "city": "Ut quos ut repudiand",
-            "pinCode": "Pariatur Esse anim",
-            "State": "Tempora magni deleni"
-          },
-          {
-            "name": "Francesca",
-            "email": "byjyrera@mailinator.com",
-            "phone": "19",
-            "street": "Itaque occaecat perf",
-            "city": "Error velit aut nesc",
-            "pinCode": "Consequatur et elig",
-            "State": "Ullamco reiciendis c"
-          }
-        ],
-        "id": 5
-      },
-      "paymentMethod": "cash",
-      "selectAddress": {
-        "name": "Keiko",
-        "email": "cixeginena@mailinator.com",
-        "phone": "28",
-        "street": "Quaerat voluptatibus",
-        "city": "Ut quos ut repudiand",
-        "pinCode": "Pariatur Esse anim",
-        "State": "Tempora magni deleni"
+      "selectedAddress": {
+        "name": "Abhishek R",
+        "email": "test@gmail.com",
+        "phone": "1234567788",
+        "street": "11th Main",
+        "city": "Banaglore",
+        "state": "Karnataka",
+        "pinCode": "560034"
       },
       "status": "pending",
       "id": 4
@@ -2741,63 +2762,62 @@
     {
       "items": [
         {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "rating": 4.69,
-          "stock": 94,
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
           "brand": "Apple",
           "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
           "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
           ],
           "quantity": 1,
-          "user": 5,
+          "user": 1,
           "id": 1
         }
       ],
-      "totalAmount": 549,
+      "totalAmount": 899,
       "totalItems": 1,
       "user": {
-        "email": "palak@gmail.com",
-        "password": "Palak9849",
+        "email": "test@gmail.com",
+        "password": "Qwerty123",
         "addresses": [
           {
-            "name": "Francesca",
-            "email": "byjyrera@mailinator.com",
-            "phone": "19",
-            "street": "Itaque occaecat perf",
-            "city": "Error velit aut nesc",
-            "pinCode": "Consequatur et elig",
-            "State": "Ullamco reiciendis c"
+            "name": "Abhishek Rathore",
+            "email": "test@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Banaglore",
+            "state": "Karnataka",
+            "pinCode": "560034"
           },
           {
-            "name": "Dane",
-            "email": "qubywuhejy@mailinator.com",
-            "phone": "80",
-            "street": "Exercitation volupta",
-            "city": "Tempore aut laboris",
-            "pinCode": "Totam consequuntur f",
-            "State": "Sint sapiente magna"
+            "name": "Jack Morris",
+            "email": "jack@gmail.com",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110006",
+            "phone": "12312331232",
+            "street": "12th cross"
           }
         ],
-        "id": 5
+        "id": 1
       },
       "paymentMethod": "cash",
-      "selectAddress": {
-        "name": "Francesca",
-        "email": "byjyrera@mailinator.com",
-        "phone": "19",
-        "street": "Itaque occaecat perf",
-        "city": "Error velit aut nesc",
-        "pinCode": "Consequatur et elig",
-        "State": "Ullamco reiciendis c"
+      "selectedAddress": {
+        "name": "Abhishek Rathore",
+        "email": "test@gmail.com",
+        "phone": "1234567788",
+        "street": "11th Main",
+        "city": "Banaglore",
+        "state": "Karnataka",
+        "pinCode": "560034"
       },
       "status": "pending",
       "id": 5
@@ -2807,9 +2827,9 @@
         {
           "title": "iPhone X",
           "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
+          "price": 1111,
           "discountPercentage": 17.94,
-          "rating": 4.44,
+          "rating": 0,
           "stock": 34,
           "brand": "Apple",
           "category": "smartphones",
@@ -2820,47 +2840,48 @@
             "https://i.dummyjson.com/data/products/2/3.jpg",
             "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
           ],
-          "quantity": 1,
-          "user": 5,
+          "quantity": 2,
+          "user": 1,
           "id": 1
         }
       ],
-      "totalAmount": 899,
-      "totalItems": 1,
+      "totalAmount": 1824,
+      "totalItems": 2,
       "user": {
-        "email": "palak@gmail.com",
-        "password": "Palak9849",
+        "email": "test@gmail.com",
+        "password": "Qwerty123",
+        "role": "user",
         "addresses": [
           {
-            "name": "Francesca",
-            "email": "byjyrera@mailinator.com",
-            "phone": "19",
-            "street": "Itaque occaecat perf",
-            "city": "Error velit aut nesc",
-            "pinCode": "Consequatur et elig",
-            "State": "Ullamco reiciendis c"
+            "name": "Abhishek Rathore",
+            "email": "test@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Banaglore",
+            "state": "Karnataka",
+            "pinCode": "560034"
           },
           {
-            "name": "Dane",
-            "email": "qubywuhejy@mailinator.com",
-            "phone": "80",
-            "street": "Exercitation volupta",
-            "city": "Tempore aut laboris",
-            "pinCode": "Totam consequuntur f",
-            "State": "Sint sapiente magna"
+            "name": "Jack Morris",
+            "email": "jack@gmail.com",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110006",
+            "phone": "12312331232",
+            "street": "12th cross"
           }
         ],
-        "id": 5
+        "id": 1
       },
       "paymentMethod": "cash",
-      "selectAddress": {
-        "name": "Dane",
-        "email": "qubywuhejy@mailinator.com",
-        "phone": "80",
-        "street": "Exercitation volupta",
-        "city": "Tempore aut laboris",
-        "pinCode": "Totam consequuntur f",
-        "State": "Sint sapiente magna"
+      "selectedAddress": {
+        "name": "Jack Morris",
+        "email": "jack@gmail.com",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110006",
+        "phone": "12312331232",
+        "street": "12th cross"
       },
       "status": "pending",
       "id": 6
@@ -2868,62 +2889,70 @@
     {
       "items": [
         {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1249,
+          "discountPercentage": 15.46,
+          "rating": 4.09,
+          "stock": 36,
+          "brand": "Samsung",
           "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
           "images": [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+            "https://i.dummyjson.com/data/products/3/1.jpg"
           ],
           "quantity": 1,
-          "user": 5,
+          "user": 2,
           "id": 1
+        },
+        {
+          "title": "Huawei P30",
+          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+          "price": 499,
+          "discountPercentage": 10.58,
+          "rating": 4.09,
+          "stock": 32,
+          "brand": "Huawei",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/5/1.jpg",
+            "https://i.dummyjson.com/data/products/5/2.jpg",
+            "https://i.dummyjson.com/data/products/5/3.jpg"
+          ],
+          "quantity": 1,
+          "user": 2,
+          "id": 2
         }
       ],
-      "totalAmount": 899,
-      "totalItems": 1,
+      "totalAmount": 1502,
+      "totalItems": 2,
       "user": {
-        "email": "palak@gmail.com",
-        "password": "Palak9849",
+        "email": "demo@gmail.com",
+        "password": "Qwerty123",
+        "role": "user",
         "addresses": [
           {
-            "name": "Francesca",
-            "email": "byjyrera@mailinator.com",
-            "phone": "19",
-            "street": "Itaque occaecat perf",
-            "city": "Error velit aut nesc",
-            "pinCode": "Consequatur et elig",
-            "State": "Ullamco reiciendis c"
-          },
-          {
-            "name": "Dane",
-            "email": "qubywuhejy@mailinator.com",
-            "phone": "80",
-            "street": "Exercitation volupta",
-            "city": "Tempore aut laboris",
-            "pinCode": "Totam consequuntur f",
-            "State": "Sint sapiente magna"
+            "name": "Demo user",
+            "email": "demo@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Mumbai",
+            "state": "Maharastra",
+            "pinCode": "220001"
           }
         ],
-        "id": 5
+        "id": 2
       },
       "paymentMethod": "cash",
-      "selectAddress": {
-        "name": "Francesca",
-        "email": "byjyrera@mailinator.com",
-        "phone": "19",
-        "street": "Itaque occaecat perf",
-        "city": "Error velit aut nesc",
-        "pinCode": "Consequatur et elig",
-        "State": "Ullamco reiciendis c"
+      "selectedAddress": {
+        "name": "Demo user",
+        "email": "demo@gmail.com",
+        "phone": "1234567788",
+        "street": "11th Main",
+        "city": "Mumbai",
+        "state": "Maharastra",
+        "pinCode": "220001"
       },
       "status": "pending",
       "id": 7
@@ -2931,54 +2960,70 @@
     {
       "items": [
         {
-          "title": "Freckle Treatment Cream- 15gm",
-          "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
-          "price": 70,
-          "discountPercentage": 16.99,
-          "rating": 4.06,
-          "stock": 140,
-          "brand": "Fair & Clear",
-          "category": "skincare",
-          "thumbnail": "https://i.dummyjson.com/data/products/20/thumbnail.jpg",
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1249,
+          "discountPercentage": 15.46,
+          "rating": 4.09,
+          "stock": 36,
+          "brand": "Samsung",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
           "images": [
-            "https://i.dummyjson.com/data/products/20/1.jpg",
-            "https://i.dummyjson.com/data/products/20/2.jpg",
-            "https://i.dummyjson.com/data/products/20/3.jpg",
-            "https://i.dummyjson.com/data/products/20/4.jpg",
-            "https://i.dummyjson.com/data/products/20/thumbnail.jpg"
+            "https://i.dummyjson.com/data/products/3/1.jpg"
           ],
           "quantity": 1,
-          "user": 5,
+          "user": 2,
           "id": 1
+        },
+        {
+          "title": "Huawei P30",
+          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+          "price": 499,
+          "discountPercentage": 10.58,
+          "rating": 4.09,
+          "stock": 32,
+          "brand": "Huawei",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/5/1.jpg",
+            "https://i.dummyjson.com/data/products/5/2.jpg",
+            "https://i.dummyjson.com/data/products/5/3.jpg"
+          ],
+          "quantity": 1,
+          "user": 2,
+          "id": 2
         }
       ],
-      "totalAmount": 70,
-      "totalItems": 1,
+      "totalAmount": 1502,
+      "totalItems": 2,
       "user": {
-        "email": "palak@gmail.com",
-        "password": "Palak9849",
+        "email": "demo@gmail.com",
+        "password": "Qwerty123",
+        "role": "user",
         "addresses": [
           {
-            "name": "Stuti",
-            "email": "stuti@gmail.com",
-            "city": "ktm",
-            "state": "Bagmati",
-            "pinCode": "878",
-            "phone": "980434543",
-            "street": "Imadol "
+            "name": "Demo user",
+            "email": "demo@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Mumbai",
+            "state": "Maharastra",
+            "pinCode": "220001"
           }
         ],
-        "id": 5
+        "id": 2
       },
       "paymentMethod": "cash",
-      "selectAddress": {
-        "name": "Stuti",
-        "email": "stuti@gmail.com",
-        "city": "ktm",
-        "state": "Bagmati",
-        "pinCode": "878",
-        "phone": "980434543",
-        "street": "Imadol "
+      "selectedAddress": {
+        "name": "Demo user",
+        "email": "demo@gmail.com",
+        "phone": "1234567788",
+        "street": "11th Main",
+        "city": "Mumbai",
+        "state": "Maharastra",
+        "pinCode": "220001"
       },
       "status": "pending",
       "id": 8
@@ -2986,11 +3031,178 @@
     {
       "items": [
         {
+          "title": "MacBook Pro",
+          "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+          "price": 1999,
+          "discountPercentage": 11.02,
+          "rating": 0,
+          "stock": 83,
+          "brand": "Apple",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+          "images": [
+            "https://i.dummyjson.com/data/products/6/1.png",
+            "https://i.dummyjson.com/data/products/6/2.jpg",
+            "https://i.dummyjson.com/data/products/6/3.png",
+            "https://i.dummyjson.com/data/products/6/thumbnail.png"
+          ],
+          "quantity": 1,
+          "user": 2,
+          "id": 1
+        }
+      ],
+      "totalAmount": 1779,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "Qwerty123",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Demo user",
+            "email": "demo@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Mumbai",
+            "state": "Maharastra",
+            "pinCode": "220001"
+          }
+        ],
+        "id": 2
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Demo user",
+        "email": "demo@gmail.com",
+        "phone": "1234567788",
+        "street": "11th Main",
+        "city": "Mumbai",
+        "state": "Maharastra",
+        "pinCode": "220001"
+      },
+      "status": "pending",
+      "id": 9
+    },
+    {
+      "items": [
+        {
+          "title": "Microsoft Surface Laptop 4",
+          "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+          "price": 1499,
+          "discountPercentage": 10.23,
+          "rating": 4.43,
+          "stock": 68,
+          "brand": "Microsoft Surface",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/8/1.jpg",
+            "https://i.dummyjson.com/data/products/8/2.jpg",
+            "https://i.dummyjson.com/data/products/8/3.jpg",
+            "https://i.dummyjson.com/data/products/8/4.jpg",
+            "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 2,
+          "id": 1
+        }
+      ],
+      "totalAmount": 1346,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "Qwerty123",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Demo user",
+            "email": "demo@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Mumbai",
+            "state": "Maharastra",
+            "pinCode": "220001"
+          }
+        ],
+        "id": 2
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Demo user",
+        "email": "demo@gmail.com",
+        "phone": "1234567788",
+        "street": "11th Main",
+        "city": "Mumbai",
+        "state": "Maharastra",
+        "pinCode": "220001"
+      },
+      "status": "cancelled",
+      "id": 10
+    },
+    {
+      "items": [
+        {
+          "title": "Microsoft Surface Laptop 4",
+          "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+          "price": 1499,
+          "discountPercentage": 10.23,
+          "rating": 4.43,
+          "stock": 68,
+          "brand": "Microsoft Surface",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/8/1.jpg",
+            "https://i.dummyjson.com/data/products/8/2.jpg",
+            "https://i.dummyjson.com/data/products/8/3.jpg",
+            "https://i.dummyjson.com/data/products/8/4.jpg",
+            "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+          ],
+          "quantity": 2,
+          "user": 2,
+          "id": 1
+        }
+      ],
+      "totalAmount": 2692,
+      "totalItems": 2,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "Qwerty123",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Demo user",
+            "email": "demo@gmail.com",
+            "phone": "1234567788",
+            "street": "11th Main",
+            "city": "Mumbai",
+            "state": "Maharastra",
+            "pinCode": "220001"
+          }
+        ],
+        "id": 2
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Demo user",
+        "email": "demo@gmail.com",
+        "phone": "1234567788",
+        "street": "11th Main",
+        "city": "Mumbai",
+        "state": "Maharastra",
+        "pinCode": "220001"
+      },
+      "status": "pending",
+      "id": 11
+    },
+    {
+      "items": [
+        {
           "title": "iPhone X",
           "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
+          "price": 1111,
           "discountPercentage": 17.94,
-          "rating": 4.44,
+          "rating": 0,
           "stock": 34,
           "brand": "Apple",
           "category": "smartphones",
@@ -3001,71 +3213,253 @@
             "https://i.dummyjson.com/data/products/2/3.jpg",
             "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
           ],
-          "quantity": 1,
-          "user": 5,
+          "quantity": 3,
+          "user": 4,
           "id": 1
         },
         {
-          "title": "Infinix INBOOK",
-          "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
-          "price": 1099,
-          "discountPercentage": 11.83,
-          "rating": 4.54,
-          "stock": 96,
-          "brand": "Infinix",
-          "category": "laptops",
-          "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 993,
+          "discountPercentage": 12.96,
+          "rating": 0,
+          "stock": 94,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
           "images": [
-            "https://i.dummyjson.com/data/products/9/1.jpg",
-            "https://i.dummyjson.com/data/products/9/2.png",
-            "https://i.dummyjson.com/data/products/9/3.png",
-            "https://i.dummyjson.com/data/products/9/4.jpg",
-            "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+            "https://i.dummyjson.com/data/products/1/1.jpg",
+            "https://i.dummyjson.com/data/products/1/2.jpg",
+            "https://i.dummyjson.com/data/products/1/3.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
           ],
+          "deleted": true,
           "quantity": 2,
-          "user": 5,
+          "user": 4,
           "id": 2
         }
       ],
-      "totalAmount": 3097,
-      "totalItems": 3,
+      "totalAmount": 5319,
+      "totalItems": 5,
       "user": {
-        "email": "palak@gmail.com",
-        "password": "Palak9849",
+        "email": "sachin@gmail.com",
+        "password": "Sachin123",
         "addresses": [
           {
-            "name": "Stuti",
-            "email": "stuti@gmail.com",
-            "city": "ktm",
-            "state": "Bagmati",
-            "pinCode": "878",
-            "phone": "980434543",
-            "street": "Imadol "
-          },
-          {
-            "name": "Gillian Whitaker",
-            "email": "mogy@mailinator.com",
-            "phone": "+1 (301) 623-4688",
-            "street": "Nostrud Nam aut aute",
-            "city": "Quis ipsam doloribus",
-            "state": "Illum eos sint susc",
-            "pinCode": "52040"
+            "name": "Quail",
+            "email": "wafolezi@mailinator.com",
+            "phone": "52",
+            "street": "Similique dolor ex d",
+            "city": "Vel sunt perferendis",
+            "pinCode": "Corporis reprehender",
+            "State": "Magni aute fuga Et "
           }
         ],
-        "id": 5
+        "role": "user",
+        "id": 4
+      },
+      "paymentMethod": "cash",
+      "selectAddress": {
+        "name": "Quail",
+        "email": "wafolezi@mailinator.com",
+        "phone": "52",
+        "street": "Similique dolor ex d",
+        "city": "Vel sunt perferendis",
+        "pinCode": "Corporis reprehender",
+        "State": "Magni aute fuga Et "
+      },
+      "status": "pending",
+      "id": 12
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 993,
+          "discountPercentage": 12.96,
+          "rating": 0,
+          "stock": 94,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/1/1.jpg",
+            "https://i.dummyjson.com/data/products/1/2.jpg",
+            "https://i.dummyjson.com/data/products/1/3.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+          ],
+          "deleted": true,
+          "quantity": 2,
+          "user": 4,
+          "id": 1
+        }
+      ],
+      "totalAmount": 1728,
+      "totalItems": 2,
+      "user": {
+        "email": "sachin@gmail.com",
+        "password": "Sachin123",
+        "addresses": [
+          {
+            "name": "Quail",
+            "email": "wafolezi@mailinator.com",
+            "phone": "52",
+            "street": "Similique dolor ex d",
+            "city": "Vel sunt perferendis",
+            "pinCode": "Corporis reprehender",
+            "State": "Magni aute fuga Et "
+          },
+          {
+            "name": "Gwendolyn",
+            "email": "nywopod@mailinator.com",
+            "phone": "84",
+            "street": "Ullamco est voluptat",
+            "city": "Qui dolore quas susc",
+            "pinCode": "Sit non adipisci sus",
+            "State": "Voluptatem doloribus"
+          }
+        ],
+        "role": "user",
+        "id": 4
+      },
+      "paymentMethod": "cash",
+      "selectAddress": {
+        "name": "Gwendolyn",
+        "email": "nywopod@mailinator.com",
+        "phone": "84",
+        "street": "Ullamco est voluptat",
+        "city": "Qui dolore quas susc",
+        "pinCode": "Sit non adipisci sus",
+        "State": "Voluptatem doloribus"
+      },
+      "status": "pending",
+      "id": 13
+    },
+    {
+      "items": [
+        {
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1249,
+          "discountPercentage": 15.46,
+          "rating": 4.09,
+          "stock": 36,
+          "brand": "Samsung",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/3/1.jpg"
+          ],
+          "quantity": 1,
+          "user": 4,
+          "id": 4
+        }
+      ],
+      "totalAmount": 1056,
+      "totalItems": 1,
+      "user": {
+        "email": "sachin@gmail.com",
+        "password": "Sachin123",
+        "addresses": [
+          {
+            "name": "Quail",
+            "email": "wafolezi@mailinator.com",
+            "phone": "52",
+            "street": "Similique dolor ex d",
+            "city": "Vel sunt perferendis",
+            "pinCode": "Corporis reprehender",
+            "State": "Magni aute fuga Et "
+          },
+          {
+            "name": "Gwendolyn",
+            "email": "nywopod@mailinator.com",
+            "phone": "84",
+            "street": "Ullamco est voluptat",
+            "city": "Qui dolore quas susc",
+            "pinCode": "Sit non adipisci sus",
+            "State": "Voluptatem doloribus"
+          }
+        ],
+        "role": "user",
+        "id": 4
+      },
+      "paymentMethod": "cash",
+      "selectAddress": {
+        "name": "Gwendolyn",
+        "email": "nywopod@mailinator.com",
+        "phone": "84",
+        "street": "Ullamco est voluptat",
+        "city": "Qui dolore quas susc",
+        "pinCode": "Sit non adipisci sus",
+        "State": "Voluptatem doloribus"
+      },
+      "status": "pending",
+      "id": 14
+    },
+    {
+      "items": [
+        {
+          "title": "Women Shoulder Bags",
+          "description": "LouisWill Women Shoulder Bags Long Clutches Cross Body Bags Phone Bags PU Leather Hand Bags Large Capacity Card Holders Zipper Coin Purses Fashion Crossbody Bags for Girls Ladies",
+          "price": 46,
+          "discountPercentage": 14.65,
+          "rating": 4.71,
+          "stock": 17,
+          "brand": "LouisWill",
+          "category": "womens-bags",
+          "thumbnail": "https://i.dummyjson.com/data/products/71/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/71/1.jpg",
+            "https://i.dummyjson.com/data/products/71/2.jpg",
+            "https://i.dummyjson.com/data/products/71/3.webp",
+            "https://i.dummyjson.com/data/products/71/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 4,
+          "id": 4
+        }
+      ],
+      "totalAmount": 39,
+      "totalItems": 1,
+      "user": {
+        "email": "sachin@gmail.com",
+        "password": "Sachin123",
+        "addresses": [
+          {
+            "name": "Quail",
+            "email": "wafolezi@mailinator.com",
+            "phone": "52",
+            "street": "Similique dolor ex d",
+            "city": "Vel sunt perferendis",
+            "pinCode": "Corporis reprehender",
+            "State": "Magni aute fuga Et "
+          },
+          {
+            "name": "Gwendolyn",
+            "email": "nywopod@mailinator.com",
+            "phone": "84",
+            "street": "Ullamco est voluptat",
+            "city": "Qui dolore quas susc",
+            "pinCode": "Sit non adipisci sus",
+            "State": "Voluptatem doloribus"
+          }
+        ],
+        "role": "user",
+        "id": 4
       },
       "paymentMethod": "card",
       "selectAddress": {
-        "name": "Stuti",
-        "email": "stuti@gmail.com",
-        "city": "ktm",
-        "state": "Bagmati",
-        "pinCode": "878",
-        "phone": "980434543",
-        "street": "Imadol "
+        "name": "Gwendolyn",
+        "email": "nywopod@mailinator.com",
+        "phone": "84",
+        "street": "Ullamco est voluptat",
+        "city": "Qui dolore quas susc",
+        "pinCode": "Sit non adipisci sus",
+        "State": "Voluptatem doloribus"
       },
       "status": "pending",
-      "id": 9
+      "id": 15
     }
   ]
 }

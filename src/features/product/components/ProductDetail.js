@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,9 @@ import { fetchProductByIdAsync, selectProductById } from "../productSlice";
 import { useParams } from "react-router-dom";
 import { addToCartAsync } from "../../cart/cartSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
+import { discountedPrice } from "../../../app/constants";
+
+// TODO: In server data we will add colors, sizes , highlights. to each product
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -22,25 +25,27 @@ const sizes = [
   { name: "2XL", inStock: true },
   { name: "3XL", inStock: true },
 ];
+
 const highlights = [
   "Hand cut and sewn locally",
   "Dyed with our proprietary colors",
   "Pre-washed & pre-shrunk",
   "Ultra-soft 100% cotton",
 ];
-const reviews = { href: "#", average: 4, totalCount: 117 };
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+// TODO : Loading UI
+
 export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
-  const product = useSelector(selectProductById);
   const user = useSelector(selectLoggedInUser);
-  const params = useParams();
+  const product = useSelector(selectProductById);
   const dispatch = useDispatch();
+  const params = useParams();
 
   const handleCart = (e) => {
     e.preventDefault();
@@ -58,21 +63,16 @@ export default function ProductDetail() {
       {product && (
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
-            <ol
-              role="list"
-              className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-            >
-              // Inside the ProductDetail component where you are accessing 'id'
-              property
+            <ol className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
               {product.breadcrumbs &&
                 product.breadcrumbs.map((breadcrumb) => (
-                  <li key={breadcrumb?.id}>
+                  <li key={breadcrumb.id}>
                     <div className="flex items-center">
                       <a
-                        href={breadcrumb?.href}
+                        href={breadcrumb.href}
                         className="mr-2 text-sm font-medium text-gray-900"
                       >
-                        {breadcrumb?.title}
+                        {breadcrumb.name}
                       </a>
                       <svg
                         width={16}
@@ -104,7 +104,7 @@ export default function ProductDetail() {
             <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
               <img
                 src={product.images[0]}
-                alt={product.images[0]}
+                alt={product.title}
                 className="h-full w-full object-cover object-center"
               />
             </div>
@@ -112,14 +112,14 @@ export default function ProductDetail() {
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
                   src={product.images[1]}
-                  alt={product.images[1]}
+                  alt={product.title}
                   className="h-full w-full object-cover object-center"
                 />
               </div>
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
                   src={product.images[2]}
-                  alt={product.images[2]}
+                  alt={product.title}
                   className="h-full w-full object-cover object-center"
                 />
               </div>
@@ -127,7 +127,7 @@ export default function ProductDetail() {
             <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
               <img
                 src={product.images[3]}
-                alt={product.images[3]}
+                alt={product.title}
                 className="h-full w-full object-cover object-center"
               />
             </div>
@@ -144,8 +144,11 @@ export default function ProductDetail() {
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
+              <p className="text-xl line-through tracking-tight text-gray-900">
+                ${product.price}
+              </p>
               <p className="text-3xl tracking-tight text-gray-900">
-                {product.price}
+                ${discountedPrice(product)}
               </p>
 
               {/* Reviews */}
@@ -336,7 +339,7 @@ export default function ProductDetail() {
                 <h2 className="text-sm font-medium text-gray-900">Details</h2>
 
                 <div className="mt-4 space-y-6">
-                  <p className="text-sm text-gray-600">{product.details}</p>
+                  <p className="text-sm text-gray-600">{product.description}</p>
                 </div>
               </div>
             </div>

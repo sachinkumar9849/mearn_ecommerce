@@ -28,6 +28,7 @@ import ForgotPasswordPages from "./pages/ForgotPasswordPages";
 import AdminHome from "./pages/AdminHome";
 import AdminProductDetailPage from "./pages/AdminProductDetailPage";
 import AdminProductFormPage from "./pages/AdminProductFormPage";
+import AdminOrdersPage from "./pages/AdminOrdersPage";
 // import UserOrders from "./features/user/component/UserOrders";
 const router = createBrowserRouter([
   {
@@ -108,6 +109,14 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <AdminProductFormPage></AdminProductFormPage>
+      </Protected>
+    ),
+  },
+  {
+    path: "/admin/orders",
+    element: (
+      <Protected>
+        <AdminOrdersPage></AdminOrdersPage>
       </Protected>
     ),
   },
