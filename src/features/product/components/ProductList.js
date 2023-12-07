@@ -445,6 +445,19 @@ function ProductGrid({ products, handleCart }) {
                     ${product.price}
                   </p>
                 </div>
+                <div>
+                  <p className="text-sm block font-medium text-gray-900">
+                    <p className="text-sm text-red-400">Product Deleted</p>
+                  </p>
+                  <p className="text-sm block line-through font-medium text-gray-400">
+                    $
+                    {product.stock <= 0 && (
+                      <div>
+                        <p className="text-sm text-red-400">Out of stock</p>
+                      </div>
+                    )}
+                  </p>
+                </div>
               </div>
               <Link
                 className="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
