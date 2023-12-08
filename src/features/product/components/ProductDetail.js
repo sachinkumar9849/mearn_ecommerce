@@ -2,12 +2,17 @@ import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProductByIdAsync, selectProductById } from "../productSlice";
+import {
+  fetchProductByIdAsync,
+  selectProductById,
+  selectProductListStatus,
+} from "../productSlice";
 import { useParams } from "react-router-dom";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
 import { discountedPrice } from "../../../app/constants";
-
+import { GridLoader } from "react-spinners";
+import { useAlert } from "react-alert";
 // TODO: In server data we will add colors, sizes , highlights. to each product
 
 const colors = [
@@ -44,21 +49,24 @@ export default function ProductDetail() {
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const user = useSelector(selectLoggedInUser);
   const product = useSelector(selectProductById);
+  const status = useSelector(selectProductListStatus);
   const dispatch = useDispatch();
   const params = useParams();
-  const items = useSelector(selectItems)
-
+  const items = useSelector(selectItems);
+  const alert = useAlert();
   const handleCart = (e) => {
     e.preventDefault();
-    if(items.findIndex(item=>item.productId===product.id)<0){
-      const newItem = { ...product, productId:product.id,quantity:1,user:user.id};
+    if (items.findIndex((item) => item.productId === product.id) < 0) {
+      const newItem = {
+        ...product,
+        productId: product.id,
+        quantity: 1,
+        user: user.id,
+      };
       delete newItem["id"];
       dispatch(addToCartAsync(newItem));
-    }else(
-      alert ("already product added")
- 
-    )
-   
+      alert.show("Item added"); // Show success message
+    } else alert.show("Already added the product");
   };
 
   useEffect(() => {
@@ -67,6 +75,18 @@ export default function ProductDetail() {
 
   return (
     <div className="bg-white">
+      {status === "loading" ? (
+        <GridLoader
+          height="80"
+          width="80"
+          color="#4fa94d"
+          ariaLabel="grid-loading"
+          radius="12.5"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      ) : null}
       {product && (
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
@@ -312,6 +332,7 @@ export default function ProductDetail() {
                   Add to Cart
                 </button>
               </form>
+              <button onClick={() => {}}></button>
             </div>
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
