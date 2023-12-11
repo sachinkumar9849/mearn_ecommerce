@@ -9,6 +9,7 @@ export function createOrder(order) {
     resolve({ data });
   });
 }
+
 export function updateOrder(order) {
   return new Promise(async (resolve) => {
     const response = await fetch('http://localhost:8080/orders/'+order.id, {

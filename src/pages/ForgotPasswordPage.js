@@ -1,6 +1,6 @@
 import ForgotPassword from "../features/auth/components/ForgotPassword";
 
-function ForgotPasswordPages() {
+function ForgotPasswordPage() {
   return (
     <div>
       <ForgotPassword></ForgotPassword>
@@ -8,4 +8,4 @@ function ForgotPasswordPages() {
   );
 }
 
-export default ForgotPasswordPages;
+export default ForgotPasswordPage;

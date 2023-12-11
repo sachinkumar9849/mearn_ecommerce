@@ -1,16 +1,18 @@
-import React from 'react';
+import { Link } from "react-router-dom";
+// import NavBar from "../features/navbar/Navbar";
 import NavBar from "../features/navbar/Navbar";
-import ProductList from '../features/product/components/ProductList';
+import ProductList from "../features/product/components/ProductList";
+// import Footer from "../features/common/Footer";
 
-
-const Home = () => {
-  return (
-    <div>
-        <NavBar>
-          <ProductList></ProductList>
-        </NavBar>
-    </div>
-  )
+function Home() {
+    return ( 
+        <div>
+            <NavBar>
+                <ProductList></ProductList>
+            </NavBar>
+            {/* <Footer></Footer> */}
+        </div>
+     );
 }
 
-export default Home
+export default Home;

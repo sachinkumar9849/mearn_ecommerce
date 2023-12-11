@@ -1,76 +1,68 @@
-import React, { useState, Fragment, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState, Fragment, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
-  fetchAllProductsAsync,
   fetchBrandsAsync,
   fetchCategoriesAsync,
   fetchProductsByFiltersAsync,
   selectAllProducts,
   selectBrands,
   selectCategories,
-  selectProductById,
   selectProductListStatus,
   selectTotalItems,
-} from "../productSlice";
-import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
-import Pagination from "../../common/Pagination";
-import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+} from '../productSlice';
+import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   StarIcon,
-} from "@heroicons/react/20/solid";
-import { Link, useParams } from "react-router-dom";
-// import { Grid } from "react-spinners";
-import { GridLoader } from "react-spinners";
-
+} from '@heroicons/react/20/solid';
+import { Link } from 'react-router-dom';
 import {
   ChevronDownIcon,
   FunnelIcon,
   MinusIcon,
   PlusIcon,
   Squares2X2Icon,
-} from "@heroicons/react/20/solid";
-import { addToCartAsync } from "../../cart/cartSlice";
-import { selectLoggedInUser } from "../../auth/authSlice";
+} from '@heroicons/react/20/solid';
+import { ITEMS_PER_PAGE, discountedPrice } from '../../../app/constants';
+import Pagination from '../../common/Pagination';
+import { Grid } from 'react-loader-spinner';
 
 const sortOptions = [
-  { name: "Best Rating", sort: "rating", order: "desc", current: false },
-  { name: "Price: Low to High", sort: "price", order: "asc", current: false },
-  { name: "Price: High to Low", sort: "price", order: "desc", current: false },
+  { name: 'Best Rating', sort: 'rating', order: 'desc', current: false },
+  { name: 'Price: Low to High', sort: 'price', order: 'asc', current: false },
+  { name: 'Price: High to Low', sort: 'price', order: 'desc', current: false },
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function ProductList() {
   const dispatch = useDispatch();
   const products = useSelector(selectAllProducts);
-  const product = useSelector(selectProductById);
-  const user = useSelector(selectLoggedInUser);
-  const [filter, setFilter] = useState({});
-  const [sort, setSort] = useState({});
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [page, setPage] = useState({});
-  const totalItems = useSelector(selectTotalItems);
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
-  const params = useParams();
+  const totalItems = useSelector(selectTotalItems);
   const status = useSelector(selectProductListStatus);
   const filters = [
     {
-      id: "category",
-      name: "Category",
+      id: 'category',
+      name: 'Category',
       options: categories,
     },
     {
-      id: "brand",
-      name: "Brands",
+      id: 'brand',
+      name: 'Brands',
       options: brands,
     },
   ];
+
+  const [filter, setFilter] = useState({});
+  const [sort, setSort] = useState({});
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [page, setPage] = useState(1);
 
   const handleFilter = (e, section, option) => {
     console.log(e.target.checked);
@@ -98,6 +90,7 @@ export default function ProductList() {
     console.log({ sort });
     setSort(sort);
   };
+
   const handlePage = (page) => {
     console.log({ page });
     setPage(page);
@@ -106,22 +99,17 @@ export default function ProductList() {
   useEffect(() => {
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
     dispatch(fetchProductsByFiltersAsync({ filter, sort, pagination }));
+    // TODO : Server will filter deleted products
   }, [dispatch, filter, sort, page]);
 
   useEffect(() => {
     setPage(1);
-  }, [totalItems]);
+  }, [totalItems, sort]);
 
   useEffect(() => {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   }, []);
-
-  const handleCart = (product) => {
-    const newItem = { ...product, quantity: 1, user: user.id };
-    delete newItem["id"];
-    dispatch(addToCartAsync(newItem));
-  };
 
   return (
     <div className="bg-white">
@@ -169,10 +157,10 @@ export default function ProductList() {
                               onClick={(e) => handleSort(e, option)}
                               className={classNames(
                                 option.current
-                                  ? "font-medium text-gray-900"
-                                  : "text-gray-500",
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm"
+                                  ? 'font-medium text-gray-900'
+                                  : 'text-gray-500',
+                                active ? 'bg-gray-100' : '',
+                                'block px-4 py-2 text-sm'
                               )}
                             >
                               {option.name}
@@ -215,22 +203,17 @@ export default function ProductList() {
               ></DesktopFilter>
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <ProductGrid
-                  products={products}
-                  handleCart={handleCart}
-                  status={status}
-                ></ProductGrid>
+                <ProductGrid products={products} status={status}></ProductGrid>
               </div>
-              {/* Product grid end 
-.*/}
+              {/* Product grid end */}
             </div>
           </section>
 
           {/* section of product and filters ends */}
           <Pagination
-            handlePage={handlePage}
             page={page}
             setPage={setPage}
+            handlePage={handlePage}
             totalItems={totalItems}
           ></Pagination>
         </main>
@@ -414,16 +397,16 @@ function DesktopFilter({ handleFilter, filters }) {
   );
 }
 
-function ProductGrid({ products, handleCart, status }) {
+function ProductGrid({ products, status }) {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-          {status === "loading" ? (
-            <GridLoader
+          {status === 'loading' ? (
+            <Grid
               height="80"
               width="80"
-              color="#4fa94d"
+              color="rgb(79, 70, 229) "
               ariaLabel="grid-loading"
               radius="12.5"
               wrapperStyle={{}}
@@ -432,66 +415,50 @@ function ProductGrid({ products, handleCart, status }) {
             />
           ) : null}
           {products.map((product) => (
-            <div
-              key={product.id}
-              className="group relative border-solid border-2 p-2 border-gray-200"
-            >
-              <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
-                <img
-                  src={product.thumbnail}
-                  alt={product.title}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                />
-              </div>
-              <div className="mt-4 flex justify-between">
-                <div>
-                  <h3 className="text-sm text-gray-700">
-                    <div href={product.thumbnail}>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.title}
-                    </div>
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">
-                    <StarIcon className="w-6 h-6 inline"></StarIcon>
-                    <span className=" align-bottom">{product.rating}</span>
-                  </p>
+            <Link to={`/product-detail/${product.id}`} key={product.id}>
+              <div className="group relative border-solid border-2 p-2 border-gray-200">
+                <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
+                  <img
+                    src={product.thumbnail}
+                    alt={product.title}
+                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  />
                 </div>
-                <div>
-                  <p className="text-sm block font-medium text-gray-900">
-                    {discountedPrice(product)}
-                  </p>
-                  <p className="text-sm block line-through font-medium text-gray-400">
-                    ${product.price}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm block font-medium text-gray-900">
-                    <p className="text-sm text-red-400">Product Deleted</p>
-                  </p>
-                  <p className="text-sm block line-through font-medium text-gray-400">
-                    $
-                    {product.stock <= 0 && (
-                      <div>
-                        <p className="text-sm text-red-400">Out of stock</p>
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-sm text-gray-700">
+                      <div href={product.thumbnail}>
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        {product.title}
                       </div>
-                    )}
-                  </p>
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500">
+                      <StarIcon className="w-6 h-6 inline"></StarIcon>
+                      <span className=" align-bottom">{product.rating}</span>
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm block font-medium text-gray-900">
+                      ${discountedPrice(product)}
+                    </p>
+                    <p className="text-sm block line-through font-medium text-gray-400">
+                      ${product.price}
+                    </p>
+                  </div>
                 </div>
+                {product.deleted && (
+                  <div>
+                    <p className="text-sm text-red-400">product deleted</p>
+                  </div>
+                )}
+                {product.stock <= 0 && (
+                  <div>
+                    <p className="text-sm text-red-400">out of stock</p>
+                  </div>
+                )}
+                {/* TODO: will not be needed when backend is implemented */}
               </div>
-              <Link
-                className="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                to={`/product-detail/${product.id}`}
-              >
-                View
-              </Link>
-              <button
-                onClick={() => handleCart(product)}
-                type="submit"
-                className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-              >
-                Add to Cart
-              </button>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
