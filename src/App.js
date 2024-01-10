@@ -13,6 +13,13 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLoggedInUser } from './features/auth/authSlice';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
+
+import {
+  fetchItemsByUserAsync, // Change the import name here
+  // other imports
+} from './features/cart/cartSlice';
+
+
 import PageNotFound from './pages/404';
 import OrderSuccessPage from './pages/OrderSuccessPage';
 import UserOrdersPage from './pages/UserOrdersPage';
@@ -158,10 +165,13 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      dispatch(fetchItemsByUserIdAsync(user.id));
-      dispatch(fetchLoggedInUserAsync(user.id));
+      // Change the function name here
+      dispatch(fetchItemsByUserIdAsync());
+      // we can get req.user by token on backend so no need to give in front-end
+     dispatch(fetchLoggedInUserAsync());
     }
   }, [dispatch, user]);
+
 
   return (
     <>
