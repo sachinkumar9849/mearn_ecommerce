@@ -34,6 +34,7 @@ import AdminProductFormPage from './pages/AdminProductFormPage';
 import AdminOrdersPage from './pages/AdminOrdersPage';
 import { positions, Provider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
+import Contact from './pages/Contact';
 
 const options = {
   timeout: 5000,
@@ -70,6 +71,14 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <CartPage></CartPage>
+      </Protected>
+    ),
+  },
+  {
+    path: '/contact',
+    element: (
+      <Protected>
+        <Contact/>
       </Protected>
     ),
   },

@@ -4,7 +4,7 @@ import { ITEMS_PER_PAGE } from "../../app/constants";
 export default function Pagination({ page, setPage, handlePage, totalItems }) {
     const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
     return (
-      <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+      <div className="mt-12 flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
         <div className="flex flex-1 justify-between sm:hidden">
           <div
             onClick={(e) => handlePage(page > 1 ? page - 1 : page)}

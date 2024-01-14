@@ -1,4 +1,18 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Carattere&family=Cardo:ital,wght@0,400;0,700;1,400&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fjalla+One&family=Great+Vibes&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Marcellus&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:wght@200&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,1000&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sora:wght@100;200;300;500;600;700;800&family=Young+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600&family=Cedarville+Cursive&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400;500;600;700&family=Herr+Von+Muellerhoff&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Mukta:wght@200;300;400;500;600;700;800&family=Mulish:wght@200;300;400&family=PT+Sans&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Poppins:wght@200;300;400;500;600;800;900&family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+body{
+    font-family: "Poppins", sans-serif;
+}
+h2, h1, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+}
 .cursor-pointer.relative.z-10.inline-flex.items-center.bg-gray-500.text-black.px-4.py-2.text-sm.font-semibold.text-white.focus\:z-20.focus-visible\:outline.focus-visible\:outline-2.focus-visible\:outline-offset-2.focus-visible\:outline-indigo-600 {
     background: white;
     color: black;
@@ -7,4 +21,189 @@
 span.absolute.inset-0 {
     position: relative;
     z-index: 99;
+}
+input {
+    box-shadow: unset !IMPORTANT;
+    outline: unset !important;
+}
+button.theme_btn:hover {
+    background: #df4d04;
+}
+
+button.theme_btn {
+    background: #f85606;
+    transition: .4s;
+}
+.logo {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	display: block;
+	z-index: 100;
+	transition: all 250ms linear;
+}
+
+.logo img {
+	height: 30px;
+	width: auto;
+	display: block;
+}
+a.btn_transparent{
+    border: 1px solid #f85606 !important;
+    color: #f85606;
+    font-weight:500;
+}
+section#login input {
+    font-size: 15px !important;
+}
+nav.bg-gray-800 {
+    background: #f85606;
+}
+img.logo_nav {
+    width: 212px;
+}
+img.cart_icons {
+    width: 72px;
+    filter: brightness(0) invert(1);
+}
+img.cart_icons {
+    width: 72px;
+    filter: brightness(0) invert(1);
+}
+
+span.cart_item {
+    background: #009e3f;
+    color: white;
+    width: 29px;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user_icons {
+    font-size: 35px;
+    color: white;
+    background: unset !important;
+    box-shadow: unset !important;
+    border: unset !important;
+    outline: unset !important;
+}
+span.rating_icons {
+    color: #f85606;
+}
+svg.bi.bi-bag-plus {
+    color: #f85606;
+    font-weight: bold;
+}
+.category_title h2 {
+    font-size: 29px;
+    font-weight: 600;
+    background: #f85606;
+    color: white;
+    padding: 7px 17px;
+    line-height: 40px;
+}
+button.text-sm.text-blue-500.cursor-pointer {
+    color: #009e3f;
+    padding: 0 10px 14px 5px;
+}
+.blue0 {
+    background: #021460;
+  }
+  /* footer new start  */
+.footer_logo-block img.img-fluid {
+    width: 417px;
+  }
+  /* section.footer_new ,.footer_button{
+    background: #070e20;
+  } */
+  .footer_title-block h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .footer_title-block p {
+
+    font-weight: 500;
+  }
+  .social_icon ul li a {
+   
+  }
+  .social_icon ul li a svg {
+    width: 35px;
+    height: 35px;
+    line-height: 48px;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    margin-right: 17px;
+    background-color: unset;
+    /* border: 2px solid #6670898c; */
+    border-radius: 50%;
+}
+  
+  .footer_contact a {
+
+    font-weight: 500;
+    border-bottom: 1px solid white;
+  }
+  .footer_num a {
+    color: #f85606;
+    font-size: 23px;
+    font-weight: 700;
+}
+  .footer_ul ul li a {
+  
+    margin-right: 37px;
+  }
+  .border_top {
+    border-top: 1px solid rgb(100 105 118);
+  } 
+  section.footer_new {
+    margin-top: 85px;
+    padding: 66px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 55px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #009e3f;
+    border-radius: 55px;
+  }
+  
+  
+  
+  .slider-wrap {
+    height: 66vh;
+    object-fit: cover;
+}
+.slider-container {
+    position: relative;
+  }
+  
+  .slider-image {
+    width: 100%;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out, z-index 0.5s ease-in-out;
+  }
+  
+  .visible_item {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .hidden_item {
+    opacity: 0;
+    z-index: 0;
+  }
+  main.mx-auto.max-w-7xl.mt-14 {
+    margin-top: 490px;
 }

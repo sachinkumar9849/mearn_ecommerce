@@ -114,6 +114,7 @@ export default function ProductList() {
 
   return (
     <div className="">
+      
       <div className="grid grid-col-1">
         <div className="col-span-1">
           <Slider />
