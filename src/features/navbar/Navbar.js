@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
@@ -36,6 +38,27 @@ function classNames(...classes) {
 function NavBar({ children }) {
   const items = useSelector(selectItems);
   const userInfo = useSelector(selectUserInfo);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+
+      // You may need to adjust the value (e.g., 100) based on your design
+      if (offset > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -116,7 +139,9 @@ function NavBar({ children }) {
                     </div>
                   </div>
                   <div className="col-span-1">
-                    <div className=" bg-white">
+                    <div
+                      className={`sticky_header bg-white ${isSticky ? "sticky" : ""}`}
+                    >
                       <div className="bg-white mx-auto  max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-8 px-0 items-center">
                         <div className="col-span-2">
                           <div className="flex-shrink-0 bg-white">
@@ -133,7 +158,30 @@ function NavBar({ children }) {
                           <SearchComponent />
                         </div>
                         <div className="col-span-3">
-                          <div className="hidden md:block">
+                          <div className="hidden md:block flex relative">
+                            <div className="cart_scroll">
+                            <Link to="/cart">
+                              <button
+                                type="button"
+                                className="rounded-full  focus:outline-none"
+                              >
+                                <span className="sr-only">
+                                  View notifications
+                                </span>
+
+                                <img
+                                  src={`${process.env.PUBLIC_URL}/img/cart.png`}
+                                  className="cart_icons h-full object-cover rounded-2xl p-2"
+                                  alt="page img"
+                                />
+                              </button>
+                            </Link>
+                            {items.length > 0 && (
+                              <span className="cart_item inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                {items.length}
+                              </span>
+                            )}
+                            </div>
                             <div className="ml-10 flex items-baseline  justify-end">
                               {navigation.map((item) =>
                                 item[userInfo.role] ? (
