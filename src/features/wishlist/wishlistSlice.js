@@ -49,9 +49,8 @@ const wishlistSlice = createSlice({
       })
       .addCase(getWishlistThunk.fulfilled, (state, action) => {
         state.status = "idle";
-        
-    
-        state.wishlist = { products: action.payload }
+
+        state.wishlist = { products: action.payload };
       })
 
       .addCase(addToWishlist.pending, (state) => {

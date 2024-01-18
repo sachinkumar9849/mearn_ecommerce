@@ -10,6 +10,8 @@ import {
   selectProductListStatus,
   selectTotalItems,
 } from "../productSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // import { addToWishlist, removeFromWishlist, getWishlistThunk } from '../../wishlistSlice';
 
@@ -55,6 +57,7 @@ export default function ProductList() {
   const categories = useSelector(selectCategories);
   const totalItems = useSelector(selectTotalItems);
   const status = useSelector(selectProductListStatus);
+  const [addedProducts, setAddedProducts] = useState([]);
 
   const wishlist = useSelector((state) => state.wishlist.wishlist);
 
@@ -125,15 +128,32 @@ export default function ProductList() {
 
   const handleAddToWishlist = async (productId) => {
     try {
-      // Dispatch the addToWishlist action
-      await dispatch(addToWishlist(productId));
+      // Check if the product is already in the wishlist
+      const isProductInWishlist = wishlist.products.some(
+        (product) => product.id === productId
+      );
 
-      // Fetch the updated wishlist data
-      await dispatch(getWishlistThunk());
+      if (isProductInWishlist) {
+        toast.warning("Product is already in the wishlist!");
+      } else {
+        // Dispatch the addToWishlist action
+        await dispatch(addToWishlist(productId));
+
+        // Fetch the updated wishlist data
+        await dispatch(getWishlistThunk());
+
+        // Show a toast notification
+        toast.success("Product added to wishlist!");
+      }
     } catch (error) {
       console.error("Error adding to wishlist:", error);
     }
   };
+
+  useEffect(() => {
+    // Reset the addedProducts state when the wishlist changes
+    setAddedProducts([]);
+  }, [wishlist]);
 
   useEffect(() => {
     // Change the function name from getWishlist to getWishlistThunk
@@ -251,6 +271,7 @@ export default function ProductList() {
           ></Pagination>
         </main>
       </div>
+      <ToastContainer />
     </div>
   );
 }

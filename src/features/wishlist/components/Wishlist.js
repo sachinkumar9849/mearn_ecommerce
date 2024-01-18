@@ -9,6 +9,8 @@ import {
   ChevronRightIcon,
   StarIcon,
 } from "@heroicons/react/20/solid";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
 import { Grid } from "react-loader-spinner";
 import { discountedPrice } from "../../../app/constants";
@@ -24,12 +26,13 @@ const Wishlist = () => {
 
   const handleRemoveFromWishlist = (productId) => {
     dispatch(removeFromWishlist(productId));
+    toast.error('Product removed from wishlist!');
+
   };
 
   useEffect(() => {
     dispatch(getWishlistThunk());
   }, [dispatch]);
-  
 
   return (
     <>
@@ -85,6 +88,8 @@ const Wishlist = () => {
               ))
             )}
           </div>
+          <ToastContainer />
+
         </div>
       </NavBar>
       <Footer />
