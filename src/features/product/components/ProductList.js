@@ -12,9 +12,6 @@ import {
 } from "../productSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-// import { addToWishlist, removeFromWishlist, getWishlistThunk } from '../../wishlistSlice';
-
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
@@ -39,6 +36,7 @@ import {
   getWishlistThunk,
   removeFromWishlist,
 } from "../../wishlist/wishlistSlice";
+import StarRating from "../../common/StarRating";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -165,7 +163,6 @@ export default function ProductList() {
       <div className="grid grid-col-1">
         <div className="col-span-1">
           <Slider />
-          {/* <img className="w-full cursor-pointer" src="https://png.pngtree.com/template/20220421/ourmid/pngtree-ecommerce-banner-planning-segmentation-selection-image_1316202.jpg" alt="" /> */}
         </div>
       </div>
       <div>
@@ -509,8 +506,10 @@ function ProductGrid({
             </Link>
             <div className="px-4 py-3">
               <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
-                <StarIcon className="w-6 h-6 inline"></StarIcon>
-                {product.rating}
+                {/* <StarIcon className="w-6 h-6 inline"></StarIcon>
+                {product.rating} */}
+
+                <StarRating rating={product.rating} style={{ width: "22" }} />
               </span>
               <p className="text-lg font-bold text-black truncate block capitalize">
                 {product.title}

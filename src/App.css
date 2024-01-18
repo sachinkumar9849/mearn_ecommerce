@@ -256,3 +256,8 @@ svg.MuiSvgIcon-root {
   color: black;
   margin-top: 16px;
 }
+span.rating_icons svg {
+  width: 20px;
+  margin-bottom: 2px;
+}
+
