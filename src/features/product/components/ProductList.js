@@ -10,6 +10,9 @@ import {
   selectProductListStatus,
   selectTotalItems,
 } from "../productSlice";
+
+// import { addToWishlist, removeFromWishlist, getWishlistThunk } from '../../wishlistSlice';
+
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
@@ -29,6 +32,11 @@ import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
 import Pagination from "../../common/Pagination";
 import { Grid } from "react-loader-spinner";
 import Slider from "../../common/Slider";
+import {
+  addToWishlist,
+  getWishlistThunk,
+  removeFromWishlist,
+} from "../../wishlist/wishlistSlice";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -47,6 +55,9 @@ export default function ProductList() {
   const categories = useSelector(selectCategories);
   const totalItems = useSelector(selectTotalItems);
   const status = useSelector(selectProductListStatus);
+
+  const wishlist = useSelector((state) => state.wishlist.wishlist);
+
   const filters = [
     {
       id: "category",
@@ -111,6 +122,23 @@ export default function ProductList() {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   }, []);
+
+  const handleAddToWishlist = async (productId) => {
+    try {
+      // Dispatch the addToWishlist action
+      await dispatch(addToWishlist(productId));
+
+      // Fetch the updated wishlist data
+      await dispatch(getWishlistThunk());
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+    }
+  };
+
+  useEffect(() => {
+    // Change the function name from getWishlist to getWishlistThunk
+    dispatch(getWishlistThunk());
+  }, [dispatch]);
 
   return (
     <div className="">
@@ -203,7 +231,12 @@ export default function ProductList() {
               ></DesktopFilter>
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <ProductGrid products={products} status={status}></ProductGrid>
+                <ProductGrid
+                  products={products}
+                  status={status}
+                  wishlist={wishlist}
+                  onAddToWishlist={handleAddToWishlist}
+                ></ProductGrid>
               </div>
               {/* Product grid end */}
             </div>
@@ -341,51 +374,6 @@ function MobileFilter({
   );
 }
 
-// function DesktopFilter({ handleFilter, filters }) {
-//   return (
-//     <form className="hidden lg:block ">
-//       {filters.map((section) => (
-//         <Disclosure
-//           as="div"
-//           key={section.id}
-//           className="border-b border-gray-200 mb-6 bg-white"
-//         >
-//           {({ open }) => (
-//             <>
-//               <div className="category_title">
-//                 <h2 className="flex justify-between items-center">
-//                   {section.name}
-//                   <MinusIcon className="h-5 w-5" aria-hidden="true" />
-//                 </h2>
-//               </div>
-
-//               {section.options.map((option, optionIdx) => (
-//                 <div key={option.value} className="flex items-center py-2 px-3">
-//                   <input
-//                     id={`filter-${section.id}-${optionIdx}`}
-//                     name={`${section.id}[]`}
-//                     defaultValue={option.value}
-//                     type="checkbox"
-//                     defaultChecked={option.checked}
-//                     onChange={(e) => handleFilter(e, section, option)}
-//                     className=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-//                   />
-//                   <label
-//                     htmlFor={`filter-${section.id}-${optionIdx}`}
-//                     className="ml-3 text-sm text-gray-600"
-//                   >
-//                     {option.label}
-//                   </label>
-//                 </div>
-//               ))}
-//             </>
-//           )}
-//         </Disclosure>
-//       ))}
-//     </form>
-//   );
-// }
-
 function DesktopFilter({ handleFilter, filters }) {
   const [showMore, setShowMore] = useState(false);
   const [itemsToShow, setItemsToShow] = useState(10);
@@ -467,7 +455,13 @@ function DesktopFilter({ handleFilter, filters }) {
   );
 }
 
-function ProductGrid({ products, status }) {
+function ProductGrid({
+  products,
+  status,
+  wishlist,
+  onAddToWishlist,
+  onRemoveFromWishlist,
+}) {
   return (
     <div className="">
       <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
@@ -527,6 +521,9 @@ function ProductGrid({ products, status }) {
                     </svg>
                   </a>
                 </div>
+                <button onClick={() => onAddToWishlist(product.id)}>
+                  Add to Wishlist
+                </button>
               </div>
             </div>
           </div>

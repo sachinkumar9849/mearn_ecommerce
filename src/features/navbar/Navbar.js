@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
+import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { Link } from "react-router-dom";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
@@ -7,20 +11,21 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
 import { selectItems } from "../cart/cartSlice";
 import { selectLoggedInUser } from "../auth/authSlice";
 import { selectUserInfo } from "../user/userSlice";
 import { FaRegUserCircle } from "react-icons/fa";
 import SearchComponent from "../product/components/SearchComponent";
 
+import { addToWishlist, getWishlistThunk } from "../wishlist/wishlistSlice";
+
 const navigation = [
   { name: "Products", link: "/", user: true },
 
   { name: "My Orders", link: "/orders", user: true },
   { name: "About", link: "/about", user: true },
-  { name: "Contact", link: "/contact", user: true },
 
   { name: "Products", link: "/admin", admin: true },
   { name: "Orders", link: "/admin/orders", admin: true },
@@ -36,15 +41,21 @@ function classNames(...classes) {
 }
 
 function NavBar({ children }) {
+  const dispatch = useDispatch(); // Ensure you import useDispatch from react-redux
+
   const items = useSelector(selectItems);
+  const wishlist = useSelector((state) => state.wishlist.wishlist);
+  const wishlistLength = wishlist?.products?.length || 0;
   const userInfo = useSelector(selectUserInfo);
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
+    // Dispatch getWishlistThunk to fetch wishlist data
+    dispatch(getWishlistThunk());
+
     const handleScroll = () => {
       const offset = window.scrollY;
 
-      // You may need to adjust the value (e.g., 100) based on your design
       if (offset > 100) {
         setIsSticky(true);
       } else {
@@ -54,11 +65,10 @@ function NavBar({ children }) {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup the event listener when the component is unmounted
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -72,28 +82,44 @@ function NavBar({ children }) {
                     <div className="header_top bg-orange">
                       <div className="mx-auto max-w-2xl lg:max-w-7xl">
                         <div className="hidden md:block">
-                          <div className="ml-4 flex items-center md:ml-6 cart_profile-wrap justify-end pt-2">
-                            <Link to="/cart">
-                              <button
-                                type="button"
-                                className="rounded-full  focus:outline-none"
-                              >
-                                <span className="sr-only">
-                                  View notifications
-                                </span>
+                          <div className="ml-4 flex items-center md:ml-6 cart_profile-wrap justify-end">
+                            <div className="cart_list-wrap  flex items-center">
+                              <Link to="/wishlist">
+                                <button
+                                  type="button"
+                                  className="rounded-full focus:outline-none"
+                                >
+                                  <span className="sr-only">
+                                    View notifications
+                                  </span>
+                                  <FavoriteOutlinedIcon />
+                                </button>
+                              </Link>
 
-                                <img
-                                  src={`${process.env.PUBLIC_URL}/img/cart.png`}
-                                  className="cart_icons h-full object-cover rounded-2xl p-2"
-                                  alt="page img"
-                                />
-                              </button>
-                            </Link>
-                            {items.length > 0 && (
                               <span className="cart_item inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                                {items.length}
+                                {wishlistLength}
                               </span>
-                            )}
+                            </div>
+
+                            <div className="cart_list-wrap  flex items-center">
+                              <Link to="/cart">
+                                <button
+                                  type="button"
+                                  className="rounded-full  focus:outline-none"
+                                >
+                                  <span className="sr-only">
+                                    View notifications
+                                  </span>
+
+                                  <AddShoppingCartOutlinedIcon />
+                                </button>
+                              </Link>
+                              {items.length > 0 && (
+                                <span className="cart_item inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                  {items.length}
+                                </span>
+                              )}
+                            </div>
 
                             {/* Profile dropdown */}
                             <Menu as="div" className="relative ml-3">
@@ -102,7 +128,7 @@ function NavBar({ children }) {
                                   <span className="sr-only">
                                     Open user menu
                                   </span>
-                                  <FaRegUserCircle />
+                                  <AccountCircleOutlinedIcon />
                                 </Menu.Button>
                               </div>
                               <Transition
@@ -140,7 +166,9 @@ function NavBar({ children }) {
                   </div>
                   <div className="col-span-1">
                     <div
-                      className={`sticky_header bg-white ${isSticky ? "sticky" : ""}`}
+                      className={`sticky_header bg-white ${
+                        isSticky ? "sticky" : ""
+                      }`}
                     >
                       <div className="bg-white mx-auto  max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-8 px-0 items-center">
                         <div className="col-span-2">
@@ -159,28 +187,44 @@ function NavBar({ children }) {
                         </div>
                         <div className="col-span-3">
                           <div className="hidden md:block flex relative">
-                            <div className="cart_scroll">
-                            <Link to="/cart">
-                              <button
-                                type="button"
-                                className="rounded-full  focus:outline-none"
-                              >
-                                <span className="sr-only">
-                                  View notifications
-                                </span>
+                            <div className="cart_scroll flex">
+                              <div className="cart_list-wrap relative flex items-center mr-5">
+                                <Link to="/wishlist">
+                                  <button
+                                    type="button"
+                                    className="rounded-full focus:outline-none"
+                                  >
+                                    <span className="sr-only">
+                                      View notifications
+                                    </span>
+                                    <FavoriteOutlinedIcon />
+                                  </button>
+                                </Link>
 
-                                <img
-                                  src={`${process.env.PUBLIC_URL}/img/cart.png`}
-                                  className="cart_icons h-full object-cover rounded-2xl p-2"
-                                  alt="page img"
-                                />
-                              </button>
-                            </Link>
-                            {items.length > 0 && (
-                              <span className="cart_item inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                                {items.length}
-                              </span>
-                            )}
+                                <span className="cart_item inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                  {wishlistLength}
+                                </span>
+                              </div>
+
+                              <div className="cart_list-wrap relative flex items-center">
+                                <Link to="/cart">
+                                  <button
+                                    type="button"
+                                    className="rounded-full  focus:outline-none"
+                                  >
+                                    <span className="sr-only">
+                                      View notifications
+                                    </span>
+
+                                    <AddShoppingCartOutlinedIcon />
+                                  </button>
+                                </Link>
+                                {items.length > 0 && (
+                                  <span className="cart_item inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                    {items.length}
+                                  </span>
+                                )}
+                              </div>
                             </div>
                             <div className="ml-10 flex items-baseline  justify-end">
                               {navigation.map((item) =>
@@ -294,7 +338,6 @@ function NavBar({ children }) {
               </>
             )}
           </Disclosure>
-
           <main>
             <div className="">{children}</div>
           </main>

@@ -204,6 +204,8 @@ main.mx-auto.max-w-7xl.mt-14 {
 }
 .cart_profile-wrap {
   height: 55px;
+    line-height: 64px;
+    padding-top: 4px;
 }
 .bg-green {
   background: rgb(0 158 63);
@@ -236,12 +238,21 @@ main.mx-auto.max-w-7xl.mt-14 {
 }
 .cart_scroll span.cart_item {
   position: absolute;
-  top: 0;
-  right: 0;
+    top: 4px;
+    right: -12px;
 }
 .sticky_header .cart_scroll {
   opacity: 0;
 }
 .sticky .cart_scroll {
   opacity: 1;
+}
+svg.MuiSvgIcon-root {
+  color: white;
+  font-size: 41px;
+  margin-left: 10px;
+}
+.sticky .cart_scroll svg.MuiSvgIcon-root {
+  color: black;
+  margin-top: 16px;
 }

@@ -35,6 +35,7 @@ import AlertTemplate from "react-alert-template-basic";
 import Contact from "./pages/Contact";
 // import SearchResults from "./features/product/components/SearchResults";
 import SearchResultsPage from "./features/product/components/SearchResultsPage";
+import Wishlist from "./features/wishlist/components/Wishlist";
 
 const options = {
   timeout: 5000,
@@ -142,7 +143,7 @@ const router = createBrowserRouter([
     path: "/order-success/:id",
     element: (
       <Protected>
-        <OrderSuccessPage></OrderSuccessPage>{" "}
+        <OrderSuccessPage></OrderSuccessPage>
       </Protected>
     ),
   },
@@ -150,7 +151,7 @@ const router = createBrowserRouter([
     path: "/orders",
     element: (
       <Protected>
-        <UserOrdersPage></UserOrdersPage>{" "}
+        <UserOrdersPage></UserOrdersPage>
       </Protected>
     ),
   },
@@ -158,7 +159,16 @@ const router = createBrowserRouter([
     path: "/profile",
     element: (
       <Protected>
-        <UserProfilePage></UserProfilePage>{" "}
+        <UserProfilePage></UserProfilePage>
+      </Protected>
+    ),
+  },
+
+  {
+    path: "/wishlist",
+    element: (
+      <Protected>
+        <Wishlist></Wishlist>
       </Protected>
     ),
   },
@@ -195,7 +205,6 @@ function App() {
         <Provider template={AlertTemplate} {...options}>
           <RouterProvider router={router} />
         </Provider>
-       
       </div>
     </>
   );
