@@ -95,10 +95,11 @@ function NavBar({ children }) {
                                   <FavoriteOutlinedIcon />
                                 </button>
                               </Link>
-
-                              <span className="cart_item inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                                {wishlistLength}
-                              </span>
+                              {wishlistLength > 0 && (
+                                <span className="cart_item inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                  {wishlistLength}
+                                </span>
+                              )}
                             </div>
 
                             <div className="cart_list-wrap  flex items-center">
@@ -201,9 +202,11 @@ function NavBar({ children }) {
                                   </button>
                                 </Link>
 
-                                <span className="cart_item inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                                  {wishlistLength}
-                                </span>
+                                {wishlistLength > 0 && (
+                                  <span className="cart_item inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                    {wishlistLength}
+                                  </span>
+                                )}
                               </div>
 
                               <div className="cart_list-wrap relative flex items-center">
