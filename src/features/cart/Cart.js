@@ -1,20 +1,21 @@
-import { Fragment, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { Fragment, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   deleteItemFromCartAsync,
+  selectCartLoaded,
   selectCartStatus,
   selectItems,
   updateCartAsync,
-} from './cartSlice';
-import { Link } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
-import { discountedPrice } from '../../app/constants';
-import { Grid } from 'react-loader-spinner';
-import Modal from '../common/Modal';
+} from "./cartSlice";
+import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { discountedPrice } from "../../app/constants";
+import { Grid } from "react-loader-spinner";
+import Modal from "../common/Modal";
 
 export default function Cart() {
   const dispatch = useDispatch();
-
+  const cartLoaded = useSelector(selectCartLoaded);
   const items = useSelector(selectItems);
   const status = useSelector(selectCartStatus);
   const [openModal, setOpenModal] = useState(null);
@@ -26,7 +27,7 @@ export default function Cart() {
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
   const handleQuantity = (e, item) => {
-    dispatch(updateCartAsync({id:item.id, quantity: +e.target.value }));
+    dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
 
   const handleRemove = (e, id) => {
@@ -35,7 +36,9 @@ export default function Cart() {
 
   return (
     <>
-      {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {!items.length && cartLoaded && (
+        <Navigate to="/" replace={true}></Navigate>
+      )}
 
       <div>
         <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -44,7 +47,7 @@ export default function Cart() {
               Cart
             </h1>
             <div className="flow-root">
-              {status === 'loading' ? (
+              {status === "loading" ? (
                 <Grid
                   height="80"
                   width="80"
@@ -73,7 +76,9 @@ export default function Cart() {
                           <h3>
                             <a href={item.product.id}>{item.product.title}</a>
                           </h3>
-                          <p className="ml-4">${discountedPrice(item.product)}</p>
+                          <p className="ml-4">
+                            ${discountedPrice(item.product)}
+                          </p>
                         </div>
                         <p className="mt-1 text-sm text-gray-500">
                           {item.product.brand}
@@ -106,11 +111,13 @@ export default function Cart() {
                             dangerOption="Delete"
                             cancelOption="Cancel"
                             dangerAction={(e) => handleRemove(e, item.id)}
-                            cancelAction={()=>setOpenModal(null)}
+                            cancelAction={() => setOpenModal(null)}
                             showModal={openModal === item.id}
                           ></Modal>
                           <button
-                            onClick={e=>{setOpenModal(item.id)}}
+                            onClick={(e) => {
+                              setOpenModal(item.id);
+                            }}
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                           >
