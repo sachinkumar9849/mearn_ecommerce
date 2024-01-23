@@ -7,6 +7,14 @@ import { discountedPrice } from "../../../app/constants";
 import { StarIcon } from "@heroicons/react/24/outline";
 import NavBar from "../../navbar/Navbar";
 import Footer from "../../common/Footer";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+ 
+} from "@heroicons/react/20/solid";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import StarRating from "../../common/StarRating";
 
 function SearchResultsPage() {
   const dispatch = useDispatch();
@@ -42,57 +50,73 @@ function SearchResultsPage() {
               </div>
               <div className="grid grid-cols-4 gap-8">
                 {products.map((product) => (
-                  <div className="col-span-1">
-                    <div className="bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500">
-                      <Link
-                        to={`/product-detail/${product.id}`}
-                        key={product.id}
-                      >
-                        <img
-                          src={product.thumbnail}
-                          alt={product.title}
-                          className="h-80 w-72 object-cover border border-1"
-                        />
-                      </Link>
-                      <div className="px-4 py-3">
-                        <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
-                          <StarIcon className="w-6 h-6 inline"></StarIcon>
-                          {product.rating}
-                        </span>
-                        <p className="text-lg font-bold text-black truncate block capitalize">
-                          {product.title}
-                        </p>
-                        <div className="flex items-center">
-                          <p className="text-lg font-semibold text-black cursor-auto my-3">
-                            ${discountedPrice(product)}
-                          </p>
-                          <del>
-                            <p className="text-sm text-gray-600 cursor-auto ml-2">
-                              ${product.price}
-                            </p>
-                          </del>
-                          <div className="ml-auto">
-                            <a href="#">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width={20}
-                                height={20}
-                                fill="currentColor"
-                                className="bi bi-bag-plus"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"
-                                />
-                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-                              </svg>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                           <div className="single_product-wrap relative bg-white shadow-md">
+                           <div className="cart_wrap flex flex-col">
+                             <Link
+                               className="mb-2"
+                               to={`/product-detail/${product.id}`}
+                               key={product.id}
+                             >
+                               <RemoveRedEyeIcon />
+                             </Link>
+                             {/* <button onClick={() => onAddToWishlist(product.id)}>
+                               <FavoriteBorderIcon />
+                             </button> */}
+                           </div>
+               
+                           <div className="">
+                             <img
+                               src={product.thumbnail}
+                               alt={product.title}
+                               className="single_product w-full object-cover border border-1"
+                             />
+                             <div className="mt-3 mb-3">
+                               <div className="flex justify-between">
+                                 <div className="py-0 px-5">
+                                   <h4 className="text-xl font-semibold">
+                                     {product.title.substring(0, 11)}
+                                     {/* Display only the first 10 characters */}
+                                     {product.title.length > 10 && ".."}
+                                     {/* Show ellipsis if title is longer */}
+                                   </h4>
+                                 </div>
+               
+                                 <div className="flex-none">
+                                   <div className="">
+                                     <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
+                                       <StarRating
+                                         rating={product.rating}
+                                         style={{ width: "22" }}
+                                       />
+                                     </span>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                             <div className="flex items-center justify-between text-center">
+                               <div className="product_price pl-5">
+                                 <h5 className="">
+                                   <del>
+                                     <p className="text-sm text-left text-gray-600 cursor-auto">
+                                       ${product.price}
+                                     </p>
+                                   </del>
+                                   <p className="text-lg font-semibold text-black cursor-auto">
+                                     ${discountedPrice(product)}
+                                   </p>
+                                 </h5>
+                               </div>
+                               <div className="">
+                                 <a
+                                   href="#"
+                                   className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
+                                 >
+                                   ADD TO CART
+                                 </a>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
                 ))}
               </div>
             </div>

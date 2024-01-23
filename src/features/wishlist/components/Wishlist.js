@@ -9,14 +9,22 @@ import {
   ChevronRightIcon,
   StarIcon,
 } from "@heroicons/react/20/solid";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import { Grid } from "react-loader-spinner";
 import { discountedPrice } from "../../../app/constants";
 import { selectProductListStatus } from "../../product/productSlice";
 import NavBar from "../../navbar/Navbar";
 import Footer from "../../common/Footer";
+import StarRating from "../../common/StarRating";
+
+// Import necessary components from 'react-tooltip'
+import { Tooltip, TooltipProvider, TooltipWrapper, removeStyle } from 'react-tooltip';
+
 
 const Wishlist = () => {
   const dispatch = useDispatch();
@@ -26,8 +34,7 @@ const Wishlist = () => {
 
   const handleRemoveFromWishlist = (productId) => {
     dispatch(removeFromWishlist(productId));
-    toast.error('Product removed from wishlist!');
-
+    toast.error("Product removed from wishlist!");
   };
 
   useEffect(() => {
@@ -50,38 +57,75 @@ const Wishlist = () => {
               wishlist &&
               wishlist.products &&
               wishlist.products.map((product) => (
-                <div
-                  className="bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500"
-                  key={product.id} // Add a key prop
-                >
-                  <Link to={`/product-detail/${product.id}`}>
+                <div className="single_product-wrap relative bg-white shadow-md">
+                  <div className="cart_wrap flex flex-col">
+                  <Link
+  className="mb-2"
+  to={`/product-detail/${product.id}`}
+  key={product.id}
+  data-tip="View Product"
+>
+  <RemoveRedEyeIcon />
+</Link>
+
+                    <button
+                      className=""
+                      onClick={() => handleRemoveFromWishlist(product.id)}
+                    >
+                      <DeleteOutlineIcon />
+                    </button>
+                  </div>
+
+                  <div className="">
                     <img
                       src={product.thumbnail}
                       alt={product.title}
-                      className="h-80 w-72 object-cover border border-1"
+                      className="single_product w-full object-cover border border-1"
                     />
-                  </Link>
-                  <div className="px-4 py-3">
-                    <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
-                      {product.rating}
-                    </span>
-                    <p className="text-lg font-bold text-black truncate block capitalize">
-                      {product.title}
-                    </p>
-                    <div className="flex items-center">
-                      <p className="text-lg font-semibold text-black cursor-auto my-3">
-                        ${discountedPrice(product)}
-                      </p>
-                      <del>
-                        <p className="text-sm text-gray-600 cursor-auto ml-2">
-                          ${product.price}
-                        </p>
-                      </del>
-                      <button
-                        onClick={() => handleRemoveFromWishlist(product.id)}
-                      >
-                        Remove from Wishlist
-                      </button>
+                    <div className="mt-3 mb-3">
+                      <div className="flex justify-between">
+                        <div className="py-0 px-5">
+                          <h4 className="text-xl font-semibold">
+                            {product.title.substring(0, 11)}
+                            {/* Display only the first 10 characters */}
+                            {product.title.length > 10 && ".."}
+                            {/* Show ellipsis if title is longer */}
+                          </h4>
+                        </div>
+
+                        <div className="flex-none">
+                          <div className="">
+                            <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
+                              <StarRating
+                                rating={product.rating}
+                                style={{ width: "22" }}
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between text-center">
+                      <div className="product_price pl-5">
+                        <h5 className="">
+                          <del>
+                            <p className="text-sm text-left text-gray-600 cursor-auto">
+                              ${product.price}
+                            </p>
+                          </del>
+                          <p className="text-lg font-semibold text-black cursor-auto">
+                            ${discountedPrice(product)}
+                          </p>
+                        </h5>
+                      </div>
+                      <div className="">
+                        <a
+                          href="#"
+                          className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
+                        >
+                          ADD TO CART
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -89,6 +133,8 @@ const Wishlist = () => {
             )}
           </div>
           <ToastContainer />
+          <Tooltip effect="solid" />
+
 
         </div>
       </NavBar>

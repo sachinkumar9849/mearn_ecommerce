@@ -10,6 +10,7 @@ import {
   selectProductListStatus,
   selectTotalItems,
 } from "../productSlice";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
@@ -19,6 +20,8 @@ import {
   ChevronRightIcon,
   StarIcon,
 } from "@heroicons/react/20/solid";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Link } from "react-router-dom";
 import {
   ChevronDownIcon,
@@ -159,10 +162,28 @@ export default function ProductList() {
   }, [dispatch]);
 
   return (
-    <div className="">
-      <div className="grid grid-col-1">
-        <div className="col-span-1">
-          <Slider />
+    <div className="mt-11">
+      <div className="mx-auto max-w-7xl grid grid-col-1">
+        <div className="grid grid-cols-7 gap-4">
+          <div className="col-span-5">
+            <Slider />
+          </div>
+          <div className="col-span-2">
+            <div className="slider_right-img">
+              <img
+                className="w-full"
+                src="https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
+                alt=""
+              />
+            </div>
+            <div className="slider_right-img mt-3">
+              <img
+                className="w-full"
+                src="https://cdn.dummyjson.com/product-images/5/thumbnail.jpg"
+                alt=""
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div>
@@ -175,15 +196,15 @@ export default function ProductList() {
 
         <main className="mx-auto max-w-7xl mt-14">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-5">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-              All Products
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 capitalize">
+              All available products
             </h1>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Sort
+                  <Menu.Button className="px-4 py-2 border border-width-1 border-gray-300 group inline-flex justify-center text-lg font-medium text-gray-700 hover:text-gray-900">
+                  Sort By
                     <ChevronDownIcon
                       className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
@@ -227,7 +248,7 @@ export default function ProductList() {
 
               <button
                 type="button"
-                className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                className="ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
                 onClick={() => setMobileFiltersOpen(true)}
               >
                 <span className="sr-only">Filters</span>
@@ -447,7 +468,7 @@ function DesktopFilter({ handleFilter, filters }) {
                     />
                     <label
                       htmlFor={`filter-${section.id}-${optionIdx}`}
-                      className="ml-3 text-sm text-gray-600"
+                      className="capitalize ml-3 text-sm text-gray-600"
                     >
                       {option.label}
                     </label>
@@ -496,54 +517,70 @@ function ProductGrid({
           />
         ) : null}
         {products.map((product) => (
-          <div className="bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500">
-            <Link to={`/product-detail/${product.id}`} key={product.id}>
+          <div className="single_product-wrap relative bg-white shadow-md">
+            <div className="cart_wrap flex flex-col">
+              <Link
+                className="mb-2"
+                to={`/product-detail/${product.id}`}
+                key={product.id}
+              >
+                <RemoveRedEyeIcon />
+              </Link>
+              <button onClick={() => onAddToWishlist(product.id)}>
+                <FavoriteBorderIcon />
+              </button>
+            </div>
+
+            <div className="">
               <img
                 src={product.thumbnail}
                 alt={product.title}
-                className="h-80 w-72 object-cover border border-1"
+                className="single_product w-full object-cover border border-1"
               />
-            </Link>
-            <div className="px-4 py-3">
-              <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
-                {/* <StarIcon className="w-6 h-6 inline"></StarIcon>
-                {product.rating} */}
+              <div className="mt-3 mb-3">
+                <div className="flex justify-between">
+                  <div className="py-0 px-5">
+                    <h4 className="text-xl font-semibold">
+                      {product.title.substring(0, 11)}
+                      {/* Display only the first 10 characters */}
+                      {product.title.length > 10 && ".."}
+                      {/* Show ellipsis if title is longer */}
+                    </h4>
+                  </div>
 
-                <StarRating rating={product.rating} style={{ width: "22" }} />
-              </span>
-              <p className="text-lg font-bold text-black truncate block capitalize">
-                {product.title}
-              </p>
-              <div className="flex items-center">
-                <p className="text-lg font-semibold text-black cursor-auto my-3">
-                  ${discountedPrice(product)}
-                </p>
-                <del>
-                  <p className="text-sm text-gray-600 cursor-auto ml-2">
-                    ${product.price}
-                  </p>
-                </del>
-                <div className="ml-auto">
-                  <a href="#">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={20}
-                      height={20}
-                      fill="currentColor"
-                      className="bi bi-bag-plus"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"
-                      />
-                      <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-                    </svg>
+                  <div className="flex-none">
+                    <div className="">
+                      <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
+                        <StarRating
+                          rating={product.rating}
+                          style={{ width: "22" }}
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center justify-between text-center">
+                <div className="product_price pl-5">
+                  <h5 className="">
+                    <del>
+                      <p className="text-sm text-left text-gray-600 cursor-auto">
+                        ${product.price}
+                      </p>
+                    </del>
+                    <p className="text-lg font-semibold text-black cursor-auto">
+                      ${discountedPrice(product)}
+                    </p>
+                  </h5>
+                </div>
+                <div className="">
+                  <a
+                    href="#"
+                    className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
+                  >
+                    ADD TO CART
                   </a>
                 </div>
-                <button onClick={() => onAddToWishlist(product.id)}>
-                  Add to Wishlist
-                </button>
               </div>
             </div>
           </div>

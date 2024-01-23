@@ -50,11 +50,11 @@ const Footer = () => {
                 </div>
                 <div className="footer_contact">
                   <a className="text-black" href="mailto:kjhasachin@gmail.com">
-                    lalitpurward24@gmail.com
+                    kjhasachin@gmail.com
                   </a>
                 </div>
                 <div className="footer_num mt-3">
-                  <a href="tel:9829996395"> 9829996395</a>
+                  <a href="tel:+977-9829996395">+977- 9829996395</a>
                 </div>
               </div>
             </div>
@@ -68,20 +68,21 @@ const Footer = () => {
               <div class="footer_ul d-lg-block d-none">
                 <ul class="flex">
                   <li>
-                    <a href="">About</a>
+                    <Link to="/about">About</Link>
                   </li>
                   <li>
-                    <a href="">Contact</a>
+                  <Link to="/about">Contact</Link>
+                   
                   </li>
                   <li>
-                    <a href=""> Product</a>
+                  <Link to="/myprofile">My Profile</Link>
                   </li>
                 </ul>
               </div>
             </div>
             <div class="col-span-1">
               <div class="footer_button-text text-right">
-                <p>Copyright © E-Commerce</p>
+                <p>Copyright 2024 © E-Commerce</p>
               </div>
             </div>
           </div>

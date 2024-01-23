@@ -23,7 +23,10 @@ function SearchComponent() {
 
   return (
     <div style={styles.container}>
-      <div style={styles.inputWrap} className="justify-between flex">
+      <div
+        style={styles.inputWrap}
+        className="flex bg-white rounded-full w-4/5 "
+      >
         <input
           type="text"
           value={keyword}
@@ -31,9 +34,9 @@ function SearchComponent() {
           onKeyPress={handleKeyPress}
           style={styles.input}
           placeholder="Search products..."
-          className="border-0 w-full rounded-full"
+          className="border-0 rounded-full w-full"
         />
-        <button onClick={handleSearch} style={styles.button_search} className="bg-green">
+        <button onClick={handleSearch} style={styles.button_search}>
           <IoMdSearch />
         </button>
       </div>
@@ -45,22 +48,18 @@ const styles = {
   container: {
     display: "flex",
     alignItems: "center",
-     // Adjust the width as needed
     margin: "auto",
+    justifyContent: "center",
   },
   inputWrap: {
-    flex: 1,
-    padding: "6px",
-    fontSize: "16px",
-    borderRadius: "50px",
-    border: "1px solid #ccc",
+    with: "80%",
   },
+
   button_search: {
-    
-    color: "#fff",
+    color: "#000",
     padding: "10px",
     borderRadius: "50px",
-fontSize:"27px",
+    fontSize: "27px",
     cursor: "pointer",
   },
 };

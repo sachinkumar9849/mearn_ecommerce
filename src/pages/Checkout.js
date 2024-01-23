@@ -82,7 +82,7 @@ function Checkout() {
 
   return (
     <>
-      {!items.length &&  <Navigate to="/" replace={true}></Navigate>}
+      {!items.length && <Navigate to="/" replace={true}></Navigate>}
       {currentOrder && (
         <Navigate
           to={`/order-success/${currentOrder.id}`}
@@ -94,7 +94,7 @@ function Checkout() {
           <div className="lg:col-span-3">
             {/* This form is for address */}
             <form
-              className="bg-white px-5 py-12 mt-12"
+              className="bg-white p-8 mt-12"
               noValidate
               onSubmit={handleSubmit((data) => {
                 console.log(data);
@@ -108,52 +108,56 @@ function Checkout() {
               })}
             >
               <div className="space-y-12">
-                <div className="border-b border-gray-900/10 pb-12">
+                <div className=" border-gray-900/10">
                   <h2 className="text-2xl font-semibold leading-7 text-gray-900">
                     Personal Information
                   </h2>
-                  <p className="mt-1 text-sm leading-6 text-gray-600">
+                  <p className="mt-2 mb-3 text-sm leading-6 text-gray-600">
                     Use a permanent address where you can receive mail.
                   </p>
 
-                  <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div className="sm:col-span-4">
+                  <div className="grid gap-5 grid-cols-1 mb-3">
+                    <div className="col-md-1">
                       <label
                         htmlFor="name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Full name
                       </label>
-                      <div className="mt-2">
+                      <div className="">
                         <input
                           type="text"
                           {...register("name", {
                             required: "name is required",
                           })}
                           id="name"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="w-full px-4 py-3 rounded-md bg-gray-100 mt-2 border
+ focus:bg-white focus:outline-none"
                         />
                         {errors.name && (
                           <p className="text-red-500">{errors.name.message}</p>
                         )}
                       </div>
                     </div>
+                  </div>
 
-                    <div className="sm:col-span-4">
+                  <div className="grid gap-5 grid-cols-2 mb-3">
+                    <div className="col-md-1">
                       <label
                         htmlFor="email"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Email address
                       </label>
-                      <div className="mt-2">
+                      <div className="">
                         <input
                           id="email"
                           {...register("email", {
                             required: "email is required",
                           })}
                           type="email"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="w-full px-4 py-3 rounded-md bg-gray-100 mt-2 border
+                        focus:bg-white focus:outline-none"
                         />
                         {errors.email && (
                           <p className="text-red-500">{errors.email.message}</p>
@@ -161,43 +165,47 @@ function Checkout() {
                       </div>
                     </div>
 
-                    <div className="sm:col-span-3">
+                    <div className="col-md-1">
                       <label
                         htmlFor="phone"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Phone
                       </label>
-                      <div className="mt-2">
+                      <div className="">
                         <input
                           id="phone"
                           {...register("phone", {
                             required: "phone is required",
                           })}
                           type="tel"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="w-full px-4 py-3 rounded-md bg-gray-100 mt-2 border
+                        focus:bg-white focus:outline-none"
                         />
                         {errors.phone && (
                           <p className="text-red-500">{errors.phone.message}</p>
                         )}
                       </div>
                     </div>
+                  </div>
 
-                    <div className="col-span-full">
+                  <div className="grid gap-5 grid-cols-2 mb-3">
+                    <div className="col-span-1">
                       <label
                         htmlFor="street-address"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Street address
                       </label>
-                      <div className="mt-2">
+                      <div className="">
                         <input
                           type="text"
                           {...register("street", {
                             required: "street is required",
                           })}
                           id="street"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="w-full px-4 py-3 rounded-md bg-gray-100 mt-2 border
+ focus:bg-white focus:outline-none"
                         />
                         {errors.street && (
                           <p className="text-red-500">
@@ -206,15 +214,14 @@ function Checkout() {
                         )}
                       </div>
                     </div>
-
-                    <div className="sm:col-span-2 sm:col-start-1">
+                    <div className="col-span-1">
                       <label
                         htmlFor="city"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         City
                       </label>
-                      <div className="mt-2">
+                      <div className="">
                         <input
                           type="text"
                           {...register("city", {
@@ -222,22 +229,25 @@ function Checkout() {
                           })}
                           id="city"
                           autoComplete="address-level2"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="w-full px-4 py-3 rounded-md bg-gray-100 mt-2 border
+ focus:bg-white focus:outline-none"
                         />
                         {errors.city && (
                           <p className="text-red-500">{errors.city.message}</p>
                         )}
                       </div>
                     </div>
+                  </div>
 
-                    <div className="sm:col-span-2">
+                  <div className="grid gap-5 grid-cols-2 mb-3">
+                    <div className="col-span-1">
                       <label
                         htmlFor="state"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         State / Province
                       </label>
-                      <div className="mt-2">
+                      <div className="">
                         <input
                           type="text"
                           {...register("state", {
@@ -245,7 +255,8 @@ function Checkout() {
                           })}
                           id="state"
                           autoComplete="address-level1"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="w-full px-4 py-3 rounded-md bg-gray-100 mt-2 border
+                           focus:bg-white focus:outline-none"
                         />
                         {errors.state && (
                           <p className="text-red-500">{errors.state.message}</p>
@@ -253,21 +264,22 @@ function Checkout() {
                       </div>
                     </div>
 
-                    <div className="sm:col-span-2">
+                    <div className="col-span-1">
                       <label
                         htmlFor="pinCode"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         ZIP / Postal code
                       </label>
-                      <div className="mt-2">
+                      <div className="">
                         <input
                           type="text"
                           {...register("pinCode", {
                             required: "pinCode is required",
                           })}
                           id="pinCode"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="w-full px-4 py-3 rounded-md bg-gray-100 mt-2 border
+ focus:bg-white focus:outline-none"
                         />
                         {errors.pinCode && (
                           <p className="text-red-500">
@@ -279,7 +291,7 @@ function Checkout() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex items-center justify-end gap-x-6">
+                <div className="flex justify-end gap-x-6">
                   <button
                     // onClick={e=>reset()}
                     type="button"
@@ -289,25 +301,25 @@ function Checkout() {
                   </button>
                   <button
                     type="submit"
-                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-md cursor-pointer text-center btn bg-orange py-3 px-7 text-white block transition  hover:bg-blue-900"
                   >
                     Add Address
                   </button>
                 </div>
               </div>
             </form>
-            <div className="border-b border-gray-900/10 pb-12">
+            <div className="border-b border-gray-900/10 mt-8">
               <h2 className="text-base font-semibold leading-7 text-gray-900">
                 Addresses
               </h2>
-              <p className="mt-1 text-sm leading-6 text-gray-600">
+              <p className="mt-1 mb-3 text-sm leading-6 text-gray-600">
                 Choose from Existing addresses
               </p>
               <ul>
                 {user.addresses.map((address, index) => (
                   <li
                     key={index}
-                    className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
+                    className="flex bg-white justify-between mb-3 gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
                   >
                     <div className="flex gap-x-4">
                       <input
@@ -341,7 +353,7 @@ function Checkout() {
                 ))}
               </ul>
 
-              <div className="mt-10 space-y-10">
+              <div className="mt-9 mb-10">
                 <fieldset>
                   <legend className="text-sm font-semibold leading-6 text-gray-900">
                     Payment Methods
@@ -349,7 +361,7 @@ function Checkout() {
                   <p className="mt-1 text-sm leading-6 text-gray-600">
                     Choose One
                   </p>
-                  <div className="mt-6 space-y-6">
+                  <div className="mt-2 space-y-6">
                     <div className="flex items-center gap-x-3">
                       <input
                         id="cash"
@@ -475,7 +487,7 @@ function Checkout() {
                 <div className="mt-6">
                   <div
                     onClick={handleOrder}
-                    className="flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                    className="rounded-md cursor-pointer text-center btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
                   >
                     Order Now
                   </div>

@@ -10,7 +10,11 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import Protected from "./features/auth/components/Protected";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { checkAuthAsync, selectLoggedInUser, selectUserChecked } from "./features/auth/authSlice";
+import {
+  checkAuthAsync,
+  selectLoggedInUser,
+  selectUserChecked,
+} from "./features/auth/authSlice";
 import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
 
 import {
@@ -36,6 +40,7 @@ import Contact from "./pages/Contact";
 // import SearchResults from "./features/product/components/SearchResults";
 import SearchResultsPage from "./features/product/components/SearchResultsPage";
 import Wishlist from "./features/wishlist/components/Wishlist";
+import { ToastContainer } from "react-toastify";
 
 const options = {
   timeout: 5000,
@@ -189,18 +194,16 @@ const router = createBrowserRouter([
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
-  const userChecked = useSelector(selectUserChecked)
-
-  useEffect(()=>{
-    dispatch(checkAuthAsync())
-  },[])
+  const userChecked = useSelector(selectUserChecked);
 
   useEffect(() => {
-    
-    if (user) {
+    dispatch(checkAuthAsync());
+  }, []);
 
+  useEffect(() => {
+    if (user) {
       dispatch(fetchItemsByUserIdAsync());
-     
+
       dispatch(fetchLoggedInUserAsync());
     }
   }, [dispatch, user]);
@@ -208,10 +211,12 @@ function App() {
   return (
     <>
       <div className="App">
-        {userChecked && <Provider template={AlertTemplate} {...options}>
-          <RouterProvider router={router} />
-        </Provider>}
-        
+        {userChecked && (
+          <Provider template={AlertTemplate} {...options}>
+            <RouterProvider router={router} />
+          </Provider>
+        )}
+         <ToastContainer />
       </div>
     </>
   );

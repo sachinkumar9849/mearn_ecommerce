@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import {
   deleteItemFromCartAsync,
   selectCartLoaded,
@@ -41,11 +42,8 @@ export default function Cart() {
       )}
 
       <div>
-        <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-            <h1 className="text-4xl my-5 font-bold tracking-tight text-gray-900">
-              Cart
-            </h1>
+        <div className="cart_table mx-auto mt-12 bg-white max-w-7xl">
+          <div className="p-10">
             <div className="flow-root">
               {status === "loading" ? (
                 <Grid
@@ -59,39 +57,51 @@ export default function Cart() {
                   visible={true}
                 />
               ) : null}
-              <ul className="-my-6 divide-y divide-gray-200">
+              <ul className="divide-y divide-gray-200">
+                <h2 className="mb-8 text-4xl font-bold ">Your Cart</h2>
+                <div className="flex-wrap items-center hidden mb-6 md:flex md:mb-8 border-0">
+                  <div className="mb-6 md:w-4/6 lg:w-6/12 md:mb-0">
+                    <h2 className="font-bold">Product name</h2>
+                  </div>
+                  <div className="hidden lg:block lg:w-2/12">
+                    <h2 className="font-bold">Price</h2>
+                  </div>
+                  <div className="w-auto md:w-1/6 lg:w-2/12 ">
+                    <h2 className="font-bold">Quantity</h2>
+                  </div>
+                  <div className="w-auto  md:w-1/6 lg:w-2/12 ">
+                    <h2 className="font-bold">Remove</h2>
+                  </div>
+                </div>
                 {items.map((item) => (
-                  <li key={item.id} className="flex py-6">
-                    <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                      <img
-                        src={item.product.thumbnail}
-                        alt={item.product.title}
-                        className="h-full w-full object-cover object-center"
-                      />
-                    </div>
-
-                    <div className="ml-4 flex flex-1 flex-col">
-                      <div>
-                        <div className="flex justify-between text-base font-medium text-gray-900">
-                          <h3>
-                            <a href={item.product.id}>{item.product.title}</a>
-                          </h3>
-                          <p className="ml-4">
-                            ${discountedPrice(item.product)}
-                          </p>
+                  <div key={item.id} className="py-4 ">
+                    <div className="flex flex-wrap items-center">
+                      <div className="w-full md:w-4/6 lg:w-6/12 ">
+                        <div className="flex flex-wrap items-center">
+                          <div className="w-full md:w-1/3">
+                            <div className="w-full h-96 md:h-24 md:w-24">
+                              <img
+                                src={item.product.thumbnail}
+                                alt=""
+                                className="object-cover w-full h-full"
+                              />
+                            </div>
+                          </div>
+                          <div className="w-2/3">
+                            <h2 className="mb-2 text-xl font-bold">
+                              {item.product.title}
+                            </h2>
+                            <p className="text-gray-500 dark:text-gray-400 ">
+                              {item.product.brand}
+                            </p>
+                          </div>
                         </div>
-                        <p className="mt-1 text-sm text-gray-500">
-                          {item.product.brand}
-                        </p>
                       </div>
-                      <div className="flex flex-1 items-end justify-between text-sm">
+                      <div className="hidden  lg:block lg:w-2/12">
+                        <p className="ml-4">${discountedPrice(item.product)}</p>
+                      </div>
+                      <div className="w-auto  md:w-1/6 lg:w-2/12 ">
                         <div className="text-gray-500">
-                          <label
-                            htmlFor="quantity"
-                            className="inline mr-5 text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Qty
-                          </label>
                           <select
                             onChange={(e) => handleQuantity(e, item)}
                             value={item.quantity}
@@ -103,7 +113,8 @@ export default function Cart() {
                             <option value="5">5</option>
                           </select>
                         </div>
-
+                      </div>
+                      <div className="w-auto text-right md:w-1/6 lg:w-2/12 ">
                         <div className="flex">
                           <Modal
                             title={`Delete ${item.product.title}`}
@@ -121,50 +132,49 @@ export default function Cart() {
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                           >
-                            Remove
+                            <DeleteOutlineIcon />
                           </button>
                         </div>
                       </div>
                     </div>
-                  </li>
+                  </div>
                 ))}
+                <div className="py-6  w-2/5">
+                  <div className="flex justify-between my-2 text-base font-medium text-gray-900">
+                    <p className="font-bold">Subtotal</p>
+                    <p>$ {totalAmount}</p>
+                  </div>
+                  <div className="flex justify-between my-2 text-base font-medium text-gray-900">
+                    <p>Total Items in Cart</p>
+                    <p>{totalItems} items</p>
+                  </div>
+                  <p className="mt-0.5 text-sm text-gray-500">
+                    Shipping and taxes calculated at checkout.
+                  </p>
+                  <div className="mt-6">
+                    <Link
+                      to="/checkout"
+                      className="text-center btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
+                    >
+                      Checkout
+                    </Link>
+                  </div>
+                  <div className=" mt-6 flex justify-center text-center text-sm text-gray-500">
+                    <p>
+                      or
+                      <Link to="/">
+                        <button
+                          type="button"
+                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                        >
+                          Continue Shopping
+                          <span aria-hidden="true"> &rarr;</span>
+                        </button>
+                      </Link>
+                    </p>
+                  </div>
+                </div>
               </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-            <div className="flex justify-between my-2 text-base font-medium text-gray-900">
-              <p>Subtotal</p>
-              <p>$ {totalAmount}</p>
-            </div>
-            <div className="flex justify-between my-2 text-base font-medium text-gray-900">
-              <p>Total Items in Cart</p>
-              <p>{totalItems} items</p>
-            </div>
-            <p className="mt-0.5 text-sm text-gray-500">
-              Shipping and taxes calculated at checkout.
-            </p>
-            <div className="mt-6">
-              <Link
-                to="/checkout"
-                className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-              >
-                Checkout
-              </Link>
-            </div>
-            <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-              <p>
-                or
-                <Link to="/">
-                  <button
-                    type="button"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
-                  >
-                    Continue Shopping
-                    <span aria-hidden="true"> &rarr;</span>
-                  </button>
-                </Link>
-              </p>
             </div>
           </div>
         </div>
