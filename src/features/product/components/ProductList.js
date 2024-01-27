@@ -38,7 +38,7 @@ import Slider from "../../common/Slider";
 import {
   addToWishlist,
   getWishlistThunk,
-  removeFromWishlist,
+ 
 } from "../../wishlist/wishlistSlice";
 import StarRating from "../../common/StarRating";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
@@ -81,6 +81,7 @@ export default function ProductList() {
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
   const [page, setPage] = useState(1);
 
   const handleFilter = (e, section, option) => {
@@ -323,7 +324,7 @@ function MobileFilter({
       <Dialog
         as="div"
         className="relative z-40 lg:hidden"
-        onClose={setMobileFiltersOpen}
+        onClose={setMobileFiltersOpen}  
       >
         <Transition.Child
           as={Fragment}
@@ -515,9 +516,9 @@ function DesktopFilter({ handleFilter, filters }) {
 function ProductGrid({
   products,
   status,
-  wishlist,
+
   onAddToWishlist,
-  onRemoveFromWishlist,
+
   handleAdd,
 }) {
   return (
@@ -537,8 +538,8 @@ function ProductGrid({
         ) : null}
 
         {products &&
-          products.map((product) => (
-            <div className="single_product-wrap relative bg-white shadow-md">
+          products.map((product,index) => (
+            <div className="single_product-wrap relative bg-white shadow-md" key={index}>
               <div className="cart_wrap flex flex-col">
                 {product.id && (
                   <Link

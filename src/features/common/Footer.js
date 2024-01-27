@@ -61,12 +61,12 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <div class="footer_button">
-        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-2 border_top pt-4">
-            <div class="col-span-1">
-              <div class="footer_ul d-lg-block d-none">
-                <ul class="flex">
+      <div className="footer_button">
+        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 border_top pt-4">
+            <div className="col-span-1">
+              <div className="footer_ul d-lg-block d-none">
+                <ul className="flex">
                   <li>
                     <Link to="/about">About</Link>
                   </li>
@@ -75,13 +75,13 @@ const Footer = () => {
                    
                   </li>
                   <li>
-                  <Link to="/myprofile">My Profile</Link>
+                  <Link to="/profile">My Profile</Link>
                   </li>
                 </ul>
               </div>
             </div>
-            <div class="col-span-1">
-              <div class="footer_button-text text-right">
+            <div className="col-span-1">
+              <div className="footer_button-text text-right">
                 <p>Copyright 2024 © E-Commerce</p>
               </div>
             </div>

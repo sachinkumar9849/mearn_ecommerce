@@ -34,9 +34,9 @@ const Slider = () => {
       const response = await fetch("http://localhost:8080/slider");
       const data = await response.json();
       setSliders(data);
-      console.log("Slider data fetched successfully:", data);
+     
     } catch (error) {
-      console.error("Error fetching slider data:", error);
+     
     }
   };
 

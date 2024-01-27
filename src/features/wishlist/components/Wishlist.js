@@ -67,10 +67,6 @@ const Wishlist = () => {
     }
   };
 
-  useEffect(() => {
-    dispatch(fetchProductByIdAsync(params.id));
-  }, [dispatch, params.id]);
-
   return (
     <>
       <NavBar>
@@ -81,12 +77,12 @@ const Wishlist = () => {
             </h1>
           </div>
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {status === "loading" ? (
-  <p>Loading wishlist...</p>
-) : (
-  wishlist &&
-  wishlist.products && // Check if wishlist.products is defined
-  wishlist.products.map((product) => (
+            {status === "loading" ? (
+              <p>Loading wishlist...</p>
+            ) : (
+              wishlist &&
+              wishlist.products && // Check if wishlist.products is defined
+              wishlist.products.map((product) => (
                 <div className="single_product-wrap relative bg-white shadow-md">
                   <div className="cart_wrap flex flex-col">
                     <Link

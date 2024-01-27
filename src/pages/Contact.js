@@ -5,23 +5,23 @@ const Contact = () => {
   return (
     <>
      <Navbar>
-     <div class="container mx-auto p-4">
-        <nav class="text-sm font-semibold">
-          <ol class="list-none p-0 inline-flex">
-            <li class="flex items-center">
-              <a href="#" class="text-blue-500 hover:text-blue-700">
+     <div className="container mx-auto p-4">
+        <nav className="text-sm font-semibold">
+          <ol className="list-none p-0 inline-flex">
+            <li className="flex items-center">
+              <a href="#" className="text-blue-500 hover:text-blue-700">
                 Home
               </a>
-              <span class="mx-2">/</span>
+              <span className="mx-2">/</span>
             </li>
-            <li class="flex items-center">
-              <a href="#" class="text-blue-500 hover:text-blue-700">
+            <li className="flex items-center">
+              <a href="#" className="text-blue-500 hover:text-blue-700">
                 Category
               </a>
-              <span class="mx-2">/</span>
+              <span className="mx-2">/</span>
             </li>
-            <li class="flex items-center">
-              <span class="text-gray-500">Current Page</span>
+            <li className="flex items-center">
+              <span className="text-gray-500">Current Page</span>
             </li>
           </ol>
         </nav>

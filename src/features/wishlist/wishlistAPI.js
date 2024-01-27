@@ -5,7 +5,7 @@ export const getWishlistApi = async () => {
     },
   });
   const data = await response.json();
-  console.log("API Response - Wishlist:", data);
+ 
   return data;
 };
 
@@ -32,10 +32,10 @@ export const removeFromWishlistApi = async (productId) => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    console.log("removeFromWishlistApi - API Response:", response);
+    
     return response.json();
   } catch (error) {
-    console.error("removeFromWishlistApi - API Error:", error);
+   
     throw error;
   }
 };

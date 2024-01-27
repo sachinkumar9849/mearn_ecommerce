@@ -49,14 +49,11 @@ function SearchResultsPage() {
     }
   };
 
-  useEffect(() => {
-    dispatch(fetchProductByIdAsync(params.id));
-  }, [dispatch, params.id]);
 
   return (
     <>
       <NavBar>
-        <div class="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl">
           {status === "loading" && <p>Loading...</p>}
           {status === "error" && <p>Error fetching search results.</p>}
           {status === "idle" && (

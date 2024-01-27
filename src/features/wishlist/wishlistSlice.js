@@ -10,10 +10,10 @@ export const getWishlistThunk = createAsyncThunk(
   async () => {
     try {
       const response = await getWishlistApi();
-      console.log("getWishlistThunk - API Response:", response);
+     
       return response.products; // Assuming the array of products is in a 'products' property
     } catch (error) {
-      console.error("getWishlistThunk - API Error:", error);
+      
       throw error;
     }
   }
