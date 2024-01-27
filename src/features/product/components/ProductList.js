@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   fetchBrandsAsync,
   fetchCategoriesAsync,
+  fetchProductByIdAsync,
   fetchProductsByFiltersAsync,
   selectAllProducts,
   selectBrands,
@@ -22,7 +23,7 @@ import {
 } from "@heroicons/react/20/solid";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   ChevronDownIcon,
   FunnelIcon,
@@ -40,6 +41,7 @@ import {
   removeFromWishlist,
 } from "../../wishlist/wishlistSlice";
 import StarRating from "../../common/StarRating";
+import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -59,8 +61,9 @@ export default function ProductList() {
   const totalItems = useSelector(selectTotalItems);
   const status = useSelector(selectProductListStatus);
   const [addedProducts, setAddedProducts] = useState([]);
-
+  const items = useSelector(selectItems);
   const wishlist = useSelector((state) => state.wishlist.wishlist);
+  const params = useParams();
 
   const filters = [
     {
@@ -161,6 +164,20 @@ export default function ProductList() {
     dispatch(getWishlistThunk());
   }, [dispatch]);
 
+  const handleAdd = (product) => {
+    if (items.findIndex((item) => item.product.id === product.id) < 0) {
+      console.log({ items, product });
+      const newItem = {
+        product: product.id,
+        quantity: 1,
+      };
+      dispatch(addToCartAsync(newItem));
+      toast.success("Item Added To Cart");
+    } else {
+      toast.warning("Item Already Added");
+    }
+  };
+
   return (
     <div className="mt-11">
       <div className="mx-auto max-w-7xl grid grid-col-1">
@@ -204,7 +221,7 @@ export default function ProductList() {
               <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="px-4 py-2 border border-width-1 border-gray-300 group inline-flex justify-center text-lg font-medium text-gray-700 hover:text-gray-900">
-                  Sort By
+                    Sort By
                     <ChevronDownIcon
                       className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
@@ -274,6 +291,7 @@ export default function ProductList() {
                   status={status}
                   wishlist={wishlist}
                   onAddToWishlist={handleAddToWishlist}
+                  handleAdd={handleAdd}
                 ></ProductGrid>
               </div>
               {/* Product grid end */}
@@ -500,6 +518,7 @@ function ProductGrid({
   wishlist,
   onAddToWishlist,
   onRemoveFromWishlist,
+  handleAdd,
 }) {
   return (
     <div className="">
@@ -516,75 +535,79 @@ function ProductGrid({
             visible={true}
           />
         ) : null}
-        {products.map((product) => (
-          <div className="single_product-wrap relative bg-white shadow-md">
-            <div className="cart_wrap flex flex-col">
-              <Link
-                className="mb-2"
-                to={`/product-detail/${product.id}`}
-                key={product.id}
-              >
-                <RemoveRedEyeIcon />
-              </Link>
-              <button onClick={() => onAddToWishlist(product.id)}>
-                <FavoriteBorderIcon />
-              </button>
-            </div>
 
-            <div className="">
-              <img
-                src={product.thumbnail}
-                alt={product.title}
-                className="single_product w-full object-cover border border-1"
-              />
-              <div className="mt-3 mb-3">
-                <div className="flex justify-between">
-                  <div className="py-0 px-5">
-                    <h4 className="text-xl font-semibold">
-                      {product.title.substring(0, 11)}
-                      {/* Display only the first 10 characters */}
-                      {product.title.length > 10 && ".."}
-                      {/* Show ellipsis if title is longer */}
-                    </h4>
-                  </div>
+        {products &&
+          products.map((product) => (
+            <div className="single_product-wrap relative bg-white shadow-md">
+              <div className="cart_wrap flex flex-col">
+                {product.id && (
+                  <Link
+                    className="mb-2"
+                    to={`/product-detail/${product.id}`}
+                    key={product.id}
+                  >
+                    <RemoveRedEyeIcon />
+                  </Link>
+                )}
+                <button onClick={() => onAddToWishlist(product.id)}>
+                  <FavoriteBorderIcon />
+                </button>
+              </div>
 
-                  <div className="flex-none">
-                    <div className="">
-                      <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
-                        <StarRating
-                          rating={product.rating}
-                          style={{ width: "22" }}
-                        />
-                      </span>
+              <div className="">
+                <img
+                  src={product.thumbnail}
+                  alt={product.title}
+                  className="single_product w-full object-cover border border-1"
+                />
+                <div className="mt-3 mb-3">
+                  <div className="flex justify-between">
+                    <div className="py-0 px-5">
+                      <h4 className="text-xl font-semibold">
+                        {product.title.substring(0, 11)}
+                        {/* Display only the first 10 characters */}
+                        {product.title.length > 10 && ".."}
+                        {/* Show ellipsis if title is longer */}
+                      </h4>
+                    </div>
+
+                    <div className="flex-none">
+                      <div className="">
+                        <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
+                          <StarRating
+                            rating={product.rating}
+                            style={{ width: "22" }}
+                          />
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="flex items-center justify-between text-center">
-                <div className="product_price pl-5">
-                  <h5 className="">
-                    <del>
-                      <p className="text-sm text-left text-gray-600 cursor-auto">
-                        ${product.price}
+                <div className="flex items-center justify-between text-center">
+                  <div className="product_price pl-5">
+                    <h5 className="">
+                      <del>
+                        <p className="text-sm text-left text-gray-600 cursor-auto">
+                          ${product.price}
+                        </p>
+                      </del>
+                      <p className="text-lg font-semibold text-black cursor-auto">
+                        ${discountedPrice(product)}
                       </p>
-                    </del>
-                    <p className="text-lg font-semibold text-black cursor-auto">
-                      ${discountedPrice(product)}
-                    </p>
-                  </h5>
-                </div>
-                <div className="">
-                  <a
-                    href="#"
-                    className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
-                  >
-                    ADD TO CART
-                  </a>
+                    </h5>
+                  </div>
+                  <div className="">
+                    <button
+                      className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
+                      onClick={() => handleAdd(product)}
+                    >
+                      Add to cart
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

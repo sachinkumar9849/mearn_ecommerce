@@ -216,7 +216,7 @@ function App() {
             <RouterProvider router={router} />
           </Provider>
         )}
-         <ToastContainer />
+
       </div>
     </>
   );

@@ -14,23 +14,33 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Grid } from "react-loader-spinner";
 import { discountedPrice } from "../../../app/constants";
-import { selectProductListStatus } from "../../product/productSlice";
+import {
+  fetchProductByIdAsync,
+  selectAllProducts,
+  selectProductListStatus,
+} from "../../product/productSlice";
 import NavBar from "../../navbar/Navbar";
 import Footer from "../../common/Footer";
 import StarRating from "../../common/StarRating";
 
 // Import necessary components from 'react-tooltip'
-import { Tooltip, TooltipProvider, TooltipWrapper, removeStyle } from 'react-tooltip';
-
+import {
+  Tooltip,
+  TooltipProvider,
+  TooltipWrapper,
+  removeStyle,
+} from "react-tooltip";
+import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
-
+  const items = useSelector(selectItems);
   const wishlist = useSelector((state) => state.wishlist.wishlist);
   const status = useSelector(selectProductListStatus);
+  const params = useParams();
 
   const handleRemoveFromWishlist = (productId) => {
     dispatch(removeFromWishlist(productId));
@@ -40,6 +50,26 @@ const Wishlist = () => {
   useEffect(() => {
     dispatch(getWishlistThunk());
   }, [dispatch]);
+
+  // add product function
+
+  const handleAdd = (product) => {
+    if (items.findIndex((item) => item.product.id === product.id) < 0) {
+      console.log({ items, product });
+      const newItem = {
+        product: product.id,
+        quantity: 1,
+      };
+      dispatch(addToCartAsync(newItem));
+      toast.success("Item Added To Cart");
+    } else {
+      toast.warning("Item Already Added");
+    }
+  };
+
+  useEffect(() => {
+    dispatch(fetchProductByIdAsync(params.id));
+  }, [dispatch, params.id]);
 
   return (
     <>
@@ -51,22 +81,21 @@ const Wishlist = () => {
             </h1>
           </div>
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {status === "loading" ? (
-              <p>Loading wishlist...</p>
-            ) : (
-              wishlist &&
-              wishlist.products &&
-              wishlist.products.map((product) => (
+          {status === "loading" ? (
+  <p>Loading wishlist...</p>
+) : (
+  wishlist &&
+  wishlist.products && // Check if wishlist.products is defined
+  wishlist.products.map((product) => (
                 <div className="single_product-wrap relative bg-white shadow-md">
                   <div className="cart_wrap flex flex-col">
-                  <Link
-  className="mb-2"
-  to={`/product-detail/${product.id}`}
-  key={product.id}
-  data-tip="View Product"
->
-  <RemoveRedEyeIcon />
-</Link>
+                    <Link
+                      className="mb-2"
+                      to={`/product-detail/${product.id}`}
+                      key={product.id}
+                    >
+                      <RemoveRedEyeIcon />
+                    </Link>
 
                     <button
                       className=""
@@ -119,12 +148,14 @@ const Wishlist = () => {
                         </h5>
                       </div>
                       <div className="">
-                        <a
-                          href="#"
-                          className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
-                        >
-                          ADD TO CART
-                        </a>
+                        <div className="">
+                          <button
+                            className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
+                            onClick={() => handleAdd(product)}
+                          >
+                            Add to cart
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -134,8 +165,6 @@ const Wishlist = () => {
           </div>
           <ToastContainer />
           <Tooltip effect="solid" />
-
-
         </div>
       </NavBar>
       <Footer />

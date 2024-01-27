@@ -276,7 +276,7 @@ export default function UserProfile() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex items-center justify-end gap-x-6">
+                <div className="flex items-center justify-end gap-x-6">
                   <button
                     type="submit"
                     className="text-center btn bg-orange rounded-md py-3 px-7 text-white block transition  hover:bg-blue-900"
@@ -488,7 +488,7 @@ export default function UserProfile() {
                       </div>
                     </div>
 
-                    <div className="mt-3 flex items-center justify-end gap-x-6">
+                    <div className="flex items-center justify-end gap-x-6">
                       <button
                         onClick={(e) => setSelectedEditIndex(-1)}
                         type="submit"
@@ -500,7 +500,7 @@ export default function UserProfile() {
                         type="submit"
                         className="rounded-md text-center btn bg-orange my-5 py-3 px-7 text-white block transition  hover:bg-blue-900"
                       >
-                        Edit Address
+                        Save Changes
                       </button>
                     </div>
                   </div>
@@ -549,6 +549,7 @@ export default function UserProfile() {
           ))}
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
