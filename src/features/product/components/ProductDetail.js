@@ -329,7 +329,7 @@ export default function ProductDetail() {
                 <button
                   onClick={handleCart}
                   type="submit"
-                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="w-full rounded-md text-center btn bg-orange my-5 py-3 px-7 text-white block transition  hover:bg-blue-900"
                 >
                   Add to Cart
                 </button>

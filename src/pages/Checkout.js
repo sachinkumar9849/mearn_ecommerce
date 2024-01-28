@@ -16,6 +16,8 @@ import {
 } from "../features/order/orderSlice";
 import { selectUserInfo } from "../features/user/userSlice";
 import { discountedPrice } from "../app/constants";
+import NavBar from "../features/navbar/Navbar";
+import Footer from "../features/common/Footer";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -82,6 +84,7 @@ function Checkout() {
 
   return (
     <>
+    <NavBar></NavBar>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
       {currentOrder && (
         <Navigate
@@ -308,7 +311,7 @@ function Checkout() {
                 </div>
               </div>
             </form>
-            <div className="border-b border-gray-900/10 mt-8">
+            <div className="border-gray-900/10 mt-8">
               <h2 className="text-base font-semibold leading-7 text-gray-900">
                 Addresses
               </h2>
@@ -511,6 +514,7 @@ function Checkout() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }
