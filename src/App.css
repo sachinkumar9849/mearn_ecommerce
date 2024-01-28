@@ -328,3 +328,8 @@ img.single_product {
 .no-top-margin {
   margin-top: 0;
 }
+select.quantity_w {
+  width: 62px;
+  box-shadow: unset;
+  outline: 0 !IMPORTANT;
+}

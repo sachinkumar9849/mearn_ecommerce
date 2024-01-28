@@ -405,9 +405,9 @@ function Checkout() {
             </div>
           </div>
           <div className="lg:col-span-2">
-            <div className="mx-auto mt-12 bg-white max-w-7xl px-2 sm:px-2 lg:px-4">
-              <div className="border-t border-gray-200 px-0 py-6 sm:px-0">
-                <h1 className="text-4xl my-5 font-bold tracking-tight text-gray-900">
+            <div className="mx-auto mt-12 bg-white max-w-7xl p-5">
+              <div className="pb-3 border-gray-200 px-0 sm:px-0">
+                <h1 className="text-4xl mb-5 font-bold tracking-tight text-gray-900">
                   Cart
                 </h1>
                 <div className="flow-root">
@@ -439,7 +439,7 @@ function Checkout() {
                             </p>
                           </div>
                           <div className="flex flex-1 items-end justify-between text-sm">
-                            <div className="text-gray-500">
+                            <div className="flex items-center text-gray-500">
                               <label
                                 htmlFor="quantity"
                                 className="inline mr-5 text-sm font-medium leading-6 text-gray-900"
@@ -449,6 +449,8 @@ function Checkout() {
                               <select
                                 onChange={(e) => handleQuantity(e, item)}
                                 value={item.quantity}
+                                className="quantity_w px-4 rounded-md bg-gray-100 mt-2 border
+                                focus:bg-white focus:outline-none"
                               >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -462,7 +464,7 @@ function Checkout() {
                               <button
                                 onClick={(e) => handleRemove(e, item.id)}
                                 type="button"
-                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                                className="font-medium text-white px-4 py-1 rounded-full bg-red-500"
                               >
                                 Remove
                               </button>

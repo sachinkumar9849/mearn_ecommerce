@@ -103,6 +103,8 @@ export default function Cart() {
                       <div className="w-auto  md:w-1/6 lg:w-2/12 ">
                         <div className="text-gray-500">
                           <select
+                          className="quantity_w px-4 rounded-md bg-gray-100 mt-2 border
+                          focus:bg-white focus:outline-none"
                             onChange={(e) => handleQuantity(e, item)}
                             value={item.quantity}
                           >
