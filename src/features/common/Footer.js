@@ -11,13 +11,13 @@ const Footer = () => {
           <div className="grid grid-cols-3">
             <div className="col-span-1">
               <div className="footer_logo-block">
-              <Link to="/">
-                          <img
-                            src={`${process.env.PUBLIC_URL}/img/logo.png`}
-                            className="logo_nav h-full object-cover rounded-2xl p-2"
-                            alt="page img"
-                          />
-                        </Link>
+                <Link to="/">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/img/logo.png`}
+                    className="logo_nav h-full object-cover rounded-2xl p-2"
+                    alt="page img"
+                  />
+                </Link>
               </div>
             </div>
             <div className="col-span-1">
@@ -30,15 +30,14 @@ const Footer = () => {
                   <ul className="flex mt-3">
                     <li>
                       <a href="" className="facebook_bg" target="_blank">
-                      <FaGithub />
+                        <FaGithub />
                       </a>
                     </li>
                     <li>
                       <a href="" className="twitter_bg" target="_blank">
-                      <FaFirefoxBrowser />
+                        <FaFirefoxBrowser />
                       </a>
                     </li>
-
                   </ul>
                 </div>
               </div>
@@ -71,11 +70,10 @@ const Footer = () => {
                     <Link to="/about">About</Link>
                   </li>
                   <li>
-                  <Link to="/about">Contact</Link>
-                   
+                    <Link to="/about">Contact</Link>
                   </li>
                   <li>
-                  <Link to="/profile">My Profile</Link>
+                    <Link to="/profile">My Profile</Link>
                   </li>
                 </ul>
               </div>

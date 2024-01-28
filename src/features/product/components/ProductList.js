@@ -35,11 +35,7 @@ import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
 import Pagination from "../../common/Pagination";
 import { Grid } from "react-loader-spinner";
 import Slider from "../../common/Slider";
-import {
-  addToWishlist,
-  getWishlistThunk,
- 
-} from "../../wishlist/wishlistSlice";
+import { addToWishlist, getWishlistThunk } from "../../wishlist/wishlistSlice";
 import StarRating from "../../common/StarRating";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 
@@ -324,7 +320,7 @@ function MobileFilter({
       <Dialog
         as="div"
         className="relative z-40 lg:hidden"
-        onClose={setMobileFiltersOpen}  
+        onClose={setMobileFiltersOpen}
       >
         <Transition.Child
           as={Fragment}
@@ -538,8 +534,11 @@ function ProductGrid({
         ) : null}
 
         {products &&
-          products.map((product,index) => (
-            <div className="single_product-wrap relative bg-white shadow-md" key={index}>
+          products.map((product, index) => (
+            <div
+              className="single_product-wrap relative bg-white shadow-md"
+              key={index}
+            >
               <div className="cart_wrap flex flex-col">
                 {product.id && (
                   <Link
