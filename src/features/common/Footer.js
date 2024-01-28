@@ -6,7 +6,7 @@ import { FaFirefoxBrowser } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <section className="footer_new bg-white">
+      <section className="footer_new bg-gray-200">
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3">
             <div className="col-span-1">
@@ -60,7 +60,7 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <div className="footer_button">
+      <div className="footer_button bg-gray-200">
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 border_top pt-4">
             <div className="col-span-1">

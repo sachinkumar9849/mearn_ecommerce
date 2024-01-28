@@ -135,11 +135,11 @@ button.text-sm.text-blue-500.cursor-pointer {
   /* border: 2px solid #6670898c; */
   border-radius: 50%;
 }
-
 .footer_contact a {
   font-weight: 500;
-  border-bottom: 1px solid white;
+  border-bottom: 2px solid #0c0d0e;
 }
+
 .footer_num a {
   color: #1c52d7;
   font-size: 23px;
@@ -316,3 +316,11 @@ img.single_product {
   color: #e80505;
 }
 
+.single_product-right img {
+  height: 236px;
+    object-fit: cover;
+    border: 0;
+}
+.border.single_product-right:last-child{
+  margin-top: 12px;
+}

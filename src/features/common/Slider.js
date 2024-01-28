@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { selectAllProducts } from "../product/productSlice";
+import { useSelector } from "react-redux";
 
 const Slider = () => {
   const [sliders, setSliders] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
+  const products = useSelector(selectAllProducts);
 
   const nextSlide = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % sliders.length);
@@ -34,9 +37,9 @@ const Slider = () => {
       const response = await fetch("http://localhost:8080/slider");
       const data = await response.json();
       setSliders(data);
-     
+      console.log("Slider data fetched successfully:", data);
     } catch (error) {
-     
+      console.error("Error fetching slider data:", error);
     }
   };
 
@@ -49,26 +52,18 @@ const Slider = () => {
 
   return (
     <div className="slider-container">
-      {sliders.length > 0 &&
-        sliders.map((slider, index) => (
-          <Link to={`/slider-detail/${slider.id}`} key={slider.id}>
+      {products.length > 0 &&
+        products.map((slider, index) => (
+          <Link to={`/product-detail/${slider.id}`} key={slider.id}>
             <img
               key={index}
               className={`slider-wrap slider-image cursor-pointer ${
                 index === currentImageIndex ? "visible_item" : "hidden_item"
               }`}
-              src={slider.imageUrl}
-              alt="slider"
+              src={slider.thumbnail}
+              alt={slider.title}
             />
           </Link>
-
-          // <Link to={`/product-detail/${product.id}`} key={product.id}>
-          //     <img
-          //       src={product.thumbnail}
-          //       alt={product.title}
-          //       className="h-80 w-72 object-cover border border-1"
-          //     />
-          //   </Link>
         ))}
 
       <button onClick={prevSlide}>Previous</button>

@@ -178,25 +178,29 @@ export default function ProductList() {
   return (
     <div className="mt-11">
       <div className="mx-auto max-w-7xl grid grid-col-1">
-        <div className="grid grid-cols-7 gap-4">
+        <div className="grid lg:grid-cols-7 gap-4">
           <div className="col-span-5">
             <Slider />
           </div>
           <div className="col-span-2">
-            <div className="slider_right-img">
-              <img
-                className="w-full"
-                src="https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
-                alt=""
-              />
-            </div>
-            <div className="slider_right-img mt-3">
-              <img
-                className="w-full"
-                src="https://cdn.dummyjson.com/product-images/5/thumbnail.jpg"
-                alt=""
-              />
-            </div>
+            {products &&
+              products.slice(-2).map((product, index) => (
+                <div
+                  className="border  single_product-right relative bg-white shadow-md"
+                  key={index}
+                >
+                  <div className="overflow-hidden">
+                    <Link to={`/product-detail/${product.id}`}>
+                    <img
+  src={product.thumbnail}
+  alt={product.title}
+  className="single_product w-full  object-cover border border-1 transition-transform transform-gpu hover:scale-90"
+/>
+
+                    </Link>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>
