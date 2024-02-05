@@ -25,7 +25,7 @@ function SearchComponent() {
     <div style={styles.container}>
       <div
         style={styles.inputWrap}
-        className="flex bg-white rounded-full w-4/5 "
+        className="flex bg-white rounded-full lg:w-4/5 mobile_search"
       >
         <input
           type="text"
@@ -36,7 +36,11 @@ function SearchComponent() {
           placeholder="Search products..."
           className="border-0 rounded-full w-full"
         />
-        <button onClick={handleSearch} style={styles.button_search}>
+        <button
+          onClick={handleSearch}
+          className="lg:p-3 p-1"
+          style={styles.button_search}
+        >
           <IoMdSearch />
         </button>
       </div>
@@ -48,8 +52,8 @@ const styles = {
   container: {
     display: "flex",
     alignItems: "center",
-    margin: "auto",
-    justifyContent: "center",
+
+    justifyContent: "end",
   },
   inputWrap: {
     with: "80%",
@@ -57,7 +61,7 @@ const styles = {
 
   button_search: {
     color: "#000",
-    padding: "10px",
+
     borderRadius: "50px",
     fontSize: "27px",
     cursor: "pointer",

@@ -84,8 +84,8 @@ function NavBar({ children }) {
                     isSticky ? "sticky" : ""
                   }`}
                 >
-                  <div className="mx-auto max-w-7xl grid grid-cols-6 header_top items-center">
-                    <div className="col-span-1">
+                  <div className="mx-auto max-w-7xl grid lg:grid-cols-6 grid-cols-7 header_top items-center">
+                    <div className="lg:col-span-1 col-span-0 lg:block hidden">
                       <div className="">
                         <Link to="/">
                           <img
@@ -97,11 +97,11 @@ function NavBar({ children }) {
                       </div>
                     </div>
 
-                    <div className="col-span-4">
+                    <div className="lg:col-span-4 col-span-5">
                       <SearchComponent />
                     </div>
-                    <div className="col-span-1 flex justify-end items-center">
-                      <div className="mr-2">
+                    <div className="lg:col-span-1 col-span-2 flex justify-end items-center">
+                      <div className="lg:mr-2">
                         <div className="cart_list-wrap  flex items-center">
                           <Link to="/wishlist">
                             <button
@@ -141,7 +141,7 @@ function NavBar({ children }) {
                       </div>
 
                       {/* Profile dropdown */}
-                      <Menu as="div" className="relative ml-2">
+                      <Menu as="div" className="relative lg:ml-2">
                         <div>
                           <Menu.Button className="user_icons flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="sr-only">Open user menu</span>
@@ -182,7 +182,7 @@ function NavBar({ children }) {
                 <div className="bg-orange">
                   <div className="mx-auto max-w-7xl grid grid-cols-1">
                     <div className="col-span-1">
-                      <div className="py-4">
+                      <div className="lg:py-4">
                         {navigation.map((item) =>
                           item[userInfo.role] ? (
                             <Link
@@ -198,7 +198,7 @@ function NavBar({ children }) {
 
                         <div className="flex md:hidden">
                           {/* Mobile menu button */}
-                          <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                          <Disclosure.Button className="toggle_btn-mobile fixed z-20 top-0 inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="sr-only">Open main menu</span>
                             {open ? (
                               <XMarkIcon
@@ -218,43 +218,28 @@ function NavBar({ children }) {
                   </div>
                 </div>
 
-                <Disclosure.Panel className="md:hidden">
+                <Disclosure.Panel className="mobile_menu-full md:hidden">
                   <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                    {navigation.map((item) => (
-                      <Disclosure.Button
-                        key={item.name}
-                        as="a"
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "block rounded-md px-3 py-2 text-base font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </Disclosure.Button>
-                    ))}
+                    {navigation.map((item) =>
+                      item[userInfo.role] ? (
+                        <Link
+                          key={item.name}
+                          to={item.link}
+                          className={classNames(
+                            item.current
+                              ? "bg-gray-900 text-white"
+                              : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                            "block rounded-md px-3 py-2 text-base font-medium"
+                          )}
+                          aria-current={item.current ? "page" : undefined}
+                        >
+                          {item.name}
+                        </Link>
+                      ) : null
+                    )}
                   </div>
                   <div className="border-t border-gray-700 pb-3 pt-4">
                     <div className="flex items-center px-5">
-                      <div className="flex-shrink-0">
-                        <img
-                          className="h-10 w-10 rounded-full"
-                          src={userInfo.imageUrl}
-                          alt=""
-                        />
-                      </div>
-                      <div className="ml-3">
-                        <div className="text-base font-medium leading-none text-white">
-                          {/* this should come from userInfo */}
-                          {userInfo.name}
-                        </div>
-                        <div className="text-sm font-medium leading-none text-gray-400">
-                          {userInfo.email}
-                        </div>
-                      </div>
                       <Link to="/cart">
                         <button
                           type="button"
@@ -274,14 +259,7 @@ function NavBar({ children }) {
                     </div>
                     <div className="mt-3 space-y-1 px-2">
                       {userNavigation.map((item) => (
-                        <Disclosure.Button
-                          key={item.name}
-                          as="a"
-                          href={item.href}
-                          className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                        >
-                          {item.name}
-                        </Disclosure.Button>
+                        <Link to={item.link}>{item.name}</Link>
                       ))}
                     </div>
                   </div>

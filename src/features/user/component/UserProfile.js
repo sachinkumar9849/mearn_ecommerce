@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 export default function UserProfile() {
   const dispatch = useDispatch();
   const userInfo = useSelector(selectUserInfo);
@@ -60,8 +61,8 @@ export default function UserProfile() {
   return (
     <div>
       <div className="mx-auto mt-12 bg-white max-w-7xl p-10">
-        <div className="border-gray-200">
-          <h1 className="text-4xl my-5 font-bold tracking-tight text-gray-900">
+        <div className="border-gray-200 lg:py-0 py-5">
+          <h1 className="text-4xl mb-5 font-bold tracking-tight text-gray-900">
             Name: {userInfo.name ? userInfo.name : "New User"}
           </h1>
           <h3 className="text-xl font-bold tracking-tight text-red-900">
@@ -82,7 +83,7 @@ export default function UserProfile() {
               setSelectedEditIndex(-1);
             }}
             type="submit"
-            className="rounded-md text-center btn bg-orange my-5 py-3 px-7 text-white block transition  hover:bg-blue-900"
+            className="rounded-md text-center btn bg-orange lg:my-5 lg:mb-4 mb-3 py-3 px-7 text-white block transition  hover:bg-blue-900"
           >
             Add New Address
           </button>
@@ -97,7 +98,7 @@ export default function UserProfile() {
               })}
             >
               <div className="space-y-12">
-                <div className="border-b border-gray-900/10 pb-12">
+                <div className="border-b border-gray-900/10 lg:pb-12">
                   <h2 className="text-2xl font-semibold leading-7 text-gray-900">
                     Personal Information
                   </h2>
@@ -276,7 +277,7 @@ export default function UserProfile() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-end gap-x-6">
+                <div className="flex items-center justify-end lg:gap-x-6 add_mobile">
                   <button
                     type="submit"
                     className="text-center btn bg-orange rounded-md py-3 px-7 text-white block transition  hover:bg-blue-900"
@@ -302,7 +303,7 @@ export default function UserProfile() {
                   })}
                 >
                   <div className="space-y-12">
-                    <div className="border-b border-gray-900/10 pb-12">
+                    <div className="border-b border-gray-900/10 lg:pb-12">
                       <h2 className="text-2xl font-semibold leading-7 text-gray-900">
                         Personal Information
                       </h2>
@@ -310,7 +311,7 @@ export default function UserProfile() {
                         Use a permanent address where you can receive mail.
                       </p>
 
-                      <div className="grid grid-cols-2 gap-6">
+                      <div className="grid lg:grid-cols-2 lg:gap-6">
                         <div className="col-span-1">
                           <label
                             htmlFor="name"
@@ -360,7 +361,7 @@ export default function UserProfile() {
                           </div>
                         </div>
                       </div>
-                      <div className="grid grid-cols-2 gap-6">
+                      <div className="grid lg:grid-cols-2 lg:gap-6">
                         <div className="col-span-1">
                           <label
                             htmlFor="phone"
@@ -410,7 +411,7 @@ export default function UserProfile() {
                           </div>
                         </div>
                       </div>
-                      <div className="grid grid-cols-3 gap-6">
+                      <div className="grid lg:grid-cols-3 gap-6">
                         <div className="col-span-1">
                           <label
                             htmlFor="city"
@@ -488,7 +489,7 @@ export default function UserProfile() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-end gap-x-6">
+                    <div className="flex items-center justify-end lg:gap-x-6">
                       <button
                         onClick={(e) => setSelectedEditIndex(-1)}
                         type="submit"
@@ -528,7 +529,7 @@ export default function UserProfile() {
                     {address.city}
                   </p>
                 </div>
-                <div className="hidden sm:flex sm:flex-col sm:items-end">
+                <div className="flex items-center flex-col">
                   <button
                     onClick={(e) => handleEditForm(index)}
                     type="button"
@@ -539,7 +540,7 @@ export default function UserProfile() {
                   <button
                     onClick={(e) => handleRemove(e, index)}
                     type="button"
-                    className="font-medium text-white px-4 py-1 rounded-full bg-red-500"
+                    className="font-medium text-white px-4 py-1 w-full rounded-full bg-red-500"
                   >
                     Remove
                   </button>

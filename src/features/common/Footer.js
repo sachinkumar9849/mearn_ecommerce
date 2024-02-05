@@ -8,13 +8,13 @@ const Footer = () => {
     <>
       <section className="footer_new bg-gray-200">
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3">
+          <div className="grid lg:grid-cols-3">
             <div className="col-span-1">
-              <div className="footer_logo-block">
+              <div className="footer_logo-block lg:mb-0 mb-5">
                 <Link to="/">
                   <img
                     src={`${process.env.PUBLIC_URL}/img/logo.png`}
-                    className="logo_nav h-full object-cover rounded-2xl p-2"
+                    className="logo_nav h-full object-cover rounded-2xl lg:p-2"
                     alt="page img"
                   />
                 </Link>
@@ -26,8 +26,8 @@ const Footer = () => {
                   <h4>Address</h4>
                 </div>
                 <p>Lalitpur ,Imadol , Nepal</p>
-                <div className="social_icon pt-2">
-                  <ul className="flex mt-3">
+                <div className="social_icon lg:pt-2">
+                  <ul className="flex lg:mt-3">
                     <li>
                       <a href="" className="facebook_bg" target="_blank">
                         <FaGithub />
@@ -43,7 +43,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-span-1">
-              <div className="footer_title-block">
+              <div className="footer_title-block lg:my-0 my-5">
                 <div className="">
                   <h4>Contact</h4>
                 </div>
@@ -60,9 +60,9 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <div className="footer_button bg-gray-200">
+      <div className="lg:block hidden footer_button bg-gray-200">
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 border_top pt-4">
+          <div className="grid lg:grid-cols-2 border_top pt-4">
             <div className="col-span-1">
               <div className="footer_ul d-lg-block d-none">
                 <ul className="flex">
@@ -79,7 +79,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-span-1">
-              <div className="footer_button-text text-right">
+              <div className="footer_button-text lg:text-right">
                 <p>Copyright 2024 © E-Commerce</p>
               </div>
             </div>

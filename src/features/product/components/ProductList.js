@@ -176,13 +176,13 @@ export default function ProductList() {
   };
 
   return (
-    <div className="mt-11">
-      <div className="mx-auto max-w-7xl grid grid-col-1">
+    <div className="lg:mt-11">
+      <div className="mx-auto max-w-7xl grid grid-col-1 px-0">
         <div className="grid lg:grid-cols-7 gap-4">
-          <div className="col-span-5">
+          <div className="col-span-5 col_height">
             <Slider />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 lg:block hidden">
             {products &&
               products.slice(-2).map((product, index) => (
                 <div
@@ -191,12 +191,11 @@ export default function ProductList() {
                 >
                   <div className="overflow-hidden">
                     <Link to={`/product-detail/${product.id}`}>
-                    <img
-  src={product.thumbnail}
-  alt={product.title}
-  className="single_product w-full  object-cover border border-1 transition-transform transform-gpu hover:scale-90"
-/>
-
+                      <img
+                        src={product.thumbnail}
+                        alt={product.title}
+                        className="single_product w-full  object-cover border border-1 transition-transform transform-gpu hover:scale-90"
+                      />
                     </Link>
                   </div>
                 </div>
@@ -212,16 +211,16 @@ export default function ProductList() {
           filters={filters}
         ></MobileFilter>
 
-        <main className="mx-auto max-w-7xl mt-14">
+        <main className="mx-auto max-w-7xl lg:mt-14 mt-5">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-5">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 capitalize">
+            <h1 className="filter_title text-4xl font-bold tracking-tight text-gray-900 capitalize">
               All available products
             </h1>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  <Menu.Button className="px-4 py-2 border border-width-1 border-gray-300 group inline-flex justify-center text-lg font-medium text-gray-700 hover:text-gray-900">
+                  <Menu.Button className="lg:px-4 px-2 py-2 border border-width-1 border-gray-300 group inline-flex justify-center lg:text-lg  text-gray-700 hover:text-gray-900">
                     Sort By
                     <ChevronDownIcon
                       className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
@@ -266,7 +265,7 @@ export default function ProductList() {
 
               <button
                 type="button"
-                className="ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                className="lg:ml-4 ml-1 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
                 onClick={() => setMobileFiltersOpen(true)}
               >
                 <span className="sr-only">Filters</span>
@@ -513,17 +512,10 @@ function DesktopFilter({ handleFilter, filters }) {
   );
 }
 
-function ProductGrid({
-  products,
-  status,
-
-  onAddToWishlist,
-
-  handleAdd,
-}) {
+function ProductGrid({ products, status, onAddToWishlist, handleAdd }) {
   return (
     <div className="">
-      <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+      <div className="grid grid-cols-2  lg:grid-cols-3 lg:gap-8 gap-4">
         {status === "loading" ? (
           <Grid
             height="80"
@@ -566,12 +558,11 @@ function ProductGrid({
                 />
                 <div className="mt-3 mb-3">
                   <div className="flex justify-between">
-                    <div className="py-0 px-5">
-                      <h4 className="text-xl font-semibold">
+                    <div className="py-0 lg:px-5 lg:pl-0 pl-2">
+                      <h4 className="lg:text-xl text-sm font-semibold">
                         {product.title.substring(0, 11)}
-                        {/* Display only the first 10 characters */}
+
                         {product.title.length > 10 && ".."}
-                        {/* Show ellipsis if title is longer */}
                       </h4>
                     </div>
 
@@ -588,7 +579,7 @@ function ProductGrid({
                   </div>
                 </div>
                 <div className="flex items-center justify-between text-center">
-                  <div className="product_price pl-5">
+                  <div className="product_price lg:pl-5 pl-2">
                     <h5 className="">
                       <del>
                         <p className="text-sm text-left text-gray-600 cursor-auto">

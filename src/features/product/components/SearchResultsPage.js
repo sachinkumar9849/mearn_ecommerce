@@ -15,6 +15,7 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import StarRating from "../../common/StarRating";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
+import Breadcrumb from "../../common/Breadcrumb";
 
 function SearchResultsPage() {
   const dispatch = useDispatch();
@@ -48,18 +49,23 @@ function SearchResultsPage() {
       toast.warning("Item Already Added");
     }
   };
-
+  const pages = [
+    { label: "Home", link: "/" },
+    { label: "Search", linkClass: "text-blue-500" },
+  ];
 
   return (
+    
     <>
       <NavBar>
+      <Breadcrumb pages={pages} />
         <div className="mx-auto max-w-7xl">
           {status === "loading" && <p>Loading...</p>}
           {status === "error" && <p>Error fetching search results.</p>}
           {status === "idle" && (
             <div>
-              <div className="my-10">
-                <h2 className="text-4xl font-bold tracking-tight text-gray-900">
+              <div className="lg:my-10 my-5">
+                <h2 className="cart_title text-4xl font-bold tracking-tight text-gray-900">
                   <span className="text-green-600 capitalize">
                     {products.length > 0
                       ? `${keyword} :Total Items- ${products.length}`
@@ -67,7 +73,7 @@ function SearchResultsPage() {
                   </span>
                 </h2>
               </div>
-              <div className="grid grid-cols-4 gap-8">
+              <div className="grid lg:grid-cols-4 grid-cols-2 lg:gap-8 gap-4">
                 {products.map((product) => (
                   <div className="single_product-wrap relative bg-white shadow-md">
                     <div className="cart_wrap flex flex-col">
@@ -90,41 +96,41 @@ function SearchResultsPage() {
                         className="single_product w-full object-cover border border-1"
                       />
                       <div className="mt-3 mb-3">
-                        <div className="flex justify-between">
-                          <div className="py-0 px-5">
-                            <h4 className="text-xl font-semibold">
-                              {product.title.substring(0, 11)}
-                              {/* Display only the first 10 characters */}
-                              {product.title.length > 10 && ".."}
-                              {/* Show ellipsis if title is longer */}
-                            </h4>
-                          </div>
+                  <div className="flex justify-between">
+                    <div className="py-0 lg:px-5 lg:pl-0 pl-2">
+                      <h4 className="lg:text-xl text-sm font-semibold">
+                        {product.title.substring(0, 11)}
+                       
+                        {product.title.length > 10 && ".."}
+                       
+                      </h4>
+                    </div>
 
-                          <div className="flex-none">
-                            <div className="">
-                              <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
-                                <StarRating
-                                  rating={product.rating}
-                                  style={{ width: "22" }}
-                                />
-                              </span>
-                            </div>
-                          </div>
-                        </div>
+                    <div className="flex-none">
+                      <div className="">
+                        <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
+                          <StarRating
+                            rating={product.rating}
+                            style={{ width: "22" }}
+                          />
+                        </span>
                       </div>
+                    </div>
+                  </div>
+                </div>
                       <div className="flex items-center justify-between text-center">
-                        <div className="product_price pl-5">
-                          <h5 className="">
-                            <del>
-                              <p className="text-sm text-left text-gray-600 cursor-auto">
-                                ${product.price}
-                              </p>
-                            </del>
-                            <p className="text-lg font-semibold text-black cursor-auto">
-                              ${discountedPrice(product)}
-                            </p>
-                          </h5>
-                        </div>
+                      <div className="product_price lg:pl-5 pl-2">
+                    <h5 className="">
+                      <del>
+                        <p className="text-sm text-left text-gray-600 cursor-auto">
+                          ${product.price}
+                        </p>
+                      </del>
+                      <p className="text-lg font-semibold text-black cursor-auto">
+                        ${discountedPrice(product)}
+                      </p>
+                    </h5>
+                  </div>
                         <div className="">
                           <button
                             className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"

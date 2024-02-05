@@ -1,39 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getWishlistApi } from "../wishlistAPI";
 import { getWishlistThunk, removeFromWishlist } from "../wishlistSlice";
-import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  StarIcon,
-} from "@heroicons/react/20/solid";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useParams } from "react-router-dom";
-import { Grid } from "react-loader-spinner";
 import { discountedPrice } from "../../../app/constants";
-import {
-  fetchProductByIdAsync,
-  selectAllProducts,
-  selectProductListStatus,
-} from "../../product/productSlice";
+import { selectProductListStatus } from "../../product/productSlice";
 import NavBar from "../../navbar/Navbar";
 import Footer from "../../common/Footer";
 import StarRating from "../../common/StarRating";
 
 // Import necessary components from 'react-tooltip'
-import {
-  Tooltip,
-  TooltipProvider,
-  TooltipWrapper,
-  removeStyle,
-} from "react-tooltip";
+import { Tooltip } from "react-tooltip";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
+import Breadcrumb from "../../common/Breadcrumb";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
@@ -66,39 +48,50 @@ const Wishlist = () => {
       toast.warning("Item Already Added");
     }
   };
-
+  const pages = [
+    { label: "Home", link: "/" },
+    { label: "Wishlist", link: "/wishlist", linkClass: "text-blue-500" },
+  ];
   return (
     <>
       <NavBar>
-        <div className="mx-auto max-w-7xl mt-14">
-          <div className="mb-7">
+        <Breadcrumb pages={pages} />
+        <div className="mx-auto max-w-7xl">
+          <div className="lg:mb-7 my-4">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
               Wishlist
             </h1>
           </div>
-          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="grid  gap-x-6 gap-y-8  lg:grid-cols-4 xl:gap-x-8 grid-cols-2">
             {status === "loading" ? (
               <p>Loading wishlist...</p>
             ) : (
               wishlist &&
               wishlist.products && // Check if wishlist.products is defined
-              wishlist.products.map((product) => (
-                <div className="single_product-wrap relative bg-white shadow-md">
+              wishlist.products.map((product, index) => (
+                <div
+                  className="single_product-wrap relative bg-white shadow-md"
+                  key={index}
+                >
                   <div className="cart_wrap flex flex-col">
-                    <Link
-                      className="mb-2"
-                      to={`/product-detail/${product.id}`}
-                      key={product.id}
-                    >
-                      <RemoveRedEyeIcon />
-                    </Link>
+                    {product.id && (
+                      <div className="cart_wrap flex flex-col">
+                        <Link
+                          className="mb-2"
+                          to={`/product-detail/${product.id}`}
+                          key={product.id}
+                        >
+                          <RemoveRedEyeIcon />
+                        </Link>
 
-                    <button
-                      className=""
-                      onClick={() => handleRemoveFromWishlist(product.id)}
-                    >
-                      <DeleteOutlineIcon />
-                    </button>
+                        <button
+                          className=""
+                          onClick={() => handleRemoveFromWishlist(product.id)}
+                        >
+                          <DeleteOutlineIcon />
+                        </button>
+                      </div>
+                    )}
                   </div>
 
                   <div className="">
@@ -109,12 +102,11 @@ const Wishlist = () => {
                     />
                     <div className="mt-3 mb-3">
                       <div className="flex justify-between">
-                        <div className="py-0 px-5">
-                          <h4 className="text-xl font-semibold">
+                        <div className="py-0 lg:px-5 lg:pl-0 pl-2">
+                          <h4 className="lg:text-xl text-sm font-semibold">
                             {product.title.substring(0, 11)}
-                            {/* Display only the first 10 characters */}
+
                             {product.title.length > 10 && ".."}
-                            {/* Show ellipsis if title is longer */}
                           </h4>
                         </div>
 
@@ -131,7 +123,7 @@ const Wishlist = () => {
                       </div>
                     </div>
                     <div className="flex items-center justify-between text-center">
-                      <div className="product_price pl-5">
+                      <div className="product_price lg:pl-5 pl-2">
                         <h5 className="">
                           <del>
                             <p className="text-sm text-left text-gray-600 cursor-auto">
@@ -144,14 +136,12 @@ const Wishlist = () => {
                         </h5>
                       </div>
                       <div className="">
-                        <div className="">
-                          <button
-                            className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
-                            onClick={() => handleAdd(product)}
-                          >
-                            Add to cart
-                          </button>
-                        </div>
+                        <button
+                          className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"
+                          onClick={() => handleAdd(product)}
+                        >
+                          Add to cart
+                        </button>
                       </div>
                     </div>
                   </div>
