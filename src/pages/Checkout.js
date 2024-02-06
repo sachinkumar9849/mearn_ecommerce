@@ -84,7 +84,7 @@ function Checkout() {
 
   return (
     <>
-    <NavBar></NavBar>
+      <NavBar></NavBar>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
       {currentOrder && (
         <Navigate
@@ -144,7 +144,7 @@ function Checkout() {
                     </div>
                   </div>
 
-                  <div className="grid gap-5 grid-cols-2 mb-3">
+                  <div className="grid gap-5 lg:grid-cols-2 mb-3">
                     <div className="col-md-1">
                       <label
                         htmlFor="email"
@@ -192,7 +192,7 @@ function Checkout() {
                     </div>
                   </div>
 
-                  <div className="grid gap-5 grid-cols-2 mb-3">
+                  <div className="grid gap-5 lg:grid-cols-2 mb-3">
                     <div className="col-span-1">
                       <label
                         htmlFor="street-address"
@@ -242,7 +242,7 @@ function Checkout() {
                     </div>
                   </div>
 
-                  <div className="grid gap-5 grid-cols-2 mb-3">
+                  <div className="grid gap-5 lg:grid-cols-2 mb-3">
                     <div className="col-span-1">
                       <label
                         htmlFor="state"
@@ -356,7 +356,7 @@ function Checkout() {
                 ))}
               </ul>
 
-              <div className="mt-9 mb-10">
+              <div className="mt-9">
                 <fieldset>
                   <legend className="text-sm font-semibold leading-6 text-gray-900">
                     Payment Methods

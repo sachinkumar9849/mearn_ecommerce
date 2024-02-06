@@ -102,7 +102,7 @@ const Wishlist = () => {
                     />
                     <div className="mt-3 mb-3">
                       <div className="flex justify-between">
-                        <div className="py-0 lg:px-5 lg:pl-0 pl-2">
+                        <div className="py-0 lg:px-5 pl-2">
                           <h4 className="lg:text-xl text-sm font-semibold">
                             {product.title.substring(0, 11)}
 

@@ -55,10 +55,9 @@ function SearchResultsPage() {
   ];
 
   return (
-    
     <>
       <NavBar>
-      <Breadcrumb pages={pages} />
+        <Breadcrumb pages={pages} />
         <div className="mx-auto max-w-7xl">
           {status === "loading" && <p>Loading...</p>}
           {status === "error" && <p>Error fetching search results.</p>}
@@ -74,8 +73,8 @@ function SearchResultsPage() {
                 </h2>
               </div>
               <div className="grid lg:grid-cols-4 grid-cols-2 lg:gap-8 gap-4">
-                {products.map((product) => (
-                  <div className="single_product-wrap relative bg-white shadow-md">
+                {products.map((product,index) => (
+                  <div key={index} className="single_product-wrap relative bg-white shadow-md">
                     <div className="cart_wrap flex flex-col">
                       <Link
                         className="mb-2"
@@ -84,9 +83,7 @@ function SearchResultsPage() {
                       >
                         <RemoveRedEyeIcon />
                       </Link>
-                      {/* <button onClick={() => onAddToWishlist(product.id)}>
-                               <FavoriteBorderIcon />
-                             </button> */}
+                     
                     </div>
 
                     <div className="">
@@ -96,41 +93,40 @@ function SearchResultsPage() {
                         className="single_product w-full object-cover border border-1"
                       />
                       <div className="mt-3 mb-3">
-                  <div className="flex justify-between">
-                    <div className="py-0 lg:px-5 lg:pl-0 pl-2">
-                      <h4 className="lg:text-xl text-sm font-semibold">
-                        {product.title.substring(0, 11)}
-                       
-                        {product.title.length > 10 && ".."}
-                       
-                      </h4>
-                    </div>
+                        <div className="flex justify-between">
+                          <div className="py-0 lg:px-5 pl-2">
+                            <h4 className="lg:text-xl text-sm font-semibold">
+                              {product.title.substring(0, 11)}
 
-                    <div className="flex-none">
-                      <div className="">
-                        <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
-                          <StarRating
-                            rating={product.rating}
-                            style={{ width: "22" }}
-                          />
-                        </span>
+                              {product.title.length > 10 && ".."}
+                            </h4>
+                          </div>
+
+                          <div className="flex-none">
+                            <div className="">
+                              <span className="rating_icons flex items-center text-gray-400 mr-3 uppercase text-xs">
+                                <StarRating
+                                  rating={product.rating}
+                                  style={{ width: "22" }}
+                                />
+                              </span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
                       <div className="flex items-center justify-between text-center">
-                      <div className="product_price lg:pl-5 pl-2">
-                    <h5 className="">
-                      <del>
-                        <p className="text-sm text-left text-gray-600 cursor-auto">
-                          ${product.price}
-                        </p>
-                      </del>
-                      <p className="text-lg font-semibold text-black cursor-auto">
-                        ${discountedPrice(product)}
-                      </p>
-                    </h5>
-                  </div>
+                        <div className="product_price lg:pl-5 pl-2">
+                          <h5 className="">
+                            <del>
+                              <p className="text-sm text-left text-gray-600 cursor-auto">
+                                ${product.price}
+                              </p>
+                            </del>
+                            <p className="text-lg font-semibold text-black cursor-auto">
+                              ${discountedPrice(product)}
+                            </p>
+                          </h5>
+                        </div>
                         <div className="">
                           <button
                             className="btn bg-orange w-full py-3 px-7 text-white block transition  hover:bg-blue-900"

@@ -60,7 +60,7 @@ function ProductForm() {
   };
 
   return (
-    <>
+    <div className='mx-auto max-w-7xl mb-11'>
     <form
       noValidate
       onSubmit={handleSubmit((data) => {
@@ -96,7 +96,7 @@ function ProductForm() {
         }
       })}
     >
-      <div className="space-y-12 bg-white p-12">
+      <div className=" space-y-12 bg-white p-12 mt-12">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">
             Add Product
@@ -460,7 +460,7 @@ function ProductForm() {
         cancelAction={() => setOpenModal(null)}
         showModal={openModal}
       ></Modal>}
-    </>
+    </div>
   );
 }
 

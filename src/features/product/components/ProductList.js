@@ -59,6 +59,8 @@ export default function ProductList() {
   const [addedProducts, setAddedProducts] = useState([]);
   const items = useSelector(selectItems);
   const wishlist = useSelector((state) => state.wishlist.wishlist);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
   const params = useParams();
 
   const filters = [
@@ -76,7 +78,7 @@ export default function ProductList() {
 
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
 
   const [page, setPage] = useState(1);
 
@@ -204,13 +206,12 @@ export default function ProductList() {
         </div>
       </div>
       <div>
-        <MobileFilter
-          handleFilter={handleFilter}
-          mobileFiltersOpen={mobileFiltersOpen}
-          setMobileFiltersOpen={setMobileFiltersOpen}
-          filters={filters}
-        ></MobileFilter>
-
+      <MobileFilter
+        mobileFiltersOpen={mobileFiltersOpen}
+        setMobileFiltersOpen={setMobileFiltersOpen}
+        handleFilter={handleFilter}
+        filters={filters}
+      />
         <main className="mx-auto max-w-7xl lg:mt-14 mt-5">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-5">
             <h1 className="filter_title text-4xl font-bold tracking-tight text-gray-900 capitalize">
@@ -323,7 +324,7 @@ function MobileFilter({
       <Dialog
         as="div"
         className="relative z-40 lg:hidden"
-        onClose={setMobileFiltersOpen}
+        onClose={() => setMobileFiltersOpen?.(false)}
       >
         <Transition.Child
           as={Fragment}
@@ -430,6 +431,7 @@ function MobileFilter({
     </Transition.Root>
   );
 }
+
 
 function DesktopFilter({ handleFilter, filters }) {
   const [showMore, setShowMore] = useState(false);
@@ -558,7 +560,7 @@ function ProductGrid({ products, status, onAddToWishlist, handleAdd }) {
                 />
                 <div className="mt-3 mb-3">
                   <div className="flex justify-between">
-                    <div className="py-0 lg:px-5 lg:pl-0 pl-2">
+                    <div className="py-0 lg:px-5 pl-2">
                       <h4 className="lg:text-xl text-sm font-semibold">
                         {product.title.substring(0, 11)}
 
